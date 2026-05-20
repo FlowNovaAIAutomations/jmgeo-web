@@ -35,7 +35,7 @@ export function Footer() {
           <div>
             <div className="label-tech text-paper/50">{t("footer.contact")}</div>
             <ul className="mt-4 space-y-3 text-sm text-paper/80">
-              <li>info@jmgeo.es</li>
+              <li>javier@jmgeo.es</li>
               <li>España · UK · IT · PT · FR · DE</li>
             </ul>
           </div>
