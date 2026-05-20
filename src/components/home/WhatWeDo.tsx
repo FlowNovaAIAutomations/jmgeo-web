@@ -79,8 +79,7 @@ export function WhatWeDo() {
             >
               {/* VIDEO SLOT — replace this block with <video> when real videos arrive */}
               <div className="relative aspect-video w-full overflow-hidden bg-envelope">
-                <img
-                  src={c.img}
+                <img loading="lazy" decoding="async"                   src={c.img}
                   alt=""
                   className="absolute inset-0 w-full h-full object-cover"
                 />
