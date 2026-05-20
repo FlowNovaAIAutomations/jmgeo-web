@@ -7,10 +7,10 @@ import { CompassRose } from "@/components/CompassRose";
 export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
-      { title: "Sobre JMGeo — Especialistas en LIDAR aéreo" },
-      { name: "description", content: "Empresa española de topografía técnica especializada en captura LiDAR con drones. Equipo, filosofía y enfoque." },
-      { property: "og:title", content: "Sobre JMGeo — Especialistas en LIDAR aéreo" },
-      { property: "og:description", content: "Una empresa joven, una especialización clara. Operamos en seis países europeos." },
+      { title: "Sobre JMGeo · Topografía con drones y LiDAR" },
+      { name: "description", content: "Empresa joven especializada en captura LiDAR con drones. Equipo, filosofía y enfoque técnico aplicados en seis países europeos." },
+      { property: "og:title", content: "Sobre JMGeo · Topografía con drones y LiDAR" },
+      { property: "og:description", content: "Empresa joven especializada en captura LiDAR con drones. Equipo, filosofía y enfoque técnico aplicados en seis países europeos." },
     ],
   }),
   component: SobrePage,

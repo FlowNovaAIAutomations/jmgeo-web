@@ -7,10 +7,10 @@ import { CompassRose } from "@/components/CompassRose";
 export const Route = createFileRoute("/tecnologia")({
   head: () => ({
     meta: [
-      { title: "Tecnología — JMGeo · Drones + LIDAR" },
-      { name: "description", content: "LiDAR aérea sobre drones: levantamientos de grandes superficies, capturas de alta precisión y proyectos técnicos a medida." },
-      { property: "og:title", content: "Tecnología — JMGeo · Drones + LIDAR" },
-      { property: "og:description", content: "Cómo aplicamos drones equipados con LIDAR a proyectos reales de topografía técnica." },
+      { title: "Tecnología · JMGeo · Topografía con drones y LiDAR" },
+      { name: "description", content: "LiDAR aéreo sobre drones aplicado a proyectos reales: levantamientos de gran superficie, alta precisión y soluciones técnicas a medida." },
+      { property: "og:title", content: "Tecnología · JMGeo · Topografía con drones y LiDAR" },
+      { property: "og:description", content: "LiDAR aéreo sobre drones aplicado a proyectos reales: levantamientos de gran superficie, alta precisión y soluciones técnicas a medida." },
     ],
   }),
   component: TecnologiaPage,
@@ -193,8 +193,7 @@ function TecnologiaPage() {
             className="mt-24"
           >
             <div className="relative w-full aspect-[21/9] overflow-hidden bg-envelope">
-              <img
-                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2400&q=85"
+              <img loading="lazy" decoding="async"                 src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2400&q=85"
                 alt="Representación de nube de puntos LiDAR"
                 className="absolute inset-0 w-full h-full object-cover"
                 style={{ filter: "contrast(1.1) saturate(0.7) brightness(0.85)" }}
@@ -326,8 +325,7 @@ function ApplicationBlock({ app, reversed }: ApplicationBlockProps) {
       <div className={`md:col-span-5 ${reversed ? "md:order-2" : ""}`}>
         <div className="relative w-full aspect-[4/5] overflow-hidden bg-envelope group">
           {/* VIDEO SLOT — replace with <video src={app.videoSrc} ... /> */}
-          <img
-            src={app.img}
+          <img loading="lazy" decoding="async"             src={app.img}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />

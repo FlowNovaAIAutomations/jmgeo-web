@@ -48,10 +48,12 @@
 
   /* JMGeo palette — exact hex */
   --ink: #14283A;
+  --ink-dark: #0d1c2a;
   --envelope: #272A35;
   --mid: #878F97;
   --paper: #F7F5EF;
   --amber: #B98418;
+  --amber-dark: #a07414;
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -71,7 +73,7 @@
   --destructive-foreground: var(--paper);
   --border: #E4E1D8;
   --input: #E4E1D8;
-  --ring: var(--ink);
+  --ring: var(--amber);
 }
 
 .dark {
@@ -91,7 +93,7 @@
   --accent-foreground: var(--paper);
   --border: rgba(247, 245, 239, 0.12);
   --input: rgba(247, 245, 239, 0.15);
-  --ring: var(--paper);
+  --ring: var(--amber);
 }
 
 @layer base {
@@ -107,16 +109,40 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-feature-settings: "ss01", "cv11";
+    line-height: 1.55;
   }
   h1, h2, h3, h4, h5 {
     font-family: var(--font-display);
     font-weight: 400;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
+  }
+
+  ::selection {
+    background-color: rgba(185, 132, 24, 0.3);
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
 @layer components {
-  /* Italics with thin amber underline — signature accent */
+  /* Italics with thin amber underline — signature accent.
+     Grosor 2px en titulares grandes, 1.5px en texto medio. */
   .italic-acc {
     font-style: italic;
     position: relative;
@@ -127,6 +153,11 @@
     background-size: 100% 1.5px;
     padding-bottom: 0.06em;
   }
+  h1 .italic-acc,
+  h2 .italic-acc,
+  .italic-acc.italic-acc-lg {
+    background-size: 100% 2px;
+  }
 
   .label-tech {
     font-family: var(--font-mono);
@@ -135,5 +166,25 @@
     text-transform: uppercase;
     letter-spacing: 0.2em;
     color: var(--mid);
+  }
+
+  /* Skip-to-content link — oculto hasta foco */
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -100px;
+    z-index: 100;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.75rem 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus {
+    top: 1rem;
   }
 }

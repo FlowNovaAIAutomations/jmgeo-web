@@ -48,25 +48,60 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "JMGeo",
+  url: "https://jmgeo.es",
+  email: "javier@jmgeo.es",
+  telephone: "+34 640 266 724",
+  description:
+    "Topografía técnica especializada en captura de datos LiDAR aéreos con drones. Operamos en seis países europeos.",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Maestra Juana Senent 5, 5",
+    postalCode: "46910",
+    addressLocality: "Benetússer",
+    addressRegion: "Valencia",
+    addressCountry: "ES",
+  },
+  areaServed: ["ES", "GB", "IT", "PT", "FR", "DE"],
+  logo: "/logo-jmgeo.png",
+};
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "JMGeo — Topografía LIDAR con drones" },
-      { name: "description", content: "JMGeo. Topografía técnica especializada en captura de datos LIDAR con drones. Operamos en España, Reino Unido, Italia, Portugal, Francia y Alemania." },
-      { property: "og:title", content: "JMGeo — Topografía LIDAR con drones" },
-      { property: "og:description", content: "Captura LIDAR aérea precisa para infraestructura, energía y obra civil." },
+      { name: "theme-color", content: "#F7F5EF" },
+      { title: "JMGeo · Topografía con drones y LiDAR" },
+      { name: "description", content: "JMGeo. Captura de datos LiDAR aéreos con drones para topografía técnica de precisión en seis países europeos." },
+      { property: "og:site_name", content: "JMGeo" },
+      { property: "og:title", content: "JMGeo · Topografía con drones y LiDAR" },
+      { property: "og:description", content: "Captura LiDAR aérea precisa para infraestructura, energía y obra civil." },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "es_ES" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "JMGeo · Topografía con drones y LiDAR" },
+      { name: "twitter:description", content: "Captura LiDAR aérea precisa para infraestructura, energía y obra civil." },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/logo-jmgeo.png" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/logo-jmgeo.png" },
+      { rel: "icon", type: "image/png", sizes: "16x16", href: "/logo-jmgeo.png" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/logo-jmgeo.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(organizationJsonLd),
       },
     ],
   }),
@@ -94,9 +129,9 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen flex flex-col bg-paper text-ink">
+      <div className="min-h-dvh flex flex-col bg-paper text-ink">
         <Header />
-        <main className="flex-1 pt-24">
+        <main id="main-content" className="flex-1 pt-24" tabIndex={-1}>
           <Outlet />
         </main>
         <Footer />

@@ -7,10 +7,10 @@ import { Button } from "@/components/Button";
 export const Route = createFileRoute("/contacto")({
   head: () => ({
     meta: [
-      { title: "Contacto — JMGeo" },
-      { name: "description", content: "Cuéntanos qué necesitas medir. Respondemos en menos de 24 horas laborables." },
-      { property: "og:title", content: "Contacto — JMGeo" },
-      { property: "og:description", content: "Especialistas en captura LiDAR con drones. Contacto directo con el equipo." },
+      { title: "Contacto · JMGeo · Topografía con drones y LiDAR" },
+      { name: "description", content: "Cuéntanos qué necesitas medir. Respondemos en menos de 24 horas laborables. Captura LiDAR aérea con drones en seis países europeos." },
+      { property: "og:title", content: "Contacto · JMGeo · Topografía con drones y LiDAR" },
+      { property: "og:description", content: "Cuéntanos qué necesitas medir. Respondemos en menos de 24 horas laborables. Captura LiDAR aérea con drones en seis países europeos." },
     ],
   }),
   component: ContactoPage,

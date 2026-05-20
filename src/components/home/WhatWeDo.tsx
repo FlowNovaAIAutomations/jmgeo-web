@@ -79,12 +79,11 @@ export function WhatWeDo() {
             >
               {/* VIDEO SLOT — replace this block with <video> when real videos arrive */}
               <div className="relative aspect-video w-full overflow-hidden bg-envelope">
-                <img
-                  src={c.img}
-                  alt=""
-                  className="absolute inset-0 w-full h-full object-cover"
+                <img loading="lazy" decoding="async"                   src={c.img}
+                  alt={`Vista representativa de proyecto: ${c.title}`}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[400ms] ease-out group-hover:scale-[1.03]"
                 />
-                <div className="absolute inset-0 bg-ink/55 group-hover:bg-ink/35 transition-colors" />
+                <div className="absolute inset-0 bg-ink/55 group-hover:bg-ink/35 transition-colors duration-[400ms]" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-14 h-14 rounded-full border border-amber flex items-center justify-center text-amber group-hover:scale-110 transition-transform">
                     <Play className="h-5 w-5 fill-amber" />
