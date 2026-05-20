@@ -1,51 +1,152 @@
 import { Link } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
 import { Logo } from "./Logo";
 import { CompassRose } from "./CompassRose";
 
+const linkCls =
+  "text-paper/75 hover:text-amber hover:opacity-100 transition-colors duration-200";
+
 export function Footer() {
-  const { t } = useTranslation();
-  const year = new Date().getFullYear();
+  const year = 2026;
 
   return (
-    <footer className="relative bg-envelope text-paper overflow-hidden">
-      <div className="absolute -right-16 -bottom-16 text-paper pointer-events-none">
-        <CompassRose size={320} opacity={0.06} />
+    <footer
+      className="relative overflow-hidden text-paper"
+      style={{ backgroundColor: "#272A35" }}
+    >
+      {/* Decoración compass */}
+      <div className="absolute right-10 top-10 text-amber pointer-events-none">
+        <CompassRose size={60} opacity={0.15} />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-10 py-20">
-        <div className="grid gap-12 md:grid-cols-3">
+      <div
+        className="relative mx-auto max-w-[1440px]"
+        style={{ padding: "100px 80px 40px" }}
+      >
+        <div
+          className="grid grid-cols-1 md:grid-cols-4"
+          style={{ gap: "60px" }}
+        >
+          {/* Col 1 — Marca */}
           <div>
-            <Logo variant="light" className="h-10 w-auto" />
-            <p className="mt-6 text-sm text-paper/60 max-w-xs leading-relaxed">
-              {t("footer.tagline")}
+            <Logo variant="light" className="h-20 w-auto" />
+            <p
+              className="font-display italic text-paper/70 leading-snug"
+              style={{ fontSize: "16px", marginTop: "24px" }}
+            >
+              Topografía con drones y LiDAR. Precisión real.
+            </p>
+            <p
+              className="font-mono uppercase text-amber"
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.2em",
+                marginTop: "16px",
+              }}
+            >
+              OPERAMOS EN 6 PAÍSES EUROPEOS
             </p>
           </div>
 
-          <div>
-            <div className="label-tech text-paper/50">{t("footer.navigate")}</div>
-            <ul className="mt-4 space-y-3 text-sm">
-              <li><Link to="/" className="hover:text-amber transition-colors">{t("nav.home")}</Link></li>
-              <li><Link to="/tecnologia" className="hover:text-amber transition-colors">{t("nav.tech")}</Link></li>
-              <li><Link to="/sobre" className="hover:text-amber transition-colors">{t("nav.about")}</Link></li>
-              <li><Link to="/contacto" className="hover:text-amber transition-colors">{t("nav.contact")}</Link></li>
-            </ul>
-          </div>
+          {/* Col 2 — Explorar */}
+          <FooterCol title="EXPLORAR">
+            <FooterLink to="/">Inicio</FooterLink>
+            <FooterLink to="/tecnologia">Tecnología</FooterLink>
+            <FooterLink to="/sobre">Sobre JMGeo</FooterLink>
+            <FooterLink to="/contacto">Contacto</FooterLink>
+            <FooterLink to="/clientes">Área clientes</FooterLink>
+          </FooterCol>
 
-          <div>
-            <div className="label-tech text-paper/50">{t("footer.contact")}</div>
-            <ul className="mt-4 space-y-3 text-sm text-paper/80">
-              <li>javier@jmgeo.es</li>
-              <li>España · UK · IT · PT · FR · DE</li>
-            </ul>
-          </div>
+          {/* Col 3 — Contacto */}
+          <FooterCol title="CONTACTO">
+            <li className="text-paper/75">
+              <a href="mailto:javier@jmgeo.es" className={linkCls}>
+                javier@jmgeo.es
+              </a>
+            </li>
+            <li className="text-paper/75">
+              <a href="tel:+34640266724" className={linkCls}>
+                +34 640 266 724
+              </a>
+            </li>
+            <li className="text-paper/75">Maestra Juana Senent 5, 5</li>
+            <li className="text-paper/75">46910 Benetússer · Valencia</li>
+            <li className="text-paper/75">España</li>
+          </FooterCol>
+
+          {/* Col 4 — Legal */}
+          <FooterCol title="LEGAL">
+            <FooterLink to="/aviso-legal">Aviso legal</FooterLink>
+            <FooterLink to="/privacidad">Política de privacidad</FooterLink>
+            <FooterLink to="/cookies">Política de cookies</FooterLink>
+          </FooterCol>
         </div>
 
-        <div className="mt-20 pt-8 border-t border-paper/10 flex flex-col md:flex-row justify-between gap-4 text-xs text-paper/40 font-mono uppercase tracking-widest">
-          <span>© {year} JMGeo</span>
-          <span>{t("footer.legal")}</span>
+        {/* Barra inferior */}
+        <div
+          className="border-t border-paper/10 flex flex-col md:flex-row md:justify-between gap-4"
+          style={{ marginTop: "80px", paddingTop: "32px" }}
+        >
+          <span
+            className="font-mono text-paper/50"
+            style={{ fontSize: "11px", letterSpacing: "0.1em" }}
+          >
+            © {year} JMGeo · Todos los derechos reservados
+          </span>
+          <span
+            className="font-mono text-paper/50"
+            style={{ fontSize: "11px", letterSpacing: "0.1em" }}
+          >
+            Hecho con cuidado por FlowNova
+          </span>
         </div>
       </div>
     </footer>
+  );
+}
+
+function FooterCol({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <h3
+        className="font-mono uppercase text-amber"
+        style={{ fontSize: "10px", letterSpacing: "0.25em" }}
+      >
+        {title}
+      </h3>
+      <ul
+        className="font-sans"
+        style={{
+          marginTop: "20px",
+          fontSize: "14px",
+          display: "flex",
+          flexDirection: "column",
+          gap: "12px",
+        }}
+      >
+        {children}
+      </ul>
+    </div>
+  );
+}
+
+function FooterLink({
+  to,
+  children,
+}: {
+  to: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <li>
+      <Link to={to} className={linkCls}>
+        {children}
+      </Link>
+    </li>
   );
 }
