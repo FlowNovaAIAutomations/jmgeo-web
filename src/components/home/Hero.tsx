@@ -1,18 +1,18 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/Button";
+import heroBg from "@/assets/clientes/solar-aerial-dark.png";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
   return (
     <section className="relative w-full min-h-[720px] h-screen overflow-hidden -mt-24">
-      {/* Background image — aerial / lidar terrain */}
+      {/* Background — fotografía real de proyecto fotovoltaico (cliente JMGeo) */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1473445361085-b9a07f55608b?auto=format&fit=crop&w=2400&q=85')",
+          backgroundImage: `url(${heroBg})`,
           filter: "contrast(1.05) saturate(0.9)",
         }}
       />
