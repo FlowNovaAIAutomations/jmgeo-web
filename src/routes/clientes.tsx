@@ -8,6 +8,7 @@ export const Route = createFileRoute("/clientes")({
     meta: [
       { title: "Área de clientes · JMGeo · Topografía con drones y LiDAR" },
       { name: "description", content: "Portal de clientes JMGeo. Próximamente disponible para acceso a entregables LiDAR, versiones y seguimiento de proyectos." },
+      { name: "robots", content: "noindex, nofollow" },
       { property: "og:title", content: "Área de clientes · JMGeo · Topografía con drones y LiDAR" },
       { property: "og:description", content: "Portal de clientes JMGeo. Próximamente disponible para acceso a entregables LiDAR, versiones y seguimiento de proyectos." },
     ],
