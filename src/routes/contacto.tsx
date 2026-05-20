@@ -29,7 +29,7 @@ function ContactoPage() {
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
 
-  // TODO: conectar con Resend usando el endpoint /api/contact cuando esté lista la cuenta. Destino: info@jmgeo.es
+  // TODO: conectar con Resend usando el endpoint /api/contact cuando esté lista la cuenta. Destino: javier@jmgeo.es
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -89,8 +89,8 @@ function ContactoPage() {
                     </h2>
                     <p className="mt-4 font-sans text-[14px] text-mid">
                       Si tu consulta es urgente, también puedes escribirnos directamente a{" "}
-                      <a href="mailto:info@jmgeo.es" className="text-ink underline decoration-amber underline-offset-4">
-                        info@jmgeo.es
+                      <a href="mailto:javier@jmgeo.es" className="text-ink underline decoration-amber underline-offset-4">
+                        javier@jmgeo.es
                       </a>
                     </p>
                     <div className="mt-8">
