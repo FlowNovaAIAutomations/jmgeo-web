@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/Button";
-import heroBg from "@/assets/clientes/solar-aerial-dark.png";
+import heroBg from "@/assets/clientes/hero-drone.jpg";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
