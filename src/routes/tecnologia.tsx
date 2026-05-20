@@ -3,6 +3,10 @@ import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import { Button } from "@/components/Button";
 import { CompassRose } from "@/components/CompassRose";
+import imgGrandes from "@/assets/clientes/obra-fotovoltaica.png";
+import imgPrecision from "@/assets/clientes/drone-lidar.png";
+import imgMedida from "@/assets/clientes/gps-rover.png";
+import imgNube from "@/assets/clientes/cad-curvas.png";
 
 export const Route = createFileRoute("/tecnologia")({
   head: () => ({
@@ -47,7 +51,7 @@ const applications = [
       "Curvas de nivel a la equidistancia que pidas",
       "Ortofoto georreferenciada (con cámara complementaria)",
     ],
-    img: "https://images.unsplash.com/photo-1473445361085-b9a07f55608b?auto=format&fit=crop&w=1400&q=85",
+    img: imgGrandes,
     videoSrc: null,
   },
   {
@@ -67,7 +71,7 @@ const applications = [
       "Comparativas con estado proyectado",
       "Informes técnicos certificados",
     ],
-    img: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1400&q=85",
+    img: imgPrecision,
     videoSrc: null,
   },
   {
@@ -87,7 +91,7 @@ const applications = [
       "Documentación de patrimonio",
       "Estudios para fotovoltaicas e infraestructura energética",
     ],
-    img: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1400&q=85",
+    img: imgMedida,
     videoSrc: null,
   },
 ];
@@ -193,7 +197,7 @@ function TecnologiaPage() {
             className="mt-24"
           >
             <div className="relative w-full aspect-[21/9] overflow-hidden bg-envelope">
-              <img loading="lazy" decoding="async"                 src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2400&q=85"
+              <img loading="lazy" decoding="async"                 src={imgNube}
                 alt="Representación de nube de puntos LiDAR"
                 className="absolute inset-0 w-full h-full object-cover"
                 style={{ filter: "contrast(1.1) saturate(0.7) brightness(0.85)" }}

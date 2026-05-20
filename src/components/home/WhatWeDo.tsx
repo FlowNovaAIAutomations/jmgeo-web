@@ -1,31 +1,35 @@
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
+import imgGrandes from "@/assets/clientes/solar-aerial-light.png";
+import imgPrecision from "@/assets/clientes/estacion-total.png";
+import imgProyectos from "@/assets/clientes/equipo-obra.png";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 // Each card has a `videoSrc` field reserved. When a real <video> arrives,
-// replace the placeholder block (the <div> containing the Unsplash image)
-// with: <video src={videoSrc} muted loop playsInline autoPlay className="absolute inset-0 w-full h-full object-cover" />
+// replace the <img> placeholder with:
+// <video src={videoSrc} muted loop playsInline autoPlay className="absolute inset-0 w-full h-full object-cover" />
+// Imágenes actuales: fotografías reales facilitadas por el cliente.
 const cards = [
   {
     num: "01",
     title: "Grandes extensiones",
     desc: "Levantamientos topográficos de cientos de hectáreas con vuelos planificados, cobertura LIDAR completa y entregables listos para CAD.",
-    img: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=80",
+    img: imgGrandes,
     videoSrc: null,
   },
   {
     num: "02",
     title: "Precisión milimétrica",
     desc: "Capturas de alta densidad para detalles técnicos: estructuras, infraestructura crítica, control geométrico.",
-    img: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1600&q=80",
+    img: imgPrecision,
     videoSrc: null,
   },
   {
     num: "03",
     title: "Proyectos técnicos",
     desc: "Aplicaciones combinadas en obra civil, topografía e ingeniería para clientes que necesitan datos a medida.",
-    img: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1600&q=80",
+    img: imgProyectos,
     videoSrc: null,
   },
 ];
