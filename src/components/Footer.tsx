@@ -92,12 +92,6 @@ export function Footer() {
           >
             © {year} JMGeo · Todos los derechos reservados
           </span>
-          <span
-            className="font-mono text-paper/50"
-            style={{ fontSize: "11px", letterSpacing: "0.1em" }}
-          >
-            Hecho con cuidado por FlowNova
-          </span>
         </div>
       </div>
     </footer>
