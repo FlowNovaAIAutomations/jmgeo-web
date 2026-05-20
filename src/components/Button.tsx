@@ -12,7 +12,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const base =
-  "inline-flex items-center justify-center gap-2 font-sans font-medium tracking-tight transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
+  "inline-flex items-center justify-center gap-2 font-sans font-medium tracking-tight transition-all duration-200 ease-out disabled:opacity-50 disabled:pointer-events-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-paper will-change-transform";
 
 const sizes: Record<Size, string> = {
   sm: "h-9 px-4 text-sm rounded-sm",
@@ -22,13 +22,13 @@ const sizes: Record<Size, string> = {
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-ink text-paper hover:bg-envelope",
+    "bg-ink text-paper hover:bg-[var(--ink-dark)] hover:scale-[1.02] active:scale-100",
   secondary:
     "border border-ink text-ink bg-transparent hover:bg-ink hover:text-paper",
   tertiary:
     "px-0 h-auto text-ink hover:text-amber group bg-transparent",
   accent:
-    "border border-amber text-amber bg-transparent hover:bg-amber hover:text-paper",
+    "bg-amber text-paper hover:bg-[var(--amber-dark)] hover:scale-[1.02] active:scale-100",
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -41,7 +41,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           {...props}
         >
           <span>{children}</span>
-          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          <ArrowRight className="h-4 w-4 text-amber transition-transform duration-200 ease-out group-hover:translate-x-[6px]" />
         </button>
       );
     }
