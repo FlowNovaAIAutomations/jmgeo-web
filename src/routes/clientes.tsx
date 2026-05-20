@@ -6,10 +6,10 @@ import { Button } from "@/components/Button";
 export const Route = createFileRoute("/clientes")({
   head: () => ({
     meta: [
-      { title: "Área de clientes — JMGeo" },
-      { name: "description", content: "Portal de clientes JMGeo. Próximamente disponible." },
-      { property: "og:title", content: "Área de clientes — JMGeo" },
-      { property: "og:description", content: "Accede a tus proyectos, entregables LiDAR y versiones." },
+      { title: "Área de clientes · JMGeo · Topografía con drones y LiDAR" },
+      { name: "description", content: "Portal de clientes JMGeo. Próximamente disponible para acceso a entregables LiDAR, versiones y seguimiento de proyectos." },
+      { property: "og:title", content: "Área de clientes · JMGeo · Topografía con drones y LiDAR" },
+      { property: "og:description", content: "Portal de clientes JMGeo. Próximamente disponible para acceso a entregables LiDAR, versiones y seguimiento de proyectos." },
     ],
   }),
   component: ClientsPage,
