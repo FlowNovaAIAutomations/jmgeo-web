@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "tech": "Tecnología",
+    "about": "Sobre",
+    "contact": "Contacto",
+    "clients": "Área clientes"
+  },
+  "footer": {
+    "tagline": "Topografía técnica con captura LIDAR aérea. Datos precisos para decisiones precisas.",
+    "navigate": "01 / Navegar",
+    "contact": "02 / Contacto",
+    "legal": "Aviso legal · Privacidad"
+  },
+  "pages": {
+    "home": { "title": "Inicio" },
+    "tech": { "title": "Tecnología" },
+    "about": { "title": "Sobre JMGeo" },
+    "contact": { "title": "Contacto" },
+    "clients": { "title": "Área clientes", "soon": "Próximamente" }
+  }
+}
