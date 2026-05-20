@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TecnologiaRouteImport } from './routes/tecnologia'
 import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacidadRouteImport } from './routes/privacidad'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactoRouteImport } from './routes/contacto'
@@ -26,6 +27,11 @@ const TecnologiaRoute = TecnologiaRouteImport.update({
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
   path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacidadRoute = PrivacidadRouteImport.update({
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/contacto': typeof ContactoRoute
   '/cookies': typeof CookiesRoute
   '/privacidad': typeof PrivacidadRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/tecnologia': typeof TecnologiaRoute
 }
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/contacto': typeof ContactoRoute
   '/cookies': typeof CookiesRoute
   '/privacidad': typeof PrivacidadRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/tecnologia': typeof TecnologiaRoute
 }
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/contacto': typeof ContactoRoute
   '/cookies': typeof CookiesRoute
   '/privacidad': typeof PrivacidadRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/tecnologia': typeof TecnologiaRoute
 }
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/cookies'
     | '/privacidad'
+    | '/sitemap.xml'
     | '/sobre'
     | '/tecnologia'
   fileRoutesByTo: FileRoutesByTo
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/cookies'
     | '/privacidad'
+    | '/sitemap.xml'
     | '/sobre'
     | '/tecnologia'
   id:
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/cookies'
     | '/privacidad'
+    | '/sitemap.xml'
     | '/sobre'
     | '/tecnologia'
   fileRoutesById: FileRoutesById
@@ -130,6 +142,7 @@ export interface RootRouteChildren {
   ContactoRoute: typeof ContactoRoute
   CookiesRoute: typeof CookiesRoute
   PrivacidadRoute: typeof PrivacidadRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreRoute: typeof SobreRoute
   TecnologiaRoute: typeof TecnologiaRoute
 }
@@ -148,6 +161,13 @@ declare module '@tanstack/react-router' {
       path: '/sobre'
       fullPath: '/sobre'
       preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacidad': {
@@ -202,9 +222,20 @@ const rootRouteChildren: RootRouteChildren = {
   ContactoRoute: ContactoRoute,
   CookiesRoute: CookiesRoute,
   PrivacidadRoute: PrivacidadRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreRoute: SobreRoute,
   TecnologiaRoute: TecnologiaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
