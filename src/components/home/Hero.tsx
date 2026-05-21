@@ -1,77 +1,119 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/Button";
+import { CompassRose } from "@/components/CompassRose";
 import heroBg from "@/assets/clientes/hero-drone.jpg";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
+/**
+ * Hero — estilo "Amelia": fondo navy sólido, texto a la izquierda,
+ * fotografía aislada en un panel a la derecha. SIN texto encima de la foto.
+ */
 export function Hero() {
   return (
-    <section className="relative w-full min-h-[720px] h-screen overflow-hidden -mt-24">
-      {/* Background — fotografía real de proyecto fotovoltaico (cliente JMGeo) */}
+    <section className="relative w-full bg-ink text-paper overflow-hidden -mt-24 pt-40 pb-20 md:pt-48 md:pb-28 min-h-[760px] flex items-center">
+      {/* Subtle radial glow + compass decoration */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${heroBg})`,
-          filter: "contrast(1.05) saturate(0.9)",
-        }}
-      />
-      {/* Diagonal navy overlay */}
-      <div
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none opacity-90"
         style={{
           background:
-            "linear-gradient(to top right, rgba(20,40,58,0.55), rgba(20,40,58,0.15))",
+            "radial-gradient(80% 60% at 20% 30%, rgba(185,132,24,0.10) 0%, transparent 60%), radial-gradient(60% 50% at 90% 80%, rgba(255,255,255,0.04) 0%, transparent 60%)",
         }}
       />
+      <div className="absolute -bottom-32 -right-32 text-amber pointer-events-none">
+        <CompassRose size={560} opacity={0.05} />
+      </div>
 
-      <div className="relative h-full mx-auto max-w-7xl px-6 lg:px-10 flex flex-col justify-end pb-32 md:pb-40">
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease, delay: 0.1 }}
-          className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber"
-        >
-          01 / Topografía con drones y LIDAR
-        </motion.p>
+      <div className="relative w-full mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        {/* LEFT — Texto */}
+        <div className="lg:col-span-6">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease, delay: 0.1 }}
+            className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber"
+          >
+            01 / Topografía con drones y LiDAR
+          </motion.p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease, delay: 0.25 }}
-          className="mt-6 font-display font-normal text-paper leading-[0.95] tracking-tight"
-          style={{ fontSize: "clamp(3.5rem, 9vw, 8.125rem)" }}
-        >
-          Capturamos el terreno desde el aire,
-          <br />
-          con precisión <span className="italic-acc">milimétrica</span>.
-        </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease, delay: 0.2 }}
+            className="mt-6 font-display font-normal leading-[0.98] tracking-tight"
+            style={{ fontSize: "clamp(2.75rem, 6.2vw, 5.5rem)" }}
+          >
+            El terreno, capturado con precisión{" "}
+            <span className="italic-acc">milimétrica</span>.
+          </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease, delay: 0.4 }}
-          className="mt-8 max-w-xl text-paper/85 leading-relaxed"
-          style={{ fontSize: "clamp(1.125rem, 1.5vw, 1.375rem)" }}
-        >
-          Drones equipados con tecnología LiDAR para levantamientos topográficos
-          de grandes extensiones y trabajos de alta precisión. Operamos en seis
-          países europeos.
-        </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease, delay: 0.35 }}
+            className="mt-7 max-w-lg text-paper/75 leading-relaxed text-lg"
+          >
+            Drones LiDAR para levantamientos topográficos a gran escala y
+            trabajos de alta precisión. En seis países europeos.
+          </motion.p>
 
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease, delay: 0.5 }}
+            className="mt-10 flex flex-wrap items-center gap-6"
+          >
+            <Link to="/contacto">
+              <Button variant="accent" size="lg">Solicitar presupuesto</Button>
+            </Link>
+            <Link
+              to="/tecnologia"
+              className="group inline-flex items-center gap-2 text-paper"
+            >
+              <span className="text-sm">Ver tecnología</span>
+              <span className="text-amber transition-transform group-hover:translate-x-1">→</span>
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* RIGHT — Foto en panel limpio (sin texto encima) */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease, delay: 0.55 }}
-          className="mt-10 flex flex-wrap items-center gap-6"
+          transition={{ duration: 0.9, ease, delay: 0.3 }}
+          className="lg:col-span-6 relative"
         >
-          <Link to="/tecnologia">
-            <Button variant="primary" size="lg">Ver tecnología</Button>
-          </Link>
-          <Link to="/contacto" className="group inline-flex items-center gap-2 text-paper">
-            <span className="text-sm">Hablar con nosotros</span>
-            <span className="text-amber transition-transform group-hover:translate-x-1">→</span>
-          </Link>
+          <div className="relative rounded-sm overflow-hidden border border-paper/10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.55)]">
+            <img
+              src={heroBg}
+              alt="Dron LiDAR sobrevolando un terreno para levantamiento topográfico"
+              loading="eager"
+              decoding="async"
+              className="block w-full h-[460px] md:h-[540px] object-cover"
+            />
+          </div>
+
+          {/* Tarjeta flotante con stats (al estilo Amelia, fuera de la foto) */}
+          <motion.div
+            initial={{ opacity: 0, x: -16, y: 16 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 0.7, ease, delay: 0.9 }}
+            className="hidden md:block absolute -left-6 bottom-8 bg-paper text-ink rounded-sm shadow-2xl px-6 py-5 max-w-[260px]"
+          >
+            <div className="font-mono uppercase text-[10px] tracking-[0.25em] text-amber">
+              Datos en cifras
+            </div>
+            <div className="mt-3 flex items-baseline gap-3">
+              <div className="font-display text-[44px] leading-none">6</div>
+              <div className="text-[12px] text-mid leading-tight">
+                países<br />europeos
+              </div>
+            </div>
+            <div className="mt-4 pt-4 border-t border-ink/10 text-[12px] text-mid">
+              Precisión sub-cm en captura LiDAR.
+            </div>
+          </motion.div>
         </motion.div>
       </div>
 
@@ -80,15 +122,15 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-paper/70"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-paper/60"
       >
         <span className="font-mono uppercase text-[10px] tracking-[0.3em]">
           Descubrir
         </span>
         <motion.div
-          animate={{ y: [0, 8, 0], opacity: [0.4, 1, 0.4] }}
+          animate={{ y: [0, 6, 0], opacity: [0.3, 1, 0.3] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-px h-10 bg-paper/60"
+          className="w-px h-8 bg-paper/50"
         />
       </motion.div>
     </section>

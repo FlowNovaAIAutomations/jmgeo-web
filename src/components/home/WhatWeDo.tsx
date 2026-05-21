@@ -1,36 +1,37 @@
 import { motion } from "framer-motion";
-import { Play } from "lucide-react";
+import { Expandable } from "@/components/Expandable";
 import imgGrandes from "@/assets/clientes/solar-aerial-light.png";
 import imgPrecision from "@/assets/clientes/estacion-total.png";
 import imgProyectos from "@/assets/clientes/equipo-obra.png";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-// Each card has a `videoSrc` field reserved. When a real <video> arrives,
-// replace the <img> placeholder with:
-// <video src={videoSrc} muted loop playsInline autoPlay className="absolute inset-0 w-full h-full object-cover" />
-// Imágenes actuales: fotografías reales facilitadas por el cliente.
+// Limpieza visual: la foto vive arriba sin texto encima. El texto va debajo,
+// con un blurb corto y un desplegable para quien quiera profundizar.
 const cards = [
   {
     num: "01",
     title: "Grandes extensiones",
-    desc: "Levantamientos topográficos de cientos de hectáreas con vuelos planificados, cobertura LIDAR completa y entregables listos para CAD.",
+    short: "Levantamientos LiDAR de cientos de hectáreas.",
+    detail:
+      "Vuelos planificados con cobertura LiDAR completa, apoyo geodésico y entregables listos para CAD: MDT, MDS, curvas de nivel y nubes clasificadas.",
     img: imgGrandes,
-    videoSrc: null,
   },
   {
     num: "02",
     title: "Precisión milimétrica",
-    desc: "Capturas de alta densidad para detalles técnicos: estructuras, infraestructura crítica, control geométrico.",
+    short: "Capturas de alta densidad para detalles técnicos.",
+    detail:
+      "Estructuras, infraestructura crítica y control geométrico con densidad de puntos elevada. Ideal para auditorías y modelos as-built.",
     img: imgPrecision,
-    videoSrc: null,
   },
   {
     num: "03",
     title: "Proyectos técnicos",
-    desc: "Aplicaciones combinadas en obra civil, topografía e ingeniería para clientes que necesitan datos a medida.",
+    short: "Obra civil, ingeniería y topografía a medida.",
+    detail:
+      "Combinamos LiDAR aéreo, estación total y GNSS para casos exigentes. Entregamos datos en el formato y flujo de trabajo que usa tu equipo.",
     img: imgProyectos,
-    videoSrc: null,
   },
 ];
 
@@ -45,7 +46,7 @@ export function WhatWeDo() {
           transition={{ duration: 0.6, ease }}
           className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber"
         >
-          03 / En proyecto
+          03 / Qué hacemos
         </motion.p>
 
         <motion.h2
@@ -60,18 +61,7 @@ export function WhatWeDo() {
           <span className="italic-acc">misma tecnología</span>.
         </motion.h2>
 
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease, delay: 0.2 }}
-          className="mt-6 max-w-2xl text-lg text-mid leading-relaxed"
-        >
-          Nuestro stack LiDAR + drone se adapta a proyectos muy distintos. Estos
-          son tres ejemplos representativos de lo que entregamos.
-        </motion.p>
-
-        <div className="mt-20 grid md:grid-cols-3 gap-6">
+        <div className="mt-20 grid md:grid-cols-3 gap-8">
           {cards.map((c, i) => (
             <motion.article
               key={c.num}
@@ -79,23 +69,17 @@ export function WhatWeDo() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, ease, delay: i * 0.12 }}
-              className="group border border-ink/15 p-7 hover:border-ink/50 transition-colors flex flex-col"
+              className="group flex flex-col"
             >
-              {/* VIDEO SLOT — replace this block with <video> when real videos arrive */}
-              <div className="relative aspect-video w-full overflow-hidden bg-envelope">
-                <img loading="lazy" decoding="async"                   src={c.img}
-                  alt={`Vista representativa de proyecto: ${c.title}`}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[400ms] ease-out group-hover:scale-[1.03]"
+              {/* Imagen limpia, sin overlay ni texto encima */}
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm bg-envelope">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src={c.img}
+                  alt={c.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.04]"
                 />
-                <div className="absolute inset-0 bg-ink/55 group-hover:bg-ink/35 transition-colors duration-[400ms]" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-14 h-14 rounded-full border border-amber flex items-center justify-center text-amber group-hover:scale-110 transition-transform">
-                    <Play className="h-5 w-5 fill-amber" />
-                  </div>
-                </div>
-                <div className="absolute bottom-3 left-3 font-mono uppercase text-[9px] tracking-[0.25em] text-paper/70">
-                  Vídeo próximamente
-                </div>
               </div>
 
               <div className="mt-6 font-mono uppercase text-[11px] tracking-[0.25em] text-amber">
@@ -105,8 +89,12 @@ export function WhatWeDo() {
                 {c.title}
               </h3>
               <p className="mt-3 text-[15px] text-mid leading-relaxed">
-                {c.desc}
+                {c.short}
               </p>
+
+              <Expandable label="Saber más">
+                <p>{c.detail}</p>
+              </Expandable>
             </motion.article>
           ))}
         </div>
