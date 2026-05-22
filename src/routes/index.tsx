@@ -4,6 +4,7 @@ import { Positioning } from "@/components/home/Positioning";
 import { WhatWeDo } from "@/components/home/WhatWeDo";
 import { TechStack } from "@/components/home/TechStack";
 import { Process } from "@/components/home/Process";
+import { Projects } from "@/components/home/Projects";
 import { FinalCta } from "@/components/home/FinalCta";
 
 export const Route = createFileRoute("/")({
@@ -26,6 +27,7 @@ function Home() {
       <WhatWeDo />
       <TechStack />
       <Process />
+      <Projects />
       <FinalCta />
     </>
   );
