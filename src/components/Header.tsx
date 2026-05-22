@@ -122,13 +122,14 @@ export function Header() {
             <nav className="flex flex-col gap-8" aria-label="Navegación móvil">
               {navItems.map((item, i) => (
                 <motion.div
-                  key={item.to}
+                  key={`${item.to}-${item.label}`}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: 0.15 + i * 0.05, ease: "easeOut" }}
                 >
                   <Link
                     to={item.to}
+                    hash={item.hash}
                     onClick={() => setOpen(false)}
                     className="font-display text-[clamp(2rem,8vw,3.5rem)] leading-none hover:text-amber transition-colors"
                   >
@@ -136,6 +137,7 @@ export function Header() {
                   </Link>
                 </motion.div>
               ))}
+
             </nav>
             <motion.div
               initial={{ opacity: 0, y: 12 }}
