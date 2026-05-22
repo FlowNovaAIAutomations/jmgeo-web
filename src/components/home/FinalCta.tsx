@@ -33,7 +33,7 @@ export function FinalCta() {
         </p>
 
         <Link to="/contacto" className="mt-12">
-          <Button variant="accent" size="lg">Contactar</Button>
+          <Button variant="accent" size="lg">Solicitar presupuesto</Button>
         </Link>
       </motion.div>
     </section>
