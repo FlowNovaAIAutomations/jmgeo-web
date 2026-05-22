@@ -38,8 +38,8 @@ export function Header() {
 
       <motion.header
         animate={{
-          paddingTop: scrolled ? 16 : 24,
-          paddingBottom: scrolled ? 16 : 24,
+          paddingTop: scrolled ? 12 : 20,
+          paddingBottom: scrolled ? 12 : 20,
           backgroundColor: scrolled
             ? "rgba(247, 245, 239, 0.85)"
             : "rgba(247, 245, 239, 0)",
@@ -60,7 +60,7 @@ export function Header() {
           >
             <Logo
               variant="dark"
-              className={cn("w-auto transition-all duration-300", scrolled ? "h-7" : "h-9")}
+              className={cn("w-auto transition-all duration-300", scrolled ? "h-11 md:h-12" : "h-14 md:h-16")}
             />
           </Link>
 
