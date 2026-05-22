@@ -14,15 +14,13 @@ const navItems = [
 ] as const;
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(true);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    setScrolled(true);
   }, []);
+
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
