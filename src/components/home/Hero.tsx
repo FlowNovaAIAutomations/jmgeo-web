@@ -36,7 +36,7 @@ export function Hero() {
           >
             <span className="h-1.5 w-1.5 rounded-full bg-amber" />
             <span className="font-mono uppercase text-[10px] tracking-[0.25em] text-amber">
-              Operaciones geoespaciales en toda Europa
+              01 / Operaciones geoespaciales en toda Europa
             </span>
           </motion.div>
 
