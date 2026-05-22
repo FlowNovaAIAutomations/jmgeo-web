@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
-import lineas from "@/assets/clientes/solar-aerial-dark.png";
-import superficies from "@/assets/clientes/equipo-obra.png";
+import lineas from "@/assets/clientes/obra-fotovoltaica.png";
+import superficies from "@/assets/clientes/cad-curvas.png";
 import civiles from "@/assets/clientes/drone-vuelo.png";
 
 const ease = [0.22, 1, 0.36, 1] as const;
