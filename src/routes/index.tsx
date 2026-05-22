@@ -23,11 +23,11 @@ function Home() {
   return (
     <>
       <Hero />
+      <Projects />
       <Positioning />
       <WhatWeDo />
       <TechStack />
       <Process />
-      <Projects />
       <FinalCta />
     </>
   );
