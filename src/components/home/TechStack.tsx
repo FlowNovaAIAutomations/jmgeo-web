@@ -37,9 +37,9 @@ const items = [
 
 export function TechStack() {
   return (
-    <section className="relative bg-envelope text-paper py-[160px] overflow-hidden">
-      <div className="absolute -top-20 -right-20 text-amber pointer-events-none">
-        <CompassRose size={400} opacity={0.06} />
+    <section className="relative bg-[var(--paper-alt)] text-ink py-[180px] overflow-hidden">
+      <div className="absolute -top-20 -right-20 text-ink/20 pointer-events-none">
+        <CompassRose size={400} opacity={0.18} />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
@@ -48,9 +48,9 @@ export function TechStack() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6, ease }}
-          className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber"
+          className="label-tech"
         >
-          04 / Tecnología
+          04 — Tecnología
         </motion.p>
 
         <motion.h2
@@ -58,13 +58,13 @@ export function TechStack() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, ease, delay: 0.1 }}
-          className="mt-6 font-display font-normal leading-[1] tracking-tight max-w-4xl"
+          className="mt-6 font-display font-normal text-ink leading-[1] tracking-tight max-w-4xl"
           style={{ fontSize: "clamp(3rem, 6.5vw, 5.5rem)" }}
         >
           Equipo y <span className="italic-acc">herramientas</span> a la altura.
         </motion.h2>
 
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-paper/15">
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {items.map((it, i) => (
             <motion.div
               key={it.num}
@@ -72,21 +72,21 @@ export function TechStack() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, ease, delay: i * 0.1 }}
-              className="bg-envelope pt-10 pb-12 px-8 flex flex-col"
+              className="bg-paper rounded-[20px] p-10 flex flex-col shadow-soft hover:shadow-soft-lg transition-shadow"
             >
               <div
-                className="font-display font-light italic text-amber leading-none"
-                style={{ fontSize: "60px" }}
+                className="font-display font-light text-ink/15 leading-none"
+                style={{ fontSize: "56px", letterSpacing: "-0.04em" }}
               >
                 {it.num}
               </div>
-              <h3 className="mt-8 font-display text-[20px] font-medium text-paper">
+              <h3 className="mt-8 font-display text-[20px] font-medium text-ink">
                 {it.title}
               </h3>
-              <p className="mt-3 text-[14px] text-paper/65 leading-relaxed">
+              <p className="mt-3 text-[14px] text-mid leading-relaxed">
                 {it.short}
               </p>
-              <Expandable label="Detalle" tone="dark">
+              <Expandable label="Detalle">
                 <p>{it.detail}</p>
               </Expandable>
             </motion.div>

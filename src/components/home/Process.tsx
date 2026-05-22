@@ -56,8 +56,8 @@ export function Process() {
                 className="relative"
               >
                 <div
-                  className="font-display font-light italic text-amber leading-none"
-                  style={{ fontSize: "80px" }}
+                  className="font-display font-light text-ink/12 leading-none"
+                  style={{ fontSize: "80px", letterSpacing: "-0.04em", color: "rgba(42,56,69,0.12)" }}
                 >
                   {s.num}
                 </div>
