@@ -11,7 +11,7 @@ export function Footer() {
   return (
     <footer
       className="relative overflow-hidden text-paper"
-      style={{ backgroundColor: "#272A35" }}
+      style={{ backgroundColor: "#38454F" }}
     >
       {/* Decoración compass */}
       <div className="absolute right-10 top-10 text-amber pointer-events-none">
