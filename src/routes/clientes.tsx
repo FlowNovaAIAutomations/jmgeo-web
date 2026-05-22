@@ -89,8 +89,8 @@ function ClientsPage() {
           Próximamente,
           <br />
           <span
-            className="italic-acc"
-            style={{ color: "#F7F5EF", backgroundImage: "linear-gradient(#B98418, #B98418)" }}
+            className="italic"
+            style={{ color: "#B98418" }}
           >
             tu portal
           </span>
