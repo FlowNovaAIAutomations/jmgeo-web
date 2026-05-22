@@ -94,27 +94,8 @@ export function Hero() {
             />
           </div>
 
-          {/* Tarjeta flotante con stats (al estilo Amelia, fuera de la foto) */}
-          <motion.div
-            initial={{ opacity: 0, x: -16, y: 16 }}
-            animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ duration: 0.7, ease, delay: 0.9 }}
-            className="hidden md:block absolute -left-6 bottom-8 bg-paper text-ink rounded-sm shadow-2xl px-6 py-5 max-w-[260px]"
-          >
-            <div className="font-mono uppercase text-[10px] tracking-[0.25em] text-amber">
-              Datos en cifras
-            </div>
-            <div className="mt-3 flex items-baseline gap-3">
-              <div className="font-display text-[44px] leading-none">6</div>
-              <div className="text-[12px] text-mid leading-tight">
-                países<br />europeos
-              </div>
-            </div>
-            <div className="mt-4 pt-4 border-t border-ink/10 text-[12px] text-mid">
-              Precisión sub-cm en captura LiDAR.
-            </div>
-          </motion.div>
         </motion.div>
+
       </div>
 
       {/* Scroll indicator */}
