@@ -9,19 +9,19 @@ const ease = [0.22, 1, 0.36, 1] as const;
 const cases = [
   {
     country: "España",
-    title: "Levantamiento líneas eléctricas",
+    title: "Levantamiento de líneas eléctricas",
     desc: "Captura geoespacial avanzada mediante drones LiDAR y procesamiento técnico de alta precisión.",
     img: lineas,
   },
   {
     country: "Portugal",
-    title: "Levantamientos grandes superficies",
+    title: "Levantamiento de grandes superficies",
     desc: "Captura geoespacial avanzada mediante drones LiDAR y procesamiento técnico de alta precisión.",
     img: superficies,
   },
   {
     country: "Francia",
-    title: "Levantamientos obras civiles",
+    title: "Levantamiento de obras civiles",
     desc: "Captura geoespacial avanzada mediante drones LiDAR y procesamiento técnico de alta precisión.",
     img: civiles,
   },
