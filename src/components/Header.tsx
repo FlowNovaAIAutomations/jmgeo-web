@@ -7,11 +7,12 @@ import { Button } from "./Button";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { to: "/", label: "Inicio" },
-  { to: "/tecnologia", label: "Tecnología" },
-  { to: "/sobre", label: "Sobre JMGeo" },
-  { to: "/contacto", label: "Contacto" },
+  { to: "/", hash: "servicios", label: "Servicios" },
+  { to: "/tecnologia", hash: undefined, label: "Tecnología" },
+  { to: "/", hash: "proyectos", label: "Proyectos" },
+  { to: "/sobre", hash: undefined, label: "Nosotros" },
 ] as const;
+
 
 export function Header() {
   const [scrolled, setScrolled] = useState(true);
