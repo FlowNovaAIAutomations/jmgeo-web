@@ -7,9 +7,9 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 export function FinalCta() {
   return (
-    <section className="relative bg-ink text-paper py-[160px] overflow-hidden">
+    <section className="relative bg-[var(--envelope)] text-paper py-[180px] overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center text-paper pointer-events-none">
-        <CompassRose size={720} opacity={0.04} />
+        <CompassRose size={720} opacity={0.03} />
       </div>
 
       <motion.div
@@ -33,7 +33,7 @@ export function FinalCta() {
         </p>
 
         <Link to="/contacto" className="mt-12">
-          <Button variant="accent" size="lg">Solicitar presupuesto</Button>
+          <Button size="lg" className="!bg-paper !text-ink hover:!bg-paper/90">Solicitar presupuesto</Button>
         </Link>
       </motion.div>
     </section>

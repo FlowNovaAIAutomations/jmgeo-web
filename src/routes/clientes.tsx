@@ -40,7 +40,7 @@ const item = {
 
 function ClientsPage() {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden" style={{ backgroundColor: "#14283A" }}>
+    <div className="relative min-h-screen w-full overflow-hidden" style={{ backgroundColor: "#38454F" }}>
       {/* Decorative top line */}
       <div
         className="absolute top-0 left-0 right-0 h-px"

@@ -15,20 +15,20 @@ const base =
   "inline-flex items-center justify-center gap-2 font-sans font-medium tracking-tight transition-all duration-200 ease-out disabled:opacity-50 disabled:pointer-events-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-paper will-change-transform";
 
 const sizes: Record<Size, string> = {
-  sm: "h-9 px-4 text-sm rounded-sm",
-  md: "h-11 px-6 text-sm rounded-sm",
-  lg: "h-14 px-8 text-base rounded-sm",
+  sm: "h-10 px-5 text-sm rounded-full",
+  md: "h-12 px-7 text-sm rounded-full",
+  lg: "h-14 px-9 text-base rounded-full",
 };
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-ink text-paper hover:bg-[var(--ink-dark)] hover:scale-[1.02] active:scale-100",
+    "bg-ink text-paper hover:bg-[var(--ink-dark)] shadow-soft hover:shadow-soft-lg transition-shadow",
   secondary:
-    "border border-ink text-ink bg-transparent hover:bg-ink hover:text-paper",
+    "border border-ink/15 text-ink bg-transparent hover:bg-ink/[0.04]",
   tertiary:
     "px-0 h-auto text-ink hover:text-amber group bg-transparent",
   accent:
-    "bg-amber text-paper hover:bg-[var(--amber-dark)] hover:scale-[1.02] active:scale-100",
+    "bg-ink text-paper hover:bg-[var(--ink-dark)] shadow-soft hover:shadow-soft-lg transition-shadow",
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(

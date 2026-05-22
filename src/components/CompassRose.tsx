@@ -23,11 +23,11 @@ export function CompassRose({
       className={className}
       aria-hidden="true"
     >
-      <g fill="none" stroke="currentColor" strokeWidth="1.5">
+      <g fill="none" stroke="currentColor" strokeWidth="0.6">
         {/* outer ring */}
         <circle cx="50" cy="50" r="32" />
         {/* inner ring (subtle) */}
-        <circle cx="50" cy="50" r="28" strokeWidth="0.5" opacity="0.4" />
+        <circle cx="50" cy="50" r="28" strokeWidth="0.3" opacity="0.4" />
         {/* cardinal ticks */}
         <line x1="50" y1="8" x2="50" y2="16" />
         <line x1="50" y1="84" x2="50" y2="92" />
@@ -36,9 +36,9 @@ export function CompassRose({
       </g>
       <g
         fill="currentColor"
-        fontFamily="Fraunces, Georgia, serif"
-        fontSize="9"
-        fontStyle="italic"
+        fontFamily="Geist, Inter, system-ui, sans-serif"
+        fontSize="7"
+        fontWeight="400"
         textAnchor="middle"
       >
         <text x="50" y="6" dy="0.35em">N</text>

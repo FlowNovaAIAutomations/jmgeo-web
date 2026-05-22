@@ -4,12 +4,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* JMGeo brand tokens — exact hex from logo */
+/* JMGeo — Soft Premium tokens (rediseño minimalista) */
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  /* Radios generosos y consistentes */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -31,29 +32,30 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* JMGeo named tokens */
+  /* JMGeo named tokens (semánticos) */
   --color-ink: var(--ink);
   --color-envelope: var(--envelope);
   --color-mid: var(--mid);
   --color-paper: var(--paper);
   --color-amber: var(--amber);
 
-  --font-display: "Fraunces", Georgia, serif;
-  --font-sans: "Inter Tight", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-display: "Geist", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "Inter", system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0.25rem;
+  --radius: 1rem;
 
-  /* JMGeo palette — exact hex */
-  --ink: #14283A;
-  --ink-dark: #0d1c2a;
-  --envelope: #272A35;
-  --mid: #878F97;
-  --paper: #F7F5EF;
-  --amber: #B98418;
-  --amber-dark: #a07414;
+  /* Paleta suavizada premium */
+  --ink: #2A3845;              /* navy desaturado para texto y secciones oscuras puntuales */
+  --ink-dark: #38454F;         /* azul-grisáceo apagado para fondos oscuros */
+  --envelope: #38454F;         /* alias del oscuro suave */
+  --mid: #8A9099;              /* gris secundario */
+  --paper: #FBFBF9;            /* blanco roto principal */
+  --paper-alt: #F4F4F2;        /* fondo alternativo */
+  --amber: #A8915F;            /* dorado arena, muy apagado */
+  --amber-dark: #8F7A4F;
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -63,17 +65,21 @@
   --popover-foreground: var(--ink);
   --primary: var(--ink);
   --primary-foreground: var(--paper);
-  --secondary: #ECEAE3;
+  --secondary: var(--paper-alt);
   --secondary-foreground: var(--ink);
-  --muted: #ECEAE3;
+  --muted: var(--paper-alt);
   --muted-foreground: var(--mid);
   --accent: var(--amber);
   --accent-foreground: var(--paper);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: var(--paper);
-  --border: #E4E1D8;
-  --input: #E4E1D8;
+  --border: #E8E8E4;
+  --input: #E8E8E4;
   --ring: var(--amber);
+
+  /* Sombras suaves y difusas */
+  --shadow-soft: 0 4px 24px rgba(42, 56, 69, 0.06);
+  --shadow-soft-lg: 0 12px 40px rgba(42, 56, 69, 0.08);
 }
 
 .dark {
@@ -85,14 +91,14 @@
   --popover-foreground: var(--paper);
   --primary: var(--paper);
   --primary-foreground: var(--ink);
-  --secondary: #3A3D48;
+  --secondary: #4A5560;
   --secondary-foreground: var(--paper);
-  --muted: #3A3D48;
+  --muted: #4A5560;
   --muted-foreground: var(--mid);
   --accent: var(--amber);
   --accent-foreground: var(--paper);
-  --border: rgba(247, 245, 239, 0.12);
-  --input: rgba(247, 245, 239, 0.15);
+  --border: rgba(251, 251, 249, 0.10);
+  --input: rgba(251, 251, 249, 0.12);
   --ring: var(--amber);
 }
 
@@ -108,24 +114,24 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-feature-settings: "ss01", "cv11";
-    line-height: 1.55;
+    line-height: 1.6;
+    font-weight: 400;
   }
   h1, h2, h3, h4, h5 {
     font-family: var(--font-display);
     font-weight: 400;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
   }
 
   ::selection {
-    background-color: rgba(185, 132, 24, 0.3);
+    background-color: rgba(168, 145, 95, 0.22);
     color: var(--ink);
   }
 
   :focus-visible {
     outline: 2px solid var(--amber);
     outline-offset: 2px;
-    border-radius: 2px;
+    border-radius: 4px;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -141,34 +147,34 @@
 }
 
 @layer components {
-  /* Italics with thin amber underline — signature accent.
-     Grosor 2px en titulares grandes, 1.5px en texto medio. */
+  /* Itálica de acento — sin subrayado de color. Solo cambio sutil de tono. */
   .italic-acc {
     font-style: italic;
-    position: relative;
-    display: inline-block;
-    background-image: linear-gradient(var(--amber), var(--amber));
-    background-repeat: no-repeat;
-    background-position: 0 calc(100% + 0.06em);
-    background-size: 100% 1.5px;
-    padding-bottom: 0.06em;
-  }
-  h1 .italic-acc,
-  h2 .italic-acc,
-  .italic-acc.italic-acc-lg {
-    background-size: 100% 2px;
+    font-weight: 400;
+    color: var(--ink);
+    opacity: 0.95;
   }
 
+  /* Etiquetas de sección — sans-serif, mayúsculas, tracking moderado.
+     Sustituye el antiguo "JetBrains Mono" / código por algo limpio. */
   .label-tech {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.18em;
     color: var(--mid);
   }
 
-  /* Skip-to-content link — oculto hasta foco */
+  /* Sombras reutilizables */
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  .shadow-soft-lg {
+    box-shadow: var(--shadow-soft-lg);
+  }
+
+  /* Skip-to-content link */
   .skip-link {
     position: absolute;
     left: 1rem;
@@ -177,14 +183,21 @@
     background: var(--ink);
     color: var(--paper);
     padding: 0.75rem 1.25rem;
-    font-family: var(--font-mono);
+    font-family: var(--font-sans);
     font-size: 12px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    border-radius: 2px;
+    border-radius: 12px;
     transition: top 0.2s ease;
   }
   .skip-link:focus {
     top: 1rem;
   }
+}
+
+/* Override global: las clases font-mono (heredadas) ahora usan sans con tracking,
+   para no tener que tocar cada componente. */
+.font-mono {
+  font-family: var(--font-sans) !important;
+  font-feature-settings: normal !important;
 }
