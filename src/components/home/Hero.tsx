@@ -28,24 +28,27 @@ export function Hero() {
       <div className="relative w-full mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         {/* LEFT — Texto */}
         <div className="lg:col-span-6">
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease, delay: 0.1 }}
-            className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber"
+            className="inline-flex items-center gap-2 rounded-full border border-amber/40 px-4 py-1.5"
           >
-            01 / Topografía con drones y LiDAR
-          </motion.p>
+            <span className="h-1.5 w-1.5 rounded-full bg-amber" />
+            <span className="font-mono uppercase text-[10px] tracking-[0.25em] text-amber">
+              Operaciones geoespaciales en toda Europa
+            </span>
+          </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.2 }}
-            className="mt-6 font-display font-normal leading-[0.98] tracking-tight"
+            className="mt-7 font-display font-normal leading-[0.98] tracking-tight"
             style={{ fontSize: "clamp(2.75rem, 6.2vw, 5.5rem)" }}
           >
-            El terreno, capturado con precisión{" "}
-            <span className="italic-acc">milimétrica</span>.
+            Midiendo el presente{" "}
+            <span className="block text-paper/35">para construir el futuro.</span>
           </motion.h1>
 
           <motion.p
@@ -54,8 +57,10 @@ export function Hero() {
             transition={{ duration: 0.7, ease, delay: 0.35 }}
             className="mt-7 max-w-lg text-paper/75 leading-relaxed text-lg"
           >
-            Drones LiDAR para levantamientos topográficos a gran escala y
-            trabajos de alta precisión. En seis países europeos.
+            Tus proyectos, datos y levantamientos siempre accesibles desde
+            cualquier lugar. Especialistas en captura LiDAR aérea,
+            fotogrametría, SLAM y nubes de puntos para operaciones técnicas en
+            toda Europa.
           </motion.p>
 
           <motion.div
