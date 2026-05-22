@@ -12,17 +12,17 @@ const ease = [0.22, 1, 0.36, 1] as const;
  */
 export function Hero() {
   return (
-    <section className="relative w-full bg-ink text-paper overflow-hidden -mt-24 pt-40 pb-20 md:pt-48 md:pb-28 min-h-[760px] flex items-center">
+    <section className="relative w-full bg-[var(--envelope)] text-paper overflow-hidden -mt-24 pt-44 pb-24 md:pt-52 md:pb-32 min-h-[760px] flex items-center">
       {/* Subtle radial glow + compass decoration */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-90"
+        className="absolute inset-0 pointer-events-none opacity-80"
         style={{
           background:
-            "radial-gradient(80% 60% at 20% 30%, rgba(185,132,24,0.10) 0%, transparent 60%), radial-gradient(60% 50% at 90% 80%, rgba(255,255,255,0.04) 0%, transparent 60%)",
+            "radial-gradient(80% 60% at 20% 30%, rgba(251,251,249,0.05) 0%, transparent 60%), radial-gradient(60% 50% at 90% 80%, rgba(251,251,249,0.03) 0%, transparent 60%)",
         }}
       />
-      <div className="absolute -bottom-32 -right-32 text-amber pointer-events-none">
-        <CompassRose size={560} opacity={0.05} />
+      <div className="absolute -bottom-32 -right-32 text-paper pointer-events-none">
+        <CompassRose size={560} opacity={0.04} />
       </div>
 
       <div className="relative w-full mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -32,11 +32,11 @@ export function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease, delay: 0.1 }}
-            className="inline-flex items-center gap-2 rounded-full border border-amber/40 px-4 py-1.5"
+            className="inline-flex items-center gap-2 rounded-full border border-paper/20 px-4 py-1.5"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-amber" />
-            <span className="font-mono uppercase text-[10px] tracking-[0.25em] text-amber">
-              01 / Operaciones geoespaciales en toda Europa
+            <span className="h-1.5 w-1.5 rounded-full bg-paper/60" />
+            <span className="font-sans uppercase text-[10px] tracking-[0.2em] text-paper/70">
+              01 — Operaciones geoespaciales en toda Europa
             </span>
           </motion.div>
 
@@ -74,10 +74,10 @@ export function Hero() {
             </Link>
             <Link
               to="/tecnologia"
-              className="group inline-flex items-center gap-2 text-paper"
+              className="group inline-flex items-center gap-2 text-paper/85 hover:text-paper transition-colors"
             >
               <span className="text-sm">Ver tecnología</span>
-              <span className="text-amber transition-transform group-hover:translate-x-1">→</span>
+              <span className="transition-transform group-hover:translate-x-1">→</span>
             </Link>
           </motion.div>
         </div>
@@ -89,7 +89,7 @@ export function Hero() {
           transition={{ duration: 0.9, ease, delay: 0.3 }}
           className="lg:col-span-6 relative"
         >
-          <div className="relative rounded-sm overflow-hidden border border-paper/10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.55)]">
+          <div className="relative rounded-[20px] overflow-hidden shadow-soft-lg">
             <img
               src={heroBg}
               alt="Dron LiDAR sobrevolando un terreno para levantamiento topográfico"
