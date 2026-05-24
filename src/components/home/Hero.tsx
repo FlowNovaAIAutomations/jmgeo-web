@@ -1,19 +1,18 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/Button";
-import { CompassRose } from "@/components/CompassRose";
 import heroBg from "@/assets/clientes/hero-drone.jpg";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 /**
- * Hero — estilo "Amelia": fondo navy sólido, texto a la izquierda,
+ * Hero — fondo envelope sólido, texto a la izquierda,
  * fotografía aislada en un panel a la derecha. SIN texto encima de la foto.
  */
 export function Hero() {
   return (
-    <section className="relative w-full bg-[var(--envelope)] text-paper overflow-hidden -mt-24 pt-44 pb-24 md:pt-52 md:pb-32 min-h-[760px] flex items-center">
-      {/* Subtle radial glow + compass decoration */}
+    <section className="relative w-full bg-[var(--envelope)] text-paper overflow-hidden -mt-24 pt-32 pb-20 md:pt-40 md:pb-24 min-h-[760px] flex items-start">
+      {/* Subtle radial glow */}
       <div
         className="absolute inset-0 pointer-events-none opacity-80"
         style={{
@@ -21,62 +20,62 @@ export function Hero() {
             "radial-gradient(80% 60% at 20% 30%, rgba(251,251,249,0.05) 0%, transparent 60%), radial-gradient(60% 50% at 90% 80%, rgba(251,251,249,0.03) 0%, transparent 60%)",
         }}
       />
-      <div className="absolute -bottom-32 -right-32 text-paper pointer-events-none">
-        <CompassRose size={560} opacity={0.04} />
-      </div>
 
       <div className="relative w-full mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         {/* LEFT — Texto */}
         <div className="lg:col-span-6">
+          {/* Badge pill */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease, delay: 0.1 }}
-            className="inline-flex items-center gap-2 rounded-full border border-paper/20 px-4 py-1.5"
+            className="inline-flex items-center rounded-full border border-paper/15 bg-paper/[0.04] px-5 py-2.5"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-paper/60" />
-            <span className="font-sans uppercase text-[10px] tracking-[0.2em] text-paper/70">
-              01 — Operaciones geoespaciales en toda Europa
+            <span className="font-sans text-sm text-paper/60 leading-snug">
+              Tus proyectos, datos y levantamientos siempre accesibles desde cualquier lugar
             </span>
           </motion.div>
 
+          {/* Headline — 3 líneas */}
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.2 }}
-            className="mt-7 font-display font-normal leading-[0.98] tracking-tight"
-            style={{ fontSize: "clamp(2.75rem, 6.2vw, 5.5rem)" }}
+            className="mt-6 font-display font-normal leading-[1.05] tracking-tight"
+            style={{ fontSize: "clamp(2.5rem, 5.8vw, 5rem)" }}
           >
-            Midiendo el presente{" "}
-            <span className="block text-paper/35">para construir el futuro.</span>
+            <span className="block">Midiendo el presente</span>
+            <span className="block font-light italic text-paper/30 mt-1" style={{ fontSize: "0.55em" }}>
+              una línea
+            </span>
+            <span className="block mt-1">Construyendo el futuro</span>
           </motion.h1>
 
+          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.35 }}
-            className="mt-7 max-w-lg text-paper/75 leading-relaxed text-lg"
+            className="mt-6 max-w-lg text-paper/65 leading-relaxed text-base"
           >
-            Tus proyectos, datos y levantamientos siempre accesibles desde
-            cualquier lugar. Especialistas en captura LiDAR aérea,
-            fotogrametría, SLAM y nubes de puntos para operaciones técnicas en
-            toda Europa.
+            Captura LiDAR aérea, fotogrametría, SLAM y nubes de puntos para operaciones técnicas en toda Europa
           </motion.p>
 
+          {/* Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.5 }}
-            className="mt-10 flex flex-wrap items-center gap-6"
+            className="mt-9 flex flex-wrap items-center gap-4"
           >
             <Link to="/contacto">
               <Button variant="accent" size="lg">Solicitar presupuesto</Button>
             </Link>
             <Link
               to="/tecnologia"
-              className="group inline-flex items-center gap-2 text-paper/85 hover:text-paper transition-colors"
+              className="group inline-flex items-center gap-2 rounded-full border border-paper/15 px-6 py-3 text-paper/80 hover:text-paper hover:bg-paper/5 transition-all"
             >
-              <span className="text-sm">Ver tecnología</span>
+              <span className="text-sm font-medium">Ver tecnología</span>
               <span className="transition-transform group-hover:translate-x-1">→</span>
             </Link>
           </motion.div>
@@ -98,9 +97,7 @@ export function Hero() {
               className="block w-full h-[460px] md:h-[540px] object-cover"
             />
           </div>
-
         </motion.div>
-
       </div>
 
       {/* Scroll indicator */}
@@ -108,15 +105,15 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.2 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-paper/60"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-paper/50"
       >
-        <span className="font-mono uppercase text-[10px] tracking-[0.3em]">
+        <span className="font-sans uppercase text-[10px] tracking-[0.3em]">
           Descubrir
         </span>
         <motion.div
           animate={{ y: [0, 6, 0], opacity: [0.3, 1, 0.3] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-px h-8 bg-paper/50"
+          className="w-0.5 h-8 bg-paper/40 rounded-full"
         />
       </motion.div>
     </section>
