@@ -97,7 +97,7 @@ export function Projects() {
             }}
           />
 
-          <div className="relative rounded-2xl bg-ink text-paper p-6 md:p-8 shadow-[0_30px_80px_-30px_rgba(20,40,58,0.55)] border border-ink/40">
+          <div className="relative rounded-[20px] bg-ink text-paper p-6 md:p-8 shadow-soft-lg border border-ink/20">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
