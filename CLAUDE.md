@@ -70,11 +70,9 @@ El "Área de clientes" de esta web es solo un **enlace** al ERP, que es una apli
 
 ## Hero actual (textos vigentes tras feedback del cliente)
 
-Lema principal en 3 líneas, SIN punto final:
+Lema principal en una sola línea, SIN punto final:
 ```
-Midiendo el presente
-una línea
-Construyendo el futuro
+Midiendo el presente para construir el futuro
 ```
 Subtítulo: "Captura LiDAR aérea, fotogrametría, SLAM y nubes de puntos para operaciones técnicas en toda Europa."
 Badge destacado: "Tus proyectos, datos y levantamientos siempre accesibles desde cualquier lugar."

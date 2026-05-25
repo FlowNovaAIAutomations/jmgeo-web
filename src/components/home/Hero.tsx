@@ -36,7 +36,7 @@ export function Hero() {
             </span>
           </motion.div>
 
-          {/* Headline — 3 líneas */}
+          {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -44,11 +44,7 @@ export function Hero() {
             className="mt-6 font-display font-normal leading-[1.05] tracking-tight"
             style={{ fontSize: "clamp(2.5rem, 5.8vw, 5rem)" }}
           >
-            <span className="block">Midiendo el presente</span>
-            <span className="block font-light italic text-paper/30 mt-1" style={{ fontSize: "0.55em" }}>
-              una línea
-            </span>
-            <span className="block mt-1">Construyendo el futuro</span>
+            Midiendo el presente para construir el futuro
           </motion.h1>
 
           {/* Subtitle */}
