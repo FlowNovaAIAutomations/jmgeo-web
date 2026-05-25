@@ -84,7 +84,7 @@ export function Header() {
               type="button"
               aria-label="Cambiar idioma (próximamente)"
               title="Próximamente"
-              className="font-mono text-[11px] tracking-[0.18em] text-ink/70 hover:text-ink transition-colors px-2 py-1 border border-ink/15 rounded-sm"
+              className="font-sans text-[11px] tracking-[0.18em] text-ink/70 hover:text-ink transition-colors px-2.5 py-1 border border-ink/12 rounded-xl"
             >
               ES <span className="text-ink/30">/</span> <span className="text-ink/40">EN</span>
             </button>
