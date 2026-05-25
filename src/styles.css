@@ -73,13 +73,13 @@
   --accent-foreground: var(--paper);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: var(--paper);
-  --border: #E8E8E4;
-  --input: #E8E8E4;
+  --border: #E2E8EC;
+  --input: #E2E8EC;
   --ring: var(--amber);
 
   /* Sombras suaves y difusas */
-  --shadow-soft: 0 4px 24px rgba(42, 56, 69, 0.06);
-  --shadow-soft-lg: 0 12px 40px rgba(42, 56, 69, 0.08);
+  --shadow-soft: 0 4px 24px rgba(58, 74, 90, 0.05);
+  --shadow-soft-lg: 0 12px 40px rgba(58, 74, 90, 0.07);
 }
 
 .dark {
