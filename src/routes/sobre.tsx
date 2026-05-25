@@ -153,7 +153,7 @@ function SobrePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, ease, delay: i * 0.12 }}
-                className="border-t border-amber pt-8 px-1 pb-2"
+                className="rounded-[20px] bg-paper/[0.04] border border-paper/10 pt-8 px-8 pb-8"
               >
                 <p className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber">
                   {p.label}
