@@ -129,8 +129,7 @@ function ContactoPage() {
                         id="tipo"
                         name="tipo"
                         defaultValue=""
-                        className="rounded-sm border bg-[#FAF8F2] px-4 py-[14px] font-sans text-[15px] text-ink outline-none transition-colors focus:border-amber focus:bg-white"
-                        style={{ borderColor: "rgba(20,40,58,0.2)" }}
+                        className="rounded-xl border border-ink/12 bg-[var(--paper-alt)] px-4 py-[14px] font-sans text-[15px] text-ink outline-none transition-colors focus:border-amber focus:bg-paper"
                       >
                         <option value="" disabled>Selecciona una opción</option>
                         <option>Levantamiento de grandes extensiones</option>
@@ -141,7 +140,7 @@ function ContactoPage() {
                     </div>
 
                     <div className="flex flex-col gap-2">
-                      <label htmlFor="mensaje" className="font-mono text-[10px] uppercase tracking-[0.2em] text-amber">
+                      <label htmlFor="mensaje" className="font-sans text-[10px] uppercase tracking-[0.2em] text-amber">
                         Cuéntanos tu proyecto <span className="text-ink/40">*</span>
                       </label>
                       <textarea
@@ -149,11 +148,11 @@ function ContactoPage() {
                         name="mensaje"
                         rows={5}
                         placeholder="Brevemente: qué necesitas, dónde, para cuándo y en qué formato te interesa recibir la entrega"
-                        className="rounded-sm border bg-[#FAF8F2] px-4 py-[14px] font-sans text-[15px] text-ink placeholder:text-mid/70 outline-none transition-colors focus:border-amber focus:bg-white"
-                        style={{ borderColor: errors.mensaje ? "#a03d2f" : "rgba(20,40,58,0.2)" }}
+                        className="rounded-xl border bg-[var(--paper-alt)] px-4 py-[14px] font-sans text-[15px] text-ink placeholder:text-mid/70 outline-none transition-colors focus:border-amber focus:bg-paper"
+                        style={{ borderColor: errors.mensaje ? "#B26A5F" : "rgba(58,74,90,0.12)" }}
                       />
                       {errors.mensaje && (
-                        <p className="font-mono text-[11px] text-ink" style={{ color: "#a03d2f" }}>{errors.mensaje}</p>
+                        <p className="font-sans text-[11px]" style={{ color: "#B26A5F" }}>{errors.mensaje}</p>
                       )}
                     </div>
 
@@ -168,7 +167,7 @@ function ContactoPage() {
                       </span>
                     </label>
                     {errors.privacidad && (
-                      <p className="-mt-3 font-mono text-[11px]" style={{ color: "#a03d2f" }}>{errors.privacidad}</p>
+                      <p className="-mt-3 font-sans text-[11px]" style={{ color: "#B26A5F" }}>{errors.privacidad}</p>
                     )}
 
                     <div className="mt-2">
@@ -197,10 +196,7 @@ function ContactoPage() {
 
           {/* Columna derecha — información */}
           <motion.aside {...fadeIn} transition={{ duration: 0.7, ease, delay: 0.1 }}>
-            <div
-              className="border-t-2 border-amber bg-paper p-9"
-              style={{ boxShadow: "0 1px 0 rgba(20,40,58,0.06)" }}
-            >
+            <div className="rounded-[20px] border border-ink/8 bg-paper p-9 shadow-soft">
               <InfoBlock title="DIRECTAMENTE">
                 <p className="text-mid text-[13px] mb-2">Contacto directo con Javier</p>
                 <a href="mailto:javier@jmgeo.es" className="block text-ink hover:text-amber transition-colors">
@@ -235,13 +231,13 @@ function ContactoPage() {
               </InfoBlock>
             </div>
 
-            <div className="mt-6 overflow-hidden rounded-sm">
+            <div className="mt-6 overflow-hidden rounded-[20px]">
               <iframe
                 title="Ubicación JMGeo en Benetússer, Valencia"
                 src="https://www.google.com/maps?q=Maestra+Juana+Senent+5,+Benet%C3%BAsser,+Valencia,+Espa%C3%B1a&output=embed"
                 width="100%"
                 height="280"
-                style={{ border: 0, filter: "grayscale(40%)" }}
+                style={{ border: 0, filter: "grayscale(60%)" }}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
@@ -269,18 +265,18 @@ function Field({
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={name} className="font-mono text-[10px] uppercase tracking-[0.2em] text-amber">
+      <label htmlFor={name} className="font-sans text-[10px] uppercase tracking-[0.2em] text-amber">
         {label} {required && <span className="text-ink/40">*</span>}
       </label>
       <input
         id={name}
         name={name}
         type={type}
-        className="rounded-sm border bg-[#FAF8F2] px-4 py-[14px] font-sans text-[15px] text-ink outline-none transition-colors focus:border-amber focus:bg-white"
-        style={{ borderColor: error ? "#a03d2f" : "rgba(20,40,58,0.2)" }}
+        className="rounded-xl border bg-[var(--paper-alt)] px-4 py-[14px] font-sans text-[15px] text-ink outline-none transition-colors focus:border-amber focus:bg-paper"
+        style={{ borderColor: error ? "#B26A5F" : "rgba(58,74,90,0.12)" }}
       />
       {error && (
-        <p className="font-mono text-[11px]" style={{ color: "#a03d2f" }}>{error}</p>
+        <p className="font-sans text-[11px]" style={{ color: "#B26A5F" }}>{error}</p>
       )}
     </div>
   );
@@ -289,7 +285,7 @@ function Field({
 function InfoBlock({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h3 className="font-mono text-[11px] uppercase tracking-[0.2em] text-amber mb-3">
+      <h3 className="font-sans text-[11px] uppercase tracking-[0.2em] text-amber mb-3">
         {title}
       </h3>
       <div className="font-sans text-[15px] leading-relaxed">{children}</div>
@@ -298,5 +294,5 @@ function InfoBlock({ title, children }: { title: string; children: React.ReactNo
 }
 
 function Divider() {
-  return <hr className="my-6 border-0 border-t" style={{ borderColor: "rgba(20,40,58,0.1)" }} />;
+  return <hr className="my-6 border-0 border-t" style={{ borderColor: "rgba(58,74,90,0.08)" }} />;
 }

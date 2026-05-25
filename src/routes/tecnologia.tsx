@@ -196,21 +196,21 @@ function TecnologiaPage() {
             transition={{ duration: 0.8, ease }}
             className="mt-24"
           >
-            <div className="relative w-full aspect-[21/9] overflow-hidden bg-envelope">
+            <div className="relative w-full aspect-[21/9] overflow-hidden rounded-[20px] bg-[var(--envelope)]">
               <img loading="lazy" decoding="async"                 src={imgNube}
                 alt="Representación de nube de puntos LiDAR"
                 className="absolute inset-0 w-full h-full object-cover"
-                style={{ filter: "contrast(1.1) saturate(0.7) brightness(0.85)" }}
+                style={{ filter: "contrast(1.05) saturate(0.75) brightness(0.9)" }}
               />
               <div
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(to bottom, rgba(20,40,58,0.25), rgba(20,40,58,0.55))",
+                    "linear-gradient(to bottom, rgba(74,94,114,0.2), rgba(74,94,114,0.45))",
                 }}
               />
             </div>
-            <figcaption className="mt-4 font-mono uppercase text-[10px] tracking-[0.25em] text-mid">
+            <figcaption className="mt-4 font-sans uppercase text-[10px] tracking-[0.25em] text-mid">
               Ejemplo de nube de puntos LIDAR · 48M puntos · Densidad 200 pts/m²
             </figcaption>
           </motion.figure>
@@ -230,13 +230,13 @@ function TecnologiaPage() {
       </section>
 
       {/* SECTION C — INTERNATIONAL */}
-      <section className="relative bg-ink text-paper py-[160px] overflow-hidden">
+      <section className="relative bg-[var(--envelope)] text-paper py-[160px] overflow-hidden">
         <div className="absolute -bottom-32 -left-32 text-paper pointer-events-none">
           <CompassRose size={520} opacity={0.05} />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
-          <motion.p {...fadeUp} className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber">
+          <motion.p {...fadeUp} className="font-sans uppercase text-[11px] tracking-[0.25em] text-amber">
             Alcance
           </motion.p>
           <motion.h2
@@ -256,7 +256,7 @@ function TecnologiaPage() {
             procesado se traslada donde haga falta.
           </motion.p>
 
-          <div className="mt-20 grid md:grid-cols-3 gap-px bg-paper/15">
+          <div className="mt-20 grid md:grid-cols-3 gap-4">
             {countries.map((c, i) => (
               <motion.div
                 key={c.code}
@@ -264,10 +264,10 @@ function TecnologiaPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, ease, delay: i * 0.08 }}
-                className="bg-ink p-8"
+                className="bg-paper/[0.04] border border-paper/10 rounded-[20px] p-8"
               >
                 <div className="flex items-baseline gap-4">
-                  <span className="font-mono text-[11px] tracking-[0.25em] text-amber">
+                  <span className="font-sans text-[11px] tracking-[0.25em] text-amber">
                     {c.code}
                   </span>
                   <h3 className="font-display text-2xl text-paper">{c.name}</h3>
@@ -327,19 +327,19 @@ function ApplicationBlock({ app, reversed }: ApplicationBlockProps) {
 
       {/* Video slot */}
       <div className={`md:col-span-5 ${reversed ? "md:order-2" : ""}`}>
-        <div className="relative w-full aspect-[4/5] overflow-hidden bg-envelope group">
+        <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[20px] bg-[var(--envelope)] group">
           {/* VIDEO SLOT — replace with <video src={app.videoSrc} ... /> */}
           <img loading="lazy" decoding="async"             src={app.img}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-ink/55 group-hover:bg-ink/35 transition-colors" />
+          <div className="absolute inset-0 bg-[var(--envelope)]/45 group-hover:bg-[var(--envelope)]/25 transition-colors" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-16 h-16 rounded-full border border-amber flex items-center justify-center text-amber group-hover:scale-110 transition-transform">
-              <Play className="h-5 w-5 fill-amber" />
+            <div className="w-16 h-16 rounded-full border border-paper/40 flex items-center justify-center text-paper group-hover:scale-110 transition-transform">
+              <Play className="h-5 w-5 fill-paper" />
             </div>
           </div>
-          <div className="absolute bottom-4 left-4 font-mono uppercase text-[10px] tracking-[0.25em] text-paper/70">
+          <div className="absolute bottom-4 left-4 font-sans uppercase text-[10px] tracking-[0.25em] text-paper/70">
             Vídeo próximamente
           </div>
         </div>

@@ -73,7 +73,7 @@ export function Hero() {
             </Link>
             <Link
               to="/tecnologia"
-              className="group inline-flex items-center gap-2 rounded-full border border-paper/15 px-6 py-3 text-paper/80 hover:text-paper hover:bg-paper/5 transition-all"
+              className="group inline-flex items-center gap-2 rounded-xl border border-paper/15 px-6 py-3 text-paper/80 hover:text-paper hover:bg-paper/5 transition-all"
             >
               <span className="text-sm font-medium">Ver tecnología</span>
               <span className="transition-transform group-hover:translate-x-1">→</span>

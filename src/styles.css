@@ -45,17 +45,17 @@
 }
 
 :root {
-  --radius: 1rem;
+  --radius: 0.75rem;
 
-  /* Paleta suavizada premium */
-  --ink: #2A3845;              /* navy desaturado para texto y secciones oscuras puntuales */
-  --ink-dark: #38454F;         /* azul-grisáceo apagado para fondos oscuros */
-  --envelope: #38454F;         /* alias del oscuro suave */
-  --mid: #8A9099;              /* gris secundario */
-  --paper: #FBFBF9;            /* blanco roto principal */
-  --paper-alt: #F4F4F2;        /* fondo alternativo */
-  --amber: #A8915F;            /* dorado arena, muy apagado */
-  --amber-dark: #8F7A4F;
+  /* Paleta soft blue homogénea (rediseño unificado) */
+  --ink: #3A4A5A;              /* azul-gris para texto principal */
+  --ink-dark: #2F3D4C;         /* azul-gris más profundo */
+  --envelope: #4A5E72;         /* azul-gris suave para secciones oscuras */
+  --mid: #7E8B98;              /* gris azulado secundario */
+  --paper: #F8FAFB;            /* blanco roto azulado principal */
+  --paper-alt: #EEF2F5;        /* fondo alternativo suave */
+  --amber: #6B93B8;            /* azul claro como acento (sustituye al ámbar) */
+  --amber-dark: #547A9F;
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -73,13 +73,13 @@
   --accent-foreground: var(--paper);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: var(--paper);
-  --border: #E8E8E4;
-  --input: #E8E8E4;
+  --border: #E2E8EC;
+  --input: #E2E8EC;
   --ring: var(--amber);
 
   /* Sombras suaves y difusas */
-  --shadow-soft: 0 4px 24px rgba(42, 56, 69, 0.06);
-  --shadow-soft-lg: 0 12px 40px rgba(42, 56, 69, 0.08);
+  --shadow-soft: 0 4px 24px rgba(58, 74, 90, 0.05);
+  --shadow-soft-lg: 0 12px 40px rgba(58, 74, 90, 0.07);
 }
 
 .dark {

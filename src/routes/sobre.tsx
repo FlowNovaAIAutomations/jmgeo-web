@@ -153,7 +153,7 @@ function SobrePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, ease, delay: i * 0.12 }}
-                className="border-t border-amber pt-8 px-1 pb-2"
+                className="rounded-[20px] bg-paper/[0.04] border border-paper/10 pt-8 px-8 pb-8"
               >
                 <p className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber">
                   {p.label}
@@ -211,8 +211,8 @@ function SobrePage() {
                 transition={{ duration: 0.5, ease, delay: i * 0.08 }}
               >
                 {/* TEAM PHOTO SLOT — replace with <img src={member.photo} ... /> */}
-                <div className="relative aspect-square w-full bg-[#ECEAE3] border border-ink/10 flex items-center justify-center">
-                  <User className="h-10 w-10 text-ink/15" strokeWidth={1} />
+                <div className="relative aspect-square w-full bg-[var(--paper-alt)] rounded-[20px] border border-ink/8 flex items-center justify-center">
+                  <User className="h-10 w-10 text-ink/20" strokeWidth={1} />
                 </div>
                 <h3 className="mt-5 font-display text-[22px] text-ink/90">
                   Nombre Apellido

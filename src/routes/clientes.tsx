@@ -40,26 +40,14 @@ const item = {
 
 function ClientsPage() {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden" style={{ backgroundColor: "#38454F" }}>
-      {/* Decorative top line */}
-      <div
-        className="absolute top-0 left-0 right-0 h-px"
-        style={{ backgroundColor: "#F7F5EF", opacity: 0.1 }}
-      />
-
-      {/* Decorative bottom line */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-px"
-        style={{ backgroundColor: "#F7F5EF", opacity: 0.1 }}
-      />
-
+    <div className="relative min-h-screen w-full overflow-hidden bg-[var(--envelope)]">
       {/* Background CompassRose */}
       <motion.div
         className="absolute inset-0 flex items-center justify-center pointer-events-none"
         animate={{ rotate: 360 }}
         transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
       >
-        <CompassRose size={600} opacity={0.06} className="text-amber" />
+        <CompassRose size={600} opacity={0.05} className="text-paper" />
       </motion.div>
 
       {/* Content */}
@@ -70,40 +58,28 @@ function ClientsPage() {
         animate="visible"
       >
         <motion.p
-          className="font-mono text-xs uppercase tracking-[0.3em]"
-          style={{ color: "#B98418" }}
+          className="font-sans text-xs uppercase tracking-[0.3em] text-paper/55"
           variants={item}
         >
           Área de clientes
         </motion.p>
 
         <motion.h1
-          className="mt-8 font-display leading-none tracking-tight"
+          className="mt-8 font-display leading-none tracking-tight text-paper"
           style={{
             fontSize: "clamp(56px, 8vw, 110px)",
-            color: "#F7F5EF",
             maxWidth: "1000px",
           }}
           variants={item}
         >
           Próximamente,
           <br />
-          <span
-            className="italic"
-            style={{ color: "#B98418" }}
-          >
-            tu portal
-          </span>
-          .
+          <span className="italic text-paper/70">tu portal</span>.
         </motion.h1>
 
         <motion.p
-          className="mt-9 text-lg leading-relaxed"
-          style={{
-            color: "rgba(247, 245, 239, 0.75)",
-            maxWidth: "540px",
-            fontFamily: '"Inter Tight", system-ui, sans-serif',
-          }}
+          className="mt-9 text-lg leading-relaxed text-paper/70"
+          style={{ maxWidth: "540px" }}
           variants={item}
         >
           Estamos preparando un espacio privado donde nuestros clientes podrán
@@ -112,11 +88,8 @@ function ClientsPage() {
         </motion.p>
 
         <motion.p
-          className="mt-[60px] font-mono text-[11px] uppercase"
-          style={{
-            color: "rgba(247, 245, 239, 0.5)",
-            letterSpacing: "0.25em",
-          }}
+          className="mt-[60px] font-sans text-[11px] uppercase text-paper/45"
+          style={{ letterSpacing: "0.25em" }}
           variants={item}
         >
           DISPONIBLE · VERANO 2026

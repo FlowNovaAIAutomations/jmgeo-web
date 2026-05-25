@@ -72,7 +72,7 @@ export function WhatWeDo() {
               className="group flex flex-col"
             >
               {/* Imagen limpia, sin overlay ni texto encima */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm bg-envelope">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[20px] bg-[var(--paper-alt)]">
                 <img
                   loading="lazy"
                   decoding="async"

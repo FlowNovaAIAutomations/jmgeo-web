@@ -9,13 +9,10 @@ export function Footer() {
   const year = 2026;
 
   return (
-    <footer
-      className="relative overflow-hidden text-paper"
-      style={{ backgroundColor: "#38454F" }}
-    >
+    <footer className="relative overflow-hidden text-paper bg-[var(--envelope)]">
       {/* Decoración compass */}
-      <div className="absolute right-10 top-10 text-amber pointer-events-none">
-        <CompassRose size={60} opacity={0.15} />
+      <div className="absolute right-10 top-10 text-paper pointer-events-none">
+        <CompassRose size={60} opacity={0.1} />
       </div>
 
       <div

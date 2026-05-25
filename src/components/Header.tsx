@@ -41,13 +41,13 @@ export function Header() {
           paddingTop: scrolled ? 12 : 20,
           paddingBottom: scrolled ? 12 : 20,
           backgroundColor: scrolled
-            ? "rgba(247, 245, 239, 0.85)"
-            : "rgba(247, 245, 239, 0)",
+            ? "rgba(248, 250, 251, 0.78)"
+            : "rgba(248, 250, 251, 0)",
         }}
         transition={{ duration: 0.3, ease: "easeOut" }}
         className={cn(
           "fixed top-0 inset-x-0 z-50 backdrop-blur-[12px]",
-          scrolled ? "border-b border-ink/[0.08]" : "border-b border-transparent"
+          scrolled ? "border-b border-ink/[0.06]" : "border-b border-transparent"
         )}
         role="banner"
       >
@@ -84,7 +84,7 @@ export function Header() {
               type="button"
               aria-label="Cambiar idioma (próximamente)"
               title="Próximamente"
-              className="font-mono text-[11px] tracking-[0.18em] text-ink/70 hover:text-ink transition-colors px-2 py-1 border border-ink/15 rounded-sm"
+              className="font-sans text-[11px] tracking-[0.18em] text-ink/70 hover:text-ink transition-colors px-2.5 py-1 border border-ink/12 rounded-xl"
             >
               ES <span className="text-ink/30">/</span> <span className="text-ink/40">EN</span>
             </button>

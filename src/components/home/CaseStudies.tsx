@@ -61,7 +61,7 @@ export function CaseStudies() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, ease, delay: 0.1 + i * 0.1 }}
-              className="group bg-paper rounded-2xl overflow-hidden border border-ink/8 shadow-[0_10px_40px_-20px_rgba(20,40,58,0.18)] hover:shadow-[0_20px_60px_-20px_rgba(20,40,58,0.28)] transition-shadow"
+              className="group bg-paper rounded-[20px] overflow-hidden border border-ink/8 shadow-soft hover:shadow-soft-lg transition-shadow"
             >
               {/* Media */}
               <div className="relative aspect-[4/3] overflow-hidden bg-ink/5">
