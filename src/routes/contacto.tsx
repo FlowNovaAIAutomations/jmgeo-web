@@ -167,7 +167,7 @@ function ContactoPage() {
                       </span>
                     </label>
                     {errors.privacidad && (
-                      <p className="-mt-3 font-mono text-[11px]" style={{ color: "#a03d2f" }}>{errors.privacidad}</p>
+                      <p className="-mt-3 font-sans text-[11px]" style={{ color: "#B26A5F" }}>{errors.privacidad}</p>
                     )}
 
                     <div className="mt-2">
