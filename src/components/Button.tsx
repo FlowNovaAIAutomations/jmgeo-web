@@ -15,20 +15,20 @@ const base =
   "inline-flex items-center justify-center gap-2 font-sans font-medium tracking-tight transition-all duration-200 ease-out disabled:opacity-50 disabled:pointer-events-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-paper will-change-transform";
 
 const sizes: Record<Size, string> = {
-  sm: "h-10 px-5 text-sm rounded-full",
-  md: "h-12 px-7 text-sm rounded-full",
-  lg: "h-14 px-9 text-base rounded-full",
+  sm: "h-10 px-5 text-sm rounded-xl",
+  md: "h-12 px-7 text-sm rounded-xl",
+  lg: "h-14 px-9 text-base rounded-xl",
 };
 
 const variants: Record<Variant, string> = {
   primary:
     "bg-ink text-paper hover:bg-[var(--ink-dark)] shadow-soft hover:shadow-soft-lg transition-shadow",
   secondary:
-    "border border-ink/15 text-ink bg-transparent hover:bg-ink/[0.04]",
+    "border border-ink/12 text-ink bg-transparent hover:bg-ink/[0.04]",
   tertiary:
     "px-0 h-auto text-ink hover:text-amber group bg-transparent",
   accent:
-    "bg-ink text-paper hover:bg-[var(--ink-dark)] shadow-soft hover:shadow-soft-lg transition-shadow",
+    "bg-amber text-paper hover:bg-[var(--amber-dark)] shadow-soft hover:shadow-soft-lg transition-shadow",
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
