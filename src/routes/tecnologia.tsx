@@ -230,13 +230,13 @@ function TecnologiaPage() {
       </section>
 
       {/* SECTION C — INTERNATIONAL */}
-      <section className="relative bg-ink text-paper py-[160px] overflow-hidden">
+      <section className="relative bg-[var(--envelope)] text-paper py-[160px] overflow-hidden">
         <div className="absolute -bottom-32 -left-32 text-paper pointer-events-none">
           <CompassRose size={520} opacity={0.05} />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
-          <motion.p {...fadeUp} className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber">
+          <motion.p {...fadeUp} className="font-sans uppercase text-[11px] tracking-[0.25em] text-amber">
             Alcance
           </motion.p>
           <motion.h2
@@ -256,7 +256,7 @@ function TecnologiaPage() {
             procesado se traslada donde haga falta.
           </motion.p>
 
-          <div className="mt-20 grid md:grid-cols-3 gap-px bg-paper/15">
+          <div className="mt-20 grid md:grid-cols-3 gap-4">
             {countries.map((c, i) => (
               <motion.div
                 key={c.code}
@@ -264,10 +264,10 @@ function TecnologiaPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, ease, delay: i * 0.08 }}
-                className="bg-ink p-8"
+                className="bg-paper/[0.04] border border-paper/10 rounded-[20px] p-8"
               >
                 <div className="flex items-baseline gap-4">
-                  <span className="font-mono text-[11px] tracking-[0.25em] text-amber">
+                  <span className="font-sans text-[11px] tracking-[0.25em] text-amber">
                     {c.code}
                   </span>
                   <h3 className="font-display text-2xl text-paper">{c.name}</h3>
