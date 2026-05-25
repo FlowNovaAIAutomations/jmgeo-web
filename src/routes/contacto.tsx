@@ -265,18 +265,18 @@ function Field({
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={name} className="font-mono text-[10px] uppercase tracking-[0.2em] text-amber">
+      <label htmlFor={name} className="font-sans text-[10px] uppercase tracking-[0.2em] text-amber">
         {label} {required && <span className="text-ink/40">*</span>}
       </label>
       <input
         id={name}
         name={name}
         type={type}
-        className="rounded-sm border bg-[#FAF8F2] px-4 py-[14px] font-sans text-[15px] text-ink outline-none transition-colors focus:border-amber focus:bg-white"
-        style={{ borderColor: error ? "#a03d2f" : "rgba(20,40,58,0.2)" }}
+        className="rounded-xl border bg-[var(--paper-alt)] px-4 py-[14px] font-sans text-[15px] text-ink outline-none transition-colors focus:border-amber focus:bg-paper"
+        style={{ borderColor: error ? "#B26A5F" : "rgba(58,74,90,0.12)" }}
       />
       {error && (
-        <p className="font-mono text-[11px]" style={{ color: "#a03d2f" }}>{error}</p>
+        <p className="font-sans text-[11px]" style={{ color: "#B26A5F" }}>{error}</p>
       )}
     </div>
   );
@@ -285,7 +285,7 @@ function Field({
 function InfoBlock({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h3 className="font-mono text-[11px] uppercase tracking-[0.2em] text-amber mb-3">
+      <h3 className="font-sans text-[11px] uppercase tracking-[0.2em] text-amber mb-3">
         {title}
       </h3>
       <div className="font-sans text-[15px] leading-relaxed">{children}</div>
@@ -294,5 +294,5 @@ function InfoBlock({ title, children }: { title: string; children: React.ReactNo
 }
 
 function Divider() {
-  return <hr className="my-6 border-0 border-t" style={{ borderColor: "rgba(20,40,58,0.1)" }} />;
+  return <hr className="my-6 border-0 border-t" style={{ borderColor: "rgba(58,74,90,0.08)" }} />;
 }
