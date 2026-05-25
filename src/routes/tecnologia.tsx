@@ -327,19 +327,19 @@ function ApplicationBlock({ app, reversed }: ApplicationBlockProps) {
 
       {/* Video slot */}
       <div className={`md:col-span-5 ${reversed ? "md:order-2" : ""}`}>
-        <div className="relative w-full aspect-[4/5] overflow-hidden bg-envelope group">
+        <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[20px] bg-[var(--envelope)] group">
           {/* VIDEO SLOT — replace with <video src={app.videoSrc} ... /> */}
           <img loading="lazy" decoding="async"             src={app.img}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-ink/55 group-hover:bg-ink/35 transition-colors" />
+          <div className="absolute inset-0 bg-[var(--envelope)]/45 group-hover:bg-[var(--envelope)]/25 transition-colors" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-16 h-16 rounded-full border border-amber flex items-center justify-center text-amber group-hover:scale-110 transition-transform">
-              <Play className="h-5 w-5 fill-amber" />
+            <div className="w-16 h-16 rounded-full border border-paper/40 flex items-center justify-center text-paper group-hover:scale-110 transition-transform">
+              <Play className="h-5 w-5 fill-paper" />
             </div>
           </div>
-          <div className="absolute bottom-4 left-4 font-mono uppercase text-[10px] tracking-[0.25em] text-paper/70">
+          <div className="absolute bottom-4 left-4 font-sans uppercase text-[10px] tracking-[0.25em] text-paper/70">
             Vídeo próximamente
           </div>
         </div>
