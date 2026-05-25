@@ -211,8 +211,8 @@ function SobrePage() {
                 transition={{ duration: 0.5, ease, delay: i * 0.08 }}
               >
                 {/* TEAM PHOTO SLOT — replace with <img src={member.photo} ... /> */}
-                <div className="relative aspect-square w-full bg-[#ECEAE3] border border-ink/10 flex items-center justify-center">
-                  <User className="h-10 w-10 text-ink/15" strokeWidth={1} />
+                <div className="relative aspect-square w-full bg-[var(--paper-alt)] rounded-[20px] border border-ink/8 flex items-center justify-center">
+                  <User className="h-10 w-10 text-ink/20" strokeWidth={1} />
                 </div>
                 <h3 className="mt-5 font-display text-[22px] text-ink/90">
                   Nombre Apellido
