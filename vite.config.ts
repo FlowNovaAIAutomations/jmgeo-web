@@ -6,10 +6,26 @@
 // You can pass additional config via defineConfig({ vite: { ... } }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-// Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-// @cloudflare/vite-plugin builds from this — wrangler.jsonc main alone is insufficient.
+// Despliegue en Vercel: desactivamos @cloudflare/vite-plugin (que empaqueta la salida como
+// Cloudflare Worker) y activamos prerender estático de todas las rutas públicas + shell SPA.
+// Vercel sirve dist/client/ directamente como sitio estático, con fallback al shell para
+// rutas no prerenderizadas.
 export default defineConfig({
+  cloudflare: false,
   tanstackStart: {
     server: { entry: "server" },
+    pages: [
+      { path: "/" },
+      { path: "/tecnologia" },
+      { path: "/sobre" },
+      { path: "/contacto" },
+      { path: "/clientes" },
+      { path: "/aviso-legal" },
+      { path: "/privacidad" },
+      { path: "/cookies" },
+      { path: "/sitemap.xml" },
+    ],
+    prerender: { enabled: true, crawlLinks: true },
+    spa: { enabled: true },
   },
 });
