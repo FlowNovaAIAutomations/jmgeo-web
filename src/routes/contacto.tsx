@@ -129,8 +129,7 @@ function ContactoPage() {
                         id="tipo"
                         name="tipo"
                         defaultValue=""
-                        className="rounded-sm border bg-[#FAF8F2] px-4 py-[14px] font-sans text-[15px] text-ink outline-none transition-colors focus:border-amber focus:bg-white"
-                        style={{ borderColor: "rgba(20,40,58,0.2)" }}
+                        className="rounded-xl border border-ink/12 bg-[var(--paper-alt)] px-4 py-[14px] font-sans text-[15px] text-ink outline-none transition-colors focus:border-amber focus:bg-paper"
                       >
                         <option value="" disabled>Selecciona una opción</option>
                         <option>Levantamiento de grandes extensiones</option>
@@ -141,7 +140,7 @@ function ContactoPage() {
                     </div>
 
                     <div className="flex flex-col gap-2">
-                      <label htmlFor="mensaje" className="font-mono text-[10px] uppercase tracking-[0.2em] text-amber">
+                      <label htmlFor="mensaje" className="font-sans text-[10px] uppercase tracking-[0.2em] text-amber">
                         Cuéntanos tu proyecto <span className="text-ink/40">*</span>
                       </label>
                       <textarea
@@ -149,11 +148,11 @@ function ContactoPage() {
                         name="mensaje"
                         rows={5}
                         placeholder="Brevemente: qué necesitas, dónde, para cuándo y en qué formato te interesa recibir la entrega"
-                        className="rounded-sm border bg-[#FAF8F2] px-4 py-[14px] font-sans text-[15px] text-ink placeholder:text-mid/70 outline-none transition-colors focus:border-amber focus:bg-white"
-                        style={{ borderColor: errors.mensaje ? "#a03d2f" : "rgba(20,40,58,0.2)" }}
+                        className="rounded-xl border bg-[var(--paper-alt)] px-4 py-[14px] font-sans text-[15px] text-ink placeholder:text-mid/70 outline-none transition-colors focus:border-amber focus:bg-paper"
+                        style={{ borderColor: errors.mensaje ? "#B26A5F" : "rgba(58,74,90,0.12)" }}
                       />
                       {errors.mensaje && (
-                        <p className="font-mono text-[11px] text-ink" style={{ color: "#a03d2f" }}>{errors.mensaje}</p>
+                        <p className="font-sans text-[11px]" style={{ color: "#B26A5F" }}>{errors.mensaje}</p>
                       )}
                     </div>
 
