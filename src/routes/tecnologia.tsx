@@ -196,21 +196,21 @@ function TecnologiaPage() {
             transition={{ duration: 0.8, ease }}
             className="mt-24"
           >
-            <div className="relative w-full aspect-[21/9] overflow-hidden bg-envelope">
+            <div className="relative w-full aspect-[21/9] overflow-hidden rounded-[20px] bg-[var(--envelope)]">
               <img loading="lazy" decoding="async"                 src={imgNube}
                 alt="Representación de nube de puntos LiDAR"
                 className="absolute inset-0 w-full h-full object-cover"
-                style={{ filter: "contrast(1.1) saturate(0.7) brightness(0.85)" }}
+                style={{ filter: "contrast(1.05) saturate(0.75) brightness(0.9)" }}
               />
               <div
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(to bottom, rgba(20,40,58,0.25), rgba(20,40,58,0.55))",
+                    "linear-gradient(to bottom, rgba(74,94,114,0.2), rgba(74,94,114,0.45))",
                 }}
               />
             </div>
-            <figcaption className="mt-4 font-mono uppercase text-[10px] tracking-[0.25em] text-mid">
+            <figcaption className="mt-4 font-sans uppercase text-[10px] tracking-[0.25em] text-mid">
               Ejemplo de nube de puntos LIDAR · 48M puntos · Densidad 200 pts/m²
             </figcaption>
           </motion.figure>
