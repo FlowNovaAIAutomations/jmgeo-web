@@ -196,10 +196,7 @@ function ContactoPage() {
 
           {/* Columna derecha — información */}
           <motion.aside {...fadeIn} transition={{ duration: 0.7, ease, delay: 0.1 }}>
-            <div
-              className="border-t-2 border-amber bg-paper p-9"
-              style={{ boxShadow: "0 1px 0 rgba(20,40,58,0.06)" }}
-            >
+            <div className="rounded-[20px] border border-ink/8 bg-paper p-9 shadow-soft">
               <InfoBlock title="DIRECTAMENTE">
                 <p className="text-mid text-[13px] mb-2">Contacto directo con Javier</p>
                 <a href="mailto:javier@jmgeo.es" className="block text-ink hover:text-amber transition-colors">
@@ -234,13 +231,13 @@ function ContactoPage() {
               </InfoBlock>
             </div>
 
-            <div className="mt-6 overflow-hidden rounded-sm">
+            <div className="mt-6 overflow-hidden rounded-[20px]">
               <iframe
                 title="Ubicación JMGeo en Benetússer, Valencia"
                 src="https://www.google.com/maps?q=Maestra+Juana+Senent+5,+Benet%C3%BAsser,+Valencia,+Espa%C3%B1a&output=embed"
                 width="100%"
                 height="280"
-                style={{ border: 0, filter: "grayscale(40%)" }}
+                style={{ border: 0, filter: "grayscale(60%)" }}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
