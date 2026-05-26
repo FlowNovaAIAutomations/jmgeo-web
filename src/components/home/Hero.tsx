@@ -47,16 +47,6 @@ export function Hero() {
             Midiendo el presente para construir el futuro
           </motion.h1>
 
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease, delay: 0.35 }}
-            className="mt-6 max-w-lg text-paper/65 leading-relaxed text-base"
-          >
-            Captura LiDAR aérea, fotogrametría, SLAM y nubes de puntos para operaciones técnicas en toda Europa
-          </motion.p>
-
           {/* Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}

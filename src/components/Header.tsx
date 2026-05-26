@@ -11,6 +11,7 @@ const navItems = [
   { to: "/tecnologia", hash: undefined, label: "Tecnología" },
   { to: "/", hash: "proyectos", label: "Proyectos" },
   { to: "/sobre", hash: undefined, label: "Nosotros" },
+  { to: "/contacto", hash: undefined, label: "Contacto" },
 ] as const;
 
 
@@ -80,6 +81,9 @@ export function Header() {
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
+            <Link to="/clientes">
+              <Button variant="accent" size="sm">Área clientes</Button>
+            </Link>
             <button
               type="button"
               aria-label="Cambiar idioma (próximamente)"
@@ -88,9 +92,6 @@ export function Header() {
             >
               ES <span className="text-ink/30">/</span> <span className="text-ink/40">EN</span>
             </button>
-            <Link to="/clientes">
-              <Button variant="accent" size="sm">Área clientes</Button>
-            </Link>
           </div>
 
 

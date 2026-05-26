@@ -4,9 +4,10 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 const steps = [
   { num: "01", title: "Briefing técnico", desc: "Entendemos qué necesitas medir, con qué precisión, para cuándo y en qué formato." },
-  { num: "02", title: "Planificación de vuelo", desc: "Diseñamos la misión: rutas, altura, densidad de captura, apoyo geodésico. Permisos cuando aplican." },
-  { num: "03", title: "Campo + procesado", desc: "Volamos, capturamos, procesamos la nube de puntos y generamos los entregables técnicos." },
-  { num: "04", title: "Entrega", desc: "Te llega todo en los formatos que usas, con histórico y soporte posterior." },
+  { num: "02", title: "Planificación de proyecto", desc: "Diseñamos la estrategia: metodología, equipos, planificación de campo y permisos cuando aplican." },
+  { num: "03", title: "Levantamiento en campo", desc: "Capturamos los datos con drones LiDAR, GNSS y estación total según las necesidades del proyecto." },
+  { num: "04", title: "Gabinete", desc: "Procesamos la información, generamos modelos y preparamos los entregables técnicos." },
+  { num: "05", title: "Entrega", desc: "Te llega todo en los formatos que usas, con histórico y soporte posterior." },
 ];
 
 export function Process() {
@@ -31,7 +32,7 @@ export function Process() {
           className="mt-6 font-display font-normal text-ink leading-[1.02] tracking-tight"
           style={{ fontSize: "clamp(2.5rem, 4.5vw, 4rem)" }}
         >
-          Cuatro pasos, <span className="italic-acc">sin sorpresas</span>.
+          Cinco pasos, <span className="italic-acc">sin sorpresas</span>.
         </motion.h2>
 
         {/* Timeline */}
@@ -45,7 +46,7 @@ export function Process() {
             />
           </div>
 
-          <div className="grid md:grid-cols-4 gap-12 md:gap-8">
+          <div className="grid md:grid-cols-5 gap-12 md:gap-8">
             {steps.map((s, i) => (
               <motion.div
                 key={s.num}

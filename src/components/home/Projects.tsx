@@ -49,8 +49,8 @@ export function Projects() {
             className="mt-7 font-display font-normal text-ink leading-[1.02] tracking-tight"
             style={{ fontSize: "clamp(2.25rem, 4.8vw, 4rem)" }}
           >
-            Tus proyectos.{" "}
-            <span className="block text-ink/35">Siempre accesibles.</span>
+            Tus proyectos{" "}
+            <span className="block text-ink/35">/ disponibles 24/7</span>
           </motion.h2>
 
           <motion.p
@@ -105,7 +105,7 @@ export function Projects() {
                   <span className="font-display text-amber text-sm">J</span>
                 </div>
                 <h3 className="font-display text-paper text-xl md:text-2xl">
-                  JMGeo Cloud
+                  JM GEO Cloud
                 </h3>
               </div>
               <div className="flex items-center gap-2 rounded-full border border-amber/40 bg-amber/10 px-3 py-1">

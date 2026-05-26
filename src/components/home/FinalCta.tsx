@@ -23,14 +23,10 @@ export function FinalCta() {
           className="font-display font-normal leading-[0.98] tracking-tight"
           style={{ fontSize: "clamp(3.5rem, 8vw, 6.875rem)" }}
         >
-          Tienes un proyecto.
+          ¿Tienes un proyecto?
           <br />
           <span className="italic-acc">Lo medimos</span>.
         </h2>
-
-        <p className="mt-8 max-w-[540px] text-paper/75 text-lg leading-relaxed">
-          Cuéntanos qué necesitas capturar. Respondemos en menos de 24 horas.
-        </p>
 
         <Link to="/contacto" className="mt-12">
           <Button size="lg" className="!bg-paper !text-ink hover:!bg-paper/90">Solicitar presupuesto</Button>

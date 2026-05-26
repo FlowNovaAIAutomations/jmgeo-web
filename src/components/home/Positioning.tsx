@@ -11,7 +11,6 @@ const countries = [
 
 const stats = [
   { value: "6", label: "Países europeos" },
-  { value: "<1cm", label: "Precisión LiDAR" },
   { value: "120+", label: "Proyectos entregados" },
   { value: "24/7", label: "Acceso a tus datos" },
 ];
@@ -52,17 +51,19 @@ export function Positioning() {
             transition={{ duration: 0.6, ease, delay: 0.2 }}
             className="mt-8 text-ink/80 leading-[1.65] max-w-md"
           >
-            JMGeo es un equipo especializado en captura de datos LiDAR con
-            drones. Trabajamos con constructoras, ingenierías y administraciones
-            que necesitan información topográfica precisa, ya sea sobre grandes
-            extensiones de terreno o sobre detalles muy específicos.
+            En JM GEO apostamos por una topografía adaptada al momento
+            tecnológico actual. Por ello, incorporamos las últimas innovaciones
+            en sistemas digitales de medición. Creemos que la combinación entre
+            la dedicación humana en campo y el uso de tecnología emergente es
+            clave para ofrecer resultados de máximo rigor en proyectos de
+            edificación, energía e infraestructuras.
           </motion.p>
         </div>
 
         {/* RIGHT — Stats + countries visual */}
         <div className="md:col-span-7">
           {/* Stats band */}
-          <div className="grid grid-cols-2 md:grid-cols-4 border-t border-b border-ink/15 divide-x divide-ink/10">
+          <div className="grid grid-cols-3 border-t border-b border-ink/15 divide-x divide-ink/10">
             {stats.map((s, i) => (
               <motion.div
                 key={s.label}
