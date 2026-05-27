@@ -1,18 +1,21 @@
 import { motion } from "framer-motion";
-import { Link } from "@tanstack/react-router";
-import { Button } from "@/components/Button";
-import heroBg from "@/assets/clientes/hero-drone.jpg";
+import heroDrones from "@/assets/hero-drones-clean.png";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 /**
- * Hero — fondo envelope sólido, texto a la izquierda,
- * fotografía aislada en un panel a la derecha. SIN texto encima de la foto.
+ * Hero — composición vertical centrada según mockup del cliente:
+ *  · Título (2 líneas) centrado arriba
+ *  · Subtítulo justo debajo
+ *  · Foto de los drones en un panel grande, centrada, bordes redondeados
+ *
+ * IMPORTANTE: la imagen `hero-drones-clean.png` debe ser LIMPIA (sin texto encima);
+ * el título y subtítulo se renderizan en HTML para mantener SEO/a11y/responsive.
  */
 export function Hero() {
   return (
-    <section className="relative w-full bg-[var(--envelope)] text-paper overflow-hidden -mt-24 pt-32 pb-20 md:pt-40 md:pb-24 min-h-[760px] flex items-start">
-      {/* Subtle radial glow */}
+    <section className="relative w-full bg-[var(--envelope)] text-paper overflow-hidden -mt-24 pt-32 pb-20 md:pt-40 md:pb-24">
+      {/* Glow sutil de fondo */}
       <div
         className="absolute inset-0 pointer-events-none opacity-80"
         style={{
@@ -21,87 +24,48 @@ export function Hero() {
         }}
       />
 
-      <div className="relative w-full mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        {/* LEFT — Texto */}
-        <div className="lg:col-span-6">
-          {/* Badge pill */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease, delay: 0.1 }}
-            className="inline-flex items-center rounded-full border border-paper/15 bg-paper/[0.04] px-5 py-2.5"
-          >
-            <span className="font-sans text-sm text-paper/60 leading-snug">
-              Tus proyectos, datos y levantamientos siempre accesibles desde cualquier lugar
-            </span>
-          </motion.div>
+      <div className="relative mx-auto max-w-5xl px-6 lg:px-10 text-center">
+        {/* Headline — 2 líneas, sin punto final */}
+        <motion.h1
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease, delay: 0.1 }}
+          className="font-display font-normal leading-[1.05] tracking-tight"
+          style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
+        >
+          Midiendo el presente
+          <br />
+          para construir el futuro
+        </motion.h1>
 
-          {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease, delay: 0.2 }}
-            className="mt-6 font-display font-normal leading-[1.05] tracking-tight"
-            style={{ fontSize: "clamp(2.5rem, 5.8vw, 5rem)" }}
-          >
-            Midiendo el presente para construir el futuro
-          </motion.h1>
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease, delay: 0.25 }}
+          className="mt-6 text-paper/70 leading-relaxed text-lg md:text-xl"
+        >
+          Topografía para proyectos de ingeniería
+        </motion.p>
 
-          {/* Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease, delay: 0.5 }}
-            className="mt-9 flex flex-wrap items-center gap-4"
-          >
-            <Link to="/contacto">
-              <Button variant="accent" size="lg">Solicitar presupuesto</Button>
-            </Link>
-            <Link
-              to="/tecnologia"
-              className="group inline-flex items-center gap-2 rounded-xl border border-paper/15 px-6 py-3 text-paper/80 hover:text-paper hover:bg-paper/5 transition-all"
-            >
-              <span className="text-sm font-medium">Ver tecnología</span>
-              <span className="transition-transform group-hover:translate-x-1">→</span>
-            </Link>
-          </motion.div>
-        </div>
-
-        {/* RIGHT — Foto en panel limpio (sin texto encima) */}
+        {/* Foto de los drones — panel centrado debajo del texto */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease, delay: 0.3 }}
-          className="lg:col-span-6 relative"
+          transition={{ duration: 0.9, ease, delay: 0.4 }}
+          className="mt-12 md:mt-16"
         >
           <div className="relative rounded-[20px] overflow-hidden shadow-soft-lg">
             <img
-              src={heroBg}
-              alt="Dron LiDAR sobrevolando un terreno para levantamiento topográfico"
+              src={heroDrones}
+              alt="Tres drones LiDAR sobrevolando un paisaje al atardecer"
               loading="eager"
               decoding="async"
-              className="block w-full h-[460px] md:h-[540px] object-cover"
+              className="block w-full h-auto object-cover"
             />
           </div>
         </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.2 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-paper/50"
-      >
-        <span className="font-sans uppercase text-[10px] tracking-[0.3em]">
-          Descubrir
-        </span>
-        <motion.div
-          animate={{ y: [0, 6, 0], opacity: [0.3, 1, 0.3] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-0.5 h-8 bg-paper/40 rounded-full"
-        />
-      </motion.div>
     </section>
   );
 }

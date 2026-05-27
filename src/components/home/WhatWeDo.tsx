@@ -1,43 +1,34 @@
 import { motion } from "framer-motion";
 import { Expandable } from "@/components/Expandable";
-import imgGrandes from "@/assets/clientes/solar-aerial-light.png";
-import imgPrecision from "@/assets/clientes/estacion-total.png";
-import imgProyectos from "@/assets/clientes/equipo-obra.png";
+import imgCaptura from "@/assets/clientes/drone-vuelo.png";
+import imgEjecucion from "@/assets/clientes/equipo-obra.png";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-// Limpieza visual: la foto vive arriba sin texto encima. El texto va debajo,
-// con un blurb corto y un desplegable para quien quiera profundizar.
 const cards = [
   {
     num: "01",
-    title: "Grandes extensiones",
-    short: "Levantamientos LiDAR de cientos de hectáreas.",
+    title: "Captura topográfica para proyectos",
+    short:
+      "Obtención de datos geoespaciales precisos con tecnología LiDAR y métodos topográficos para el desarrollo de ingeniería, energía y obra civil.",
     detail:
-      "Vuelos planificados con cobertura LiDAR completa, apoyo geodésico y entregables listos para CAD: MDT, MDS, curvas de nivel y nubes clasificadas.",
-    img: imgGrandes,
+      "Vuelos planificados, apoyo geodésico y procesado completo. Entregables listos para CAD: nubes de puntos clasificadas, MDT, MDS, ortofotos y curvas de nivel.",
+    img: imgCaptura,
   },
   {
     num: "02",
-    title: "Precisión milimétrica",
-    short: "Capturas de alta densidad para detalles técnicos.",
+    title: "Ejecución de obra",
+    short:
+      "Replanteos, control de ejecución, seguimiento y asistencia topográfica en todas las fases de construcción.",
     detail:
-      "Estructuras, infraestructura crítica y control geométrico con densidad de puntos elevada. Ideal para auditorías y modelos as-built.",
-    img: imgPrecision,
-  },
-  {
-    num: "03",
-    title: "Proyectos técnicos",
-    short: "Obra civil, ingeniería y topografía a medida.",
-    detail:
-      "Combinamos LiDAR aéreo, estación total y GNSS para casos exigentes. Entregamos datos en el formato y flujo de trabajo que usa tu equipo.",
-    img: imgProyectos,
+      "Acompañamos a constructoras e ingenierías desde el replanteo inicial hasta la liquidación final, con trazabilidad documental y los formatos que usa tu equipo.",
+    img: imgEjecucion,
   },
 ];
 
 export function WhatWeDo() {
   return (
-    <section className="bg-paper py-[140px] border-t border-ink/10">
+    <section id="servicios" className="bg-paper py-[140px] border-t border-ink/10">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <motion.p
           initial={{ opacity: 0, y: 8 }}
@@ -57,11 +48,11 @@ export function WhatWeDo() {
           className="mt-6 font-display font-normal text-ink leading-[1.02] tracking-tight max-w-4xl"
           style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
         >
-          Tres formas de aplicar la{" "}
-          <span className="italic-acc">misma tecnología</span>.
+          De la <span className="italic-acc">planificación</span> a la{" "}
+          <span className="italic-acc">ejecución</span>.
         </motion.h2>
 
-        <div className="mt-20 grid md:grid-cols-3 gap-8">
+        <div className="mt-20 grid md:grid-cols-2 gap-8">
           {cards.map((c, i) => (
             <motion.article
               key={c.num}

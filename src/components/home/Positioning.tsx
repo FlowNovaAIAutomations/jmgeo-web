@@ -9,12 +9,6 @@ const countries = [
   { code: "DE", name: "Alemania" },
 ];
 
-const stats = [
-  { value: "6", label: "Países europeos" },
-  { value: "120+", label: "Proyectos entregados" },
-  { value: "24/7", label: "Acceso a tus datos" },
-];
-
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Positioning() {
@@ -44,48 +38,33 @@ export function Positioning() {
             <span className="italic-acc">escala europea</span>.
           </motion.h2>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, ease, delay: 0.2 }}
-            className="mt-8 text-ink/80 leading-[1.65] max-w-md"
+            className="mt-8 max-w-md text-ink/80 leading-[1.65] space-y-5"
           >
-            En JM GEO apostamos por una topografía adaptada al momento
-            tecnológico actual. Por ello, incorporamos las últimas innovaciones
-            en sistemas digitales de medición. Creemos que la combinación entre
-            la dedicación humana en campo y el uso de tecnología emergente es
-            clave para ofrecer resultados de máximo rigor en proyectos de
-            edificación, energía e infraestructuras.
-          </motion.p>
+            <p>
+              En JM GEO apostamos por una topografía adaptada al momento
+              tecnológico actual.
+            </p>
+            <p>
+              Por ello, incorporamos las últimas innovaciones en sistemas
+              digitales de medición. Creemos que la combinación entre la
+              dedicación humana en campo y el uso de tecnología emergente es
+              clave para ofrecer resultados de máximo rigor en proyectos de
+              edificación, energía e infraestructuras.
+            </p>
+          </motion.div>
         </div>
 
-        {/* RIGHT — Stats + countries visual */}
-        <div className="md:col-span-7">
-          {/* Stats band */}
-          <div className="grid grid-cols-3 border-t border-b border-ink/15 divide-x divide-ink/10">
-            {stats.map((s, i) => (
-              <motion.div
-                key={s.label}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, ease, delay: i * 0.06 }}
-                className="py-7 px-4 text-center first:border-l-0"
-              >
-                <div className="font-display text-ink text-[clamp(1.75rem,3vw,2.5rem)] leading-none">
-                  {s.value}
-                </div>
-                <div className="mt-3 font-mono uppercase text-[10px] tracking-[0.2em] text-mid">
-                  {s.label}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Europe presence panel */}
-          <div className="mt-10 relative rounded-sm border border-ink/15 bg-ink text-paper overflow-hidden">
-            {/* subtle compass-style decoration */}
+        {/* RIGHT — Panel oscuro "Presencia operativa" con países */}
+        {/* mt-10 en desktop para que el panel arranque a la altura del título
+            en vez de a la altura del label "02 / Quiénes somos" */}
+        <div className="md:col-span-7 md:mt-10">
+          <div className="relative rounded-sm border border-ink/15 bg-ink text-paper overflow-hidden">
+            {/* glow sutil */}
             <div
               className="absolute inset-0 pointer-events-none opacity-60"
               style={{
@@ -94,16 +73,22 @@ export function Positioning() {
               }}
             />
             <div className="relative p-8 md:p-10">
-              <div className="flex items-center justify-between mb-8">
+              <div className="flex items-start justify-between mb-8 gap-6">
                 <div>
                   <p className="font-mono uppercase text-[10px] tracking-[0.25em] text-amber">
                     Presencia operativa
                   </p>
-                  <h3 className="mt-2 font-display text-paper text-2xl md:text-3xl leading-tight">
-                    Operando en 6 países de Europa
-                  </h3>
+                  <div
+                    className="mt-3 font-display text-paper leading-none"
+                    style={{ fontSize: "clamp(3rem, 6vw, 5rem)" }}
+                  >
+                    120+
+                  </div>
+                  <p className="mt-3 font-mono uppercase text-[10px] tracking-[0.25em] text-paper/65">
+                    Proyectos entregados
+                  </p>
                 </div>
-                <div className="hidden md:flex items-center gap-2 rounded-full border border-paper/20 px-3 py-1.5">
+                <div className="shrink-0 inline-flex items-center gap-2 rounded-full border border-paper/20 px-3 py-1.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-amber animate-pulse" />
                   <span className="font-mono uppercase text-[10px] tracking-[0.2em] text-paper/70">
                     En activo

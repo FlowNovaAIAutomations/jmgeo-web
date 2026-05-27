@@ -37,7 +37,7 @@ export function Projects() {
           >
             <span className="h-1.5 w-1.5 rounded-full bg-amber" />
             <span className="font-mono uppercase text-[10px] tracking-[0.25em] text-amber">
-              Portal Cliente JMGeo
+              Portal Cliente JM GEO
             </span>
           </motion.div>
 
@@ -47,10 +47,10 @@ export function Projects() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, ease, delay: 0.1 }}
             className="mt-7 font-display font-normal text-ink leading-[1.02] tracking-tight"
-            style={{ fontSize: "clamp(2.25rem, 4.8vw, 4rem)" }}
+            style={{ fontSize: "clamp(2rem, 4.2vw, 3.75rem)" }}
           >
-            Tus proyectos{" "}
-            <span className="block text-ink/35">/ disponibles 24/7</span>
+            Tus proyectos
+            <span className="block text-ink/35 whitespace-nowrap">disponibles 24/7</span>
           </motion.h2>
 
           <motion.p

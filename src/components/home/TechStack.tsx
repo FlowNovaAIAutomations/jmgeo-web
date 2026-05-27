@@ -14,17 +14,24 @@ const items = [
   },
   {
     num: "02",
-    title: "GPS GNSS",
-    short: "Apoyo de campo con receptores de precisión.",
+    title: "Nube de puntos",
+    short: "Clasificación, filtrado y modelos derivados.",
     detail:
-      "Bases y rovers GNSS para georreferenciar toda la captura y garantizar precisión sub-centimétrica.",
+      "Generamos MDT, MDS, curvas y extracción de elementos sobre grandes volúmenes con software especializado.",
   },
   {
     num: "03",
-    title: "Estaciones totales",
-    short: "Medición angular y de distancias en campo.",
+    title: "CAD y cartografía",
+    short: "Entregables listos para tu flujo de trabajo.",
     detail:
-      "Equipos de estación total para levantamientos puntuales, replanteos y control de obra con máxima precisión.",
+      "Compatibilidad con AutoCAD Civil 3D, Revit, GIS y los formatos que use tu proyecto.",
+  },
+  {
+    num: "04",
+    title: "GNSS y geodesia",
+    short: "Apoyo de campo con receptores de precisión.",
+    detail:
+      "Bases y rovers GNSS para georreferenciar toda la captura LiDAR con precisión sub-centimétrica.",
   },
 ];
 
@@ -54,10 +61,10 @@ export function TechStack() {
           className="mt-6 font-display font-normal text-ink leading-[1] tracking-tight max-w-4xl"
           style={{ fontSize: "clamp(3rem, 6.5vw, 5.5rem)" }}
         >
-          Equipos de <span className="italic-acc">precisión</span>.
+          Equipo y <span className="italic-acc">herramientas</span> a la altura.
         </motion.h2>
 
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {items.map((it, i) => (
             <motion.div
               key={it.num}

@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Hero } from "@/components/home/Hero";
 import { Positioning } from "@/components/home/Positioning";
+import { Equipment } from "@/components/home/Equipment";
+import { WhatWeDo } from "@/components/home/WhatWeDo";
 import { TechStack } from "@/components/home/TechStack";
 import { Process } from "@/components/home/Process";
 import { Projects } from "@/components/home/Projects";
-
 import { FinalCta } from "@/components/home/FinalCta";
 
 export const Route = createFileRoute("/")({
@@ -25,6 +26,8 @@ function Home() {
       <Hero />
       <Projects />
       <Positioning />
+      <Equipment />
+      <WhatWeDo />
       <TechStack />
       <Process />
       <FinalCta />

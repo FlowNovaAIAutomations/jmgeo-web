@@ -1,17 +1,12 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/Button";
-import { CompassRose } from "@/components/CompassRose";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function FinalCta() {
   return (
     <section className="relative bg-[var(--envelope)] text-paper py-[180px] overflow-hidden">
-      <div className="absolute inset-0 flex items-center justify-center text-paper pointer-events-none">
-        <CompassRose size={720} opacity={0.03} />
-      </div>
-
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -25,7 +20,7 @@ export function FinalCta() {
         >
           ¿Tienes un proyecto?
           <br />
-          <span className="italic-acc">Lo medimos</span>.
+          <span className="italic-acc">Lo medimos</span>
         </h2>
 
         <Link to="/contacto" className="mt-12">

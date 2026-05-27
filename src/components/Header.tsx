@@ -16,11 +16,19 @@ const navItems = [
 
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(true);
+  // Empieza transparente para que el logo se integre con el hero sin recuadro.
+  // Al hacer scroll aparece el fondo translúcido + blur para mantener legibilidad
+  // del menú sobre contenido claro.
+  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  // Toggle visual de idioma: EN aún no traduce, sólo cambia el highlight.
+  const [lang, setLang] = useState<"es" | "en">("es");
 
   useEffect(() => {
-    setScrolled(true);
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
 
@@ -42,13 +50,13 @@ export function Header() {
           paddingTop: scrolled ? 12 : 20,
           paddingBottom: scrolled ? 12 : 20,
           backgroundColor: scrolled
-            ? "rgba(248, 250, 251, 0.78)"
+            ? "rgba(248, 250, 251, 0.85)"
             : "rgba(248, 250, 251, 0)",
         }}
         transition={{ duration: 0.3, ease: "easeOut" }}
         className={cn(
-          "fixed top-0 inset-x-0 z-50 backdrop-blur-[12px]",
-          scrolled ? "border-b border-ink/[0.06]" : "border-b border-transparent"
+          "fixed top-0 inset-x-0 z-50",
+          scrolled ? "backdrop-blur-[12px] border-b border-ink/[0.06]" : "border-b border-transparent"
         )}
         role="banner"
       >
@@ -60,7 +68,9 @@ export function Header() {
             aria-label="JMGeo — Inicio"
           >
             <Logo
-              variant="dark"
+              // Sobre el hero envelope (oscuro) el logo navy no se ve; usamos la
+              // variante light hasta que aparezca el fondo translúcido al hacer scroll.
+              variant={scrolled ? "dark" : "light"}
               className={cn("w-auto transition-all duration-300", scrolled ? "h-11 md:h-12" : "h-14 md:h-16")}
             />
           </Link>
@@ -71,8 +81,13 @@ export function Header() {
                 key={`${item.to}-${item.label}`}
                 to={item.to}
                 hash={item.hash}
-                className="font-mono uppercase text-[11px] tracking-[0.22em] text-ink/70 hover:text-ink transition-colors"
-                activeProps={{ className: "text-ink" }}
+                className={cn(
+                  "font-mono uppercase text-[11px] tracking-[0.22em] transition-colors",
+                  scrolled
+                    ? "text-ink/90 hover:text-ink"
+                    : "text-paper hover:text-paper/80"
+                )}
+                activeProps={{ className: scrolled ? "text-ink" : "text-paper" }}
                 activeOptions={{ exact: item.to === "/" && !item.hash }}
               >
                 {item.label}
@@ -80,23 +95,50 @@ export function Header() {
             ))}
           </nav>
 
+          {/* Lado derecho: PRIMERO área clientes, LUEGO selector de idioma a la derecha. */}
           <div className="hidden md:flex items-center gap-3">
             <Link to="/clientes">
               <Button variant="accent" size="sm">Área clientes</Button>
             </Link>
-            <button
-              type="button"
-              aria-label="Cambiar idioma (próximamente)"
-              title="Próximamente"
-              className="font-sans text-[11px] tracking-[0.18em] text-ink/70 hover:text-ink transition-colors px-2.5 py-1 border border-ink/12 rounded-xl"
+            <div
+              role="group"
+              aria-label="Selector de idioma"
+              className={cn(
+                "inline-flex items-center rounded-xl border overflow-hidden transition-colors",
+                scrolled ? "border-ink/15" : "border-paper/25"
+              )}
             >
-              ES <span className="text-ink/30">/</span> <span className="text-ink/40">EN</span>
-            </button>
+              {(["es", "en"] as const).map((code) => {
+                const active = lang === code;
+                return (
+                  <button
+                    key={code}
+                    type="button"
+                    onClick={() => setLang(code)}
+                    aria-pressed={active}
+                    aria-label={code === "es" ? "Español" : "English (próximamente)"}
+                    title={code === "en" ? "Próximamente" : undefined}
+                    className={cn(
+                      "font-sans text-[11px] tracking-[0.18em] px-2.5 py-1 transition-colors",
+                      active
+                        ? scrolled
+                          ? "bg-ink text-paper"
+                          : "bg-paper text-ink"
+                        : scrolled
+                          ? "text-ink/65 hover:text-ink"
+                          : "text-paper/70 hover:text-paper"
+                    )}
+                  >
+                    {code.toUpperCase()}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
 
           <button
-            className="md:hidden text-ink p-2 -mr-2"
+            className={cn("md:hidden p-2 -mr-2 transition-colors", scrolled ? "text-ink" : "text-paper")}
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={open}
