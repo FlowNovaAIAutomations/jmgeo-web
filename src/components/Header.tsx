@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
@@ -16,16 +16,22 @@ const navItems = [
 
 
 export function Header() {
-  // Empieza transparente para que el logo se integre con el hero sin recuadro.
-  // Al hacer scroll aparece el fondo translúcido + blur para mantener legibilidad
-  // del menú sobre contenido claro.
-  const [scrolled, setScrolled] = useState(false);
+  // Solo el Home tiene hero oscuro (envelope) que permite el header transparente
+  // con logo y menú en blanco. El resto de páginas tienen fondo claro en el top,
+  // así que forzamos el estilo "scrolled" (logo navy + menú oscuro + fondo
+  // translúcido claro) siempre, para que se vea bien sin importar el scroll.
+  const [scrolledRaw, setScrolledRaw] = useState(false);
   const [open, setOpen] = useState(false);
   // Toggle visual de idioma: EN aún no traduce, sólo cambia el highlight.
   const [lang, setLang] = useState<"es" | "en">("es");
 
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isHome = pathname === "/";
+  // En home: depende del scroll. Fuera del home: siempre estilo "scrolled".
+  const scrolled = isHome ? scrolledRaw : true;
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => setScrolledRaw(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
