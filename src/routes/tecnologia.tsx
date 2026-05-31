@@ -177,17 +177,6 @@ function EquipmentBlock({ eq, reversed }: EquipmentBlockProps) {
       id={eq.id}
       className="relative grid md:grid-cols-12 gap-10 lg:gap-16 items-center scroll-mt-28"
     >
-      {/* Decorative giant number */}
-      <div
-        className={`absolute pointer-events-none font-display font-light italic text-amber/[0.12] leading-none select-none hidden md:block ${
-          reversed ? "right-0 -top-16" : "left-0 -top-16"
-        }`}
-        style={{ fontSize: "200px" }}
-        aria-hidden="true"
-      >
-        {eq.num}
-      </div>
-
       {/* Video slot */}
       <div className={`md:col-span-5 ${reversed ? "md:order-2" : ""}`}>
         <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[20px] bg-[var(--envelope)] group">
