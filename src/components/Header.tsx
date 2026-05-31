@@ -87,6 +87,13 @@ export function Header() {
                 key={`${item.to}-${item.label}`}
                 to={item.to}
                 hash={item.hash}
+                onClick={() => {
+                  // Si ya estamos en la misma ruta y hay hash, forzar scroll
+                  if (item.hash && window.location.pathname === item.to) {
+                    const el = document.getElementById(item.hash);
+                    el?.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
                 className={cn(
                   "font-mono uppercase text-[11px] tracking-[0.22em] transition-colors",
                   scrolled
@@ -179,7 +186,13 @@ export function Header() {
                   <Link
                     to={item.to}
                     hash={item.hash}
-                    onClick={() => setOpen(false)}
+                    onClick={() => {
+                      setOpen(false);
+                      if (item.hash && window.location.pathname === item.to) {
+                        const el = document.getElementById(item.hash);
+                        el?.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
                     className="font-display text-[clamp(2rem,8vw,3.5rem)] leading-none hover:text-amber transition-colors"
                   >
                     {item.label}
