@@ -17,7 +17,7 @@ export function Hero() {
     <section
       className="relative w-full text-paper overflow-hidden -mt-24 pt-32 pb-20 md:pt-40 md:pb-24"
       style={{
-        background: "linear-gradient(180deg, #03274B 0%, #0A2D52 30%, #16395F 65%, #668AB3 100%)",
+        background: "linear-gradient(180deg, #03274B 0%, #0A2D52 30%, #16395F 65%, #668AB3 85%, #F8FAFB 100%)",
       }}
     >
       {/* Iluminación radial superior central */}

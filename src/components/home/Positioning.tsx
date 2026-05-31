@@ -1,13 +1,5 @@
 import { motion } from "framer-motion";
-
-const countries = [
-  { code: "ES", name: "España" },
-  { code: "UK", name: "Reino Unido" },
-  { code: "IT", name: "Italia" },
-  { code: "PT", name: "Portugal" },
-  { code: "FR", name: "Francia" },
-  { code: "DE", name: "Alemania" },
-];
+import { countryShapes } from "./countryShapes";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -94,19 +86,27 @@ export function Positioning() {
               </div>
 
               <div className="grid grid-cols-3 md:grid-cols-6 gap-px bg-paper/10">
-                {countries.map((c, i) => (
+                {countryShapes.map((c, i) => (
                   <motion.div
-                    key={c.code}
+                    key={c.name}
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.4, ease, delay: i * 0.05 }}
-                    className="bg-ink p-4 hover:bg-ink/60 transition-colors group"
+                    className="bg-ink px-2 py-5 hover:bg-ink/60 transition-colors group flex flex-col items-center"
                   >
-                    <div className="font-display text-[26px] leading-none text-paper group-hover:text-amber transition-colors">
-                      {c.code}
-                    </div>
-                    <div className="mt-2 font-mono uppercase text-[9px] tracking-[0.2em] text-paper/55">
+                    <svg
+                      viewBox="0 0 1024 1024"
+                      className="w-12 h-12 fill-paper/60 group-hover:fill-amber transition-colors"
+                      aria-hidden="true"
+                    >
+                      <g transform={c.transform}>
+                        {c.paths.map((d, k) => (
+                          <path key={k} d={d} />
+                        ))}
+                      </g>
+                    </svg>
+                    <div className="mt-3 font-mono uppercase text-[9px] tracking-[0.15em] text-paper/55 text-center leading-tight">
                       {c.name}
                     </div>
                   </motion.div>
