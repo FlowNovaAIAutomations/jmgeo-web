@@ -29,7 +29,7 @@ function ContactoPage() {
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
 
-  // TODO: conectar con Resend usando el endpoint /api/contact cuando esté lista la cuenta. Destino: javier@jmgeo.es
+  // TODO: conectar con Resend usando el endpoint /api/contact cuando esté lista la cuenta. Destino: administracion@jmgeo.es
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -64,11 +64,8 @@ function ContactoPage() {
               CONTACTO
             </p>
             <h1 className="mt-6 font-display text-ink" style={{ fontSize: "clamp(3rem, 6vw, 5rem)", lineHeight: 1.02, letterSpacing: "-0.02em" }}>
-              Cuéntanos qué <span className="italic-acc">necesitas medir</span>.
+              Cuéntanos qué <span className="italic-acc">necesitas medir</span>
             </h1>
-            <p className="mt-8 max-w-[480px] font-sans text-[18px] leading-relaxed text-mid">
-              Respondemos en menos de 24 horas laborables. Sin compromiso.
-            </p>
 
             <div className="mt-12">
               <AnimatePresence mode="wait">
@@ -89,8 +86,8 @@ function ContactoPage() {
                     </h2>
                     <p className="mt-4 font-sans text-[14px] text-mid">
                       Si tu consulta es urgente, también puedes escribirnos directamente a{" "}
-                      <a href="mailto:javier@jmgeo.es" className="text-ink underline decoration-amber underline-offset-4">
-                        javier@jmgeo.es
+                      <a href="mailto:administracion@jmgeo.es" className="text-ink underline decoration-amber underline-offset-4">
+                        administracion@jmgeo.es
                       </a>
                     </p>
                     <div className="mt-8">
@@ -132,9 +129,10 @@ function ContactoPage() {
                         className="rounded-xl border border-ink/12 bg-[var(--paper-alt)] px-4 py-[14px] font-sans text-[15px] text-ink outline-none transition-colors focus:border-amber focus:bg-paper"
                       >
                         <option value="" disabled>Selecciona una opción</option>
-                        <option>Levantamiento de grandes extensiones</option>
-                        <option>Captura de alta precisión</option>
-                        <option>Proyecto técnico a medida</option>
+                        <option>Levantamiento LiDAR</option>
+                        <option>Levantamiento fotogrametría</option>
+                        <option>Replanteo</option>
+                        <option>Generación MDT&amp;MDE</option>
                         <option>Consulta general</option>
                       </select>
                     </div>
@@ -184,7 +182,7 @@ function ContactoPage() {
                             Enviando…
                           </>
                         ) : (
-                          "Enviar mensaje"
+                          "Solicitar presupuesto"
                         )}
                       </Button>
                     </div>
@@ -197,10 +195,9 @@ function ContactoPage() {
           {/* Columna derecha — información */}
           <motion.aside {...fadeIn} transition={{ duration: 0.7, ease, delay: 0.1 }}>
             <div className="rounded-[20px] border border-ink/8 bg-paper p-9 shadow-soft">
-              <InfoBlock title="DIRECTAMENTE">
-                <p className="text-mid text-[13px] mb-2">Contacto directo con Javier</p>
-                <a href="mailto:javier@jmgeo.es" className="block text-ink hover:text-amber transition-colors">
-                  javier@jmgeo.es
+              <InfoBlock title="CONTACTO">
+                <a href="mailto:administracion@jmgeo.es" className="block text-ink hover:text-amber transition-colors">
+                  administracion@jmgeo.es
                 </a>
                 <a href="tel:+34640266724" className="block text-ink hover:text-amber transition-colors mt-1">
                   +34 640 266 724
@@ -209,25 +206,9 @@ function ContactoPage() {
 
               <Divider />
 
-              <InfoBlock title="OFICINA">
-                <p className="text-ink">Maestra Juana Senent 5, 5</p>
-                <p className="text-ink">46910 Benetússer</p>
-                <p className="text-ink">Valencia, España</p>
-              </InfoBlock>
-
-              <Divider />
-
               <InfoBlock title="HORARIO">
                 <p className="text-ink">Lunes a viernes</p>
                 <p className="text-ink">09:00 — 18:00 (CET)</p>
-              </InfoBlock>
-
-              <Divider />
-
-              <InfoBlock title="PRESENCIA">
-                <p className="text-ink">
-                  Operamos en España, Reino Unido, Italia, Portugal, Francia y Alemania.
-                </p>
               </InfoBlock>
             </div>
 

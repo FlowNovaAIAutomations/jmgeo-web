@@ -53,7 +53,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "JM GEO",
   url: "https://jmgeo.es",
-  email: "javier@jmgeo.es",
+  email: "administracion@jmgeo.es",
   telephone: "+34 640 266 724",
   description:
     "Topografía técnica especializada en captura de datos LiDAR aéreos con drones. Operamos en seis países europeos.",

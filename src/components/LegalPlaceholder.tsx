@@ -34,10 +34,10 @@ export function LegalPlaceholder({
         >
           Contenido legal en preparación. Para cualquier consulta, contactar con{" "}
           <a
-            href="mailto:javier@jmgeo.es"
+            href="mailto:administracion@jmgeo.es"
             className="text-ink underline decoration-amber underline-offset-4 hover:text-amber transition-colors"
           >
-            javier@jmgeo.es
+            administracion@jmgeo.es
           </a>
           .
         </p>
