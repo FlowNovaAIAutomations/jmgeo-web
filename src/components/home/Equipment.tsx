@@ -1,23 +1,26 @@
 import { motion } from "framer-motion";
-import { Plane, Satellite, Target } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const equipment = [
   {
-    icon: Plane,
+    num: "01",
     name: "Drones LiDAR",
     desc: "Captura aérea de alta densidad para grandes superficies, infraestructuras y terrenos complejos.",
+    hash: "drones-lidar",
   },
   {
-    icon: Satellite,
+    num: "02",
     name: "GPS GNSS",
     desc: "Posicionamiento geodésico multi-constelación para apoyo de campo y control de precisión.",
+    hash: "gps-gnss",
   },
   {
-    icon: Target,
+    num: "03",
     name: "Estaciones totales",
     desc: "Mediciones angulares y de distancia de máxima exactitud para detalles y replanteos.",
+    hash: "estaciones-totales",
   },
 ];
 
@@ -47,29 +50,38 @@ export function Equipment() {
         </motion.h2>
 
         <div className="mt-16 grid md:grid-cols-3 gap-6">
-          {equipment.map((e, i) => {
-            const Icon = e.icon;
-            return (
-              <motion.article
-                key={e.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, ease, delay: i * 0.12 }}
-                className="rounded-[20px] bg-paper border border-ink/[0.06] p-8 shadow-soft hover:shadow-soft-lg transition-shadow"
+          {equipment.map((e, i) => (
+            <motion.div
+              key={e.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease, delay: i * 0.12 }}
+            >
+              <Link
+                to="/tecnologia"
+                hash={e.hash}
+                className="group flex h-full flex-col rounded-[20px] bg-paper border border-ink/[0.06] p-10 shadow-soft hover:shadow-soft-lg transition-shadow"
               >
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--paper-alt)] text-[var(--accent)]">
-                  <Icon className="h-5 w-5" strokeWidth={1.5} />
+                <div
+                  className="font-display font-light leading-none"
+                  style={{ fontSize: "80px", letterSpacing: "-0.04em", color: "rgba(42,56,69,0.12)" }}
+                >
+                  {e.num}
                 </div>
-                <h3 className="mt-6 font-display text-[22px] font-medium text-ink leading-tight">
+                <h3 className="mt-6 font-display text-[22px] font-medium text-ink leading-tight group-hover:text-amber transition-colors">
                   {e.name}
                 </h3>
                 <p className="mt-3 text-[15px] text-mid leading-relaxed">
                   {e.desc}
                 </p>
-              </motion.article>
-            );
-          })}
+                <span className="mt-6 inline-flex items-center gap-2 font-mono uppercase text-[10px] tracking-[0.25em] text-ink/70 group-hover:text-amber border-b border-ink/20 group-hover:border-amber pb-1 transition-colors self-start">
+                  Detalle
+                  <span className="text-amber">→</span>
+                </span>
+              </Link>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

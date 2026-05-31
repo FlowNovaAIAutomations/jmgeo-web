@@ -3,7 +3,6 @@ import { Hero } from "@/components/home/Hero";
 import { Positioning } from "@/components/home/Positioning";
 import { Equipment } from "@/components/home/Equipment";
 import { WhatWeDo } from "@/components/home/WhatWeDo";
-import { TechStack } from "@/components/home/TechStack";
 import { Projects } from "@/components/home/Projects";
 import { FinalCta } from "@/components/home/FinalCta";
 
@@ -27,7 +26,6 @@ function Home() {
       <Positioning />
       <Equipment />
       <WhatWeDo />
-      <TechStack />
       <FinalCta />
     </>
   );

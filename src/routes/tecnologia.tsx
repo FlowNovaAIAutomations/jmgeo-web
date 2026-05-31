@@ -2,19 +2,17 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import { Button } from "@/components/Button";
-import { CompassRose } from "@/components/CompassRose";
-import imgGrandes from "@/assets/clientes/obra-fotovoltaica.png";
-import imgPrecision from "@/assets/clientes/drone-lidar.png";
-import imgMedida from "@/assets/clientes/gps-rover.png";
-import imgNube from "@/assets/clientes/cad-curvas.png";
+import imgDrone from "@/assets/clientes/drone-lidar.png";
+import imgGnss from "@/assets/clientes/gps-rover.png";
+import imgEstacion from "@/assets/clientes/obra-fotovoltaica.png";
 
 export const Route = createFileRoute("/tecnologia")({
   head: () => ({
     meta: [
       { title: "Tecnología · JM GEO · Topografía con drones y LiDAR" },
-      { name: "description", content: "LiDAR aéreo sobre drones aplicado a proyectos reales: levantamientos de gran superficie, alta precisión y soluciones técnicas a medida." },
+      { name: "description", content: "Los equipos de JM GEO: drones LiDAR, posicionamiento GNSS y estación total. Tecnología de precisión para cada proyecto topográfico." },
       { property: "og:title", content: "Tecnología · JM GEO · Topografía con drones y LiDAR" },
-      { property: "og:description", content: "LiDAR aéreo sobre drones aplicado a proyectos reales: levantamientos de gran superficie, alta precisión y soluciones técnicas a medida." },
+      { property: "og:description", content: "Los equipos de JM GEO: drones LiDAR, posicionamiento GNSS y estación total. Tecnología de precisión para cada proyecto topográfico." },
     ],
   }),
   component: TecnologiaPage,
@@ -29,19 +27,20 @@ const fadeUp = {
   transition: { duration: 0.7, ease },
 };
 
-// Each block exposes a `videoSrc` slot. Replace the placeholder block
-// (the inner <div> with the Unsplash <img>) with:
+// Cada equipo expone un slot `videoSrc`. Sustituir el bloque placeholder
+// (el <div> con la <img>) por:
 // <video src={videoSrc} muted loop playsInline autoPlay
 //   className="absolute inset-0 w-full h-full object-cover" />
-const applications = [
+const equipment = [
   {
+    id: "drones-lidar",
     num: "01",
-    label: "Aplicación 01",
-    titleStart: "Levantamientos de ",
-    titleItalic: "grandes superficies",
+    label: "Equipo 01",
+    titleStart: "Captura aérea con ",
+    titleItalic: "LiDAR",
     paragraphs: [
-      "Vuelos planificados que cubren cientos de hectáreas en una sola jornada. Ideal para urbanismo, planificación de infraestructura, estudios ambientales o proyectos lineales como carreteras y tendidos.",
-      "La densidad de captura se ajusta al tipo de proyecto: desde 50 puntos por metro cuadrado para reconocimientos generales hasta más de 400 puntos por m² para zonas que requieren detalle.",
+      "Montamos sensores LiDAR de alta densidad sobre plataformas DJI Matrice para capturar el terreno desde el aire. Cada vuelo genera una nube de millones de puntos georreferenciados, incluso bajo vegetación.",
+      "La densidad se ajusta a cada proyecto: desde reconocimientos generales de grandes superficies hasta capturas de alto detalle sobre infraestructuras y terrenos complejos.",
     ],
     deliverablesLabel: "Qué entregamos",
     deliverables: [
@@ -51,58 +50,49 @@ const applications = [
       "Curvas de nivel a la equidistancia que pidas",
       "Ortofoto georreferenciada (con cámara complementaria)",
     ],
-    img: imgGrandes,
+    img: imgDrone,
     videoSrc: null,
   },
   {
+    id: "gps-gnss",
     num: "02",
-    label: "Aplicación 02",
-    titleStart: "Capturas de ",
-    titleItalic: "alta precisión",
+    label: "Equipo 02",
+    titleStart: "Posicionamiento ",
+    titleItalic: "GNSS",
     paragraphs: [
-      "Para proyectos donde el detalle es crítico: estructuras, edificios singulares, infraestructura técnica, instalaciones industriales, control geométrico de obras existentes.",
-      "Vuelos a baja altura con alta densidad de captura y apoyo de puntos de control geodésico. Conseguimos precisiones centimétricas o incluso milimétricas según el caso.",
+      "Receptores GNSS multi-constelación con corrección RTK que dan apoyo geodésico a toda la captura. Son la referencia que ancla cada proyecto a coordenadas reales.",
+      "Materializamos y medimos los puntos de control que garantizan la precisión centimétrica de los levantamientos y permiten enlazar distintas técnicas en un mismo sistema de referencia.",
     ],
-    deliverablesLabel: "Qué entregamos",
+    deliverablesLabel: "Para qué",
     deliverables: [
-      "Nube de puntos de muy alta densidad",
-      "Mediciones específicas con tolerancias documentadas",
-      "Modelos 3D listos para CAD/BIM",
-      "Comparativas con estado proyectado",
-      "Informes técnicos certificados",
+      "Apoyo geodésico de los vuelos LiDAR",
+      "Puntos de control y georreferenciación",
+      "Enlace a sistemas de referencia oficiales",
+      "Verificación de precisión en campo",
     ],
-    img: imgPrecision,
+    img: imgGnss,
     videoSrc: null,
   },
   {
+    id: "estaciones-totales",
     num: "03",
-    label: "Aplicación 03",
-    titleStart: "Aplicaciones ",
-    titleItalic: "a medida",
+    label: "Equipo 03",
+    titleStart: "Estación ",
+    titleItalic: "total",
     paragraphs: [
-      "Cada proyecto técnico tiene necesidades distintas. Combinamos LiDAR aéreo con otras técnicas (topografía clásica, GPS, ortofoto) para entregar exactamente lo que tu equipo necesita.",
-      "Trabajamos con ingenierías, estudios de arquitectura, administraciones y constructoras. Adaptamos el formato de salida al software que usen.",
+      "Para los trabajos donde prima la exactitud puntual, la estación total mide ángulos y distancias con tolerancias milimétricas. Es el complemento de precisión a la captura aérea.",
+      "La empleamos en replanteos, control geométrico de obra y levantamiento de detalle, allí donde cada punto cuenta y el láser aéreo no llega con suficiente resolución.",
     ],
-    deliverablesLabel: "Ejemplos de trabajos",
+    deliverablesLabel: "Para qué",
     deliverables: [
-      "Cubicaciones y movimientos de tierra",
-      "Análisis de pendientes y escorrentía",
-      "Monitorización de avance de obra",
-      "Documentación de patrimonio",
-      "Estudios para fotovoltaicas e infraestructura energética",
+      "Replanteo de obra",
+      "Control geométrico y de ejecución",
+      "Levantamiento de detalle",
+      "Comprobaciones milimétricas",
     ],
-    img: imgMedida,
+    img: imgEstacion,
     videoSrc: null,
   },
-];
-
-const countries = [
-  { code: "ES", name: "España", desc: "Base operativa principal" },
-  { code: "UK", name: "Reino Unido", desc: "Proyectos técnicos y obra civil" },
-  { code: "IT", name: "Italia", desc: "Topografía y patrimonio" },
-  { code: "PT", name: "Portugal", desc: "Infraestructura y urbanismo" },
-  { code: "FR", name: "Francia", desc: "Captura de grandes extensiones" },
-  { code: "DE", name: "Alemania", desc: "Proyectos industriales" },
 ];
 
 function TecnologiaPage() {
@@ -117,18 +107,17 @@ function TecnologiaPage() {
             transition={{ duration: 0.6, ease }}
             className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber"
           >
-            Tecnología / Drones + LIDAR
+            Tecnología
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.15 }}
             className="mt-8 font-display font-normal text-ink leading-[0.95] tracking-tight max-w-[1200px]"
-            style={{ fontSize: "clamp(4rem, 10vw, 8.75rem)" }}
+            style={{ fontSize: "clamp(3.5rem, 9vw, 7.5rem)" }}
           >
-            Capturar el terreno con drones y láser.
-            <br />
-            Aplicado a <span className="italic-acc">proyectos reales</span>.
+            Los equipos detrás de{" "}
+            <span className="italic-acc">cada levantamiento</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -136,153 +125,24 @@ function TecnologiaPage() {
             transition={{ duration: 0.7, ease, delay: 0.3 }}
             className="mt-10 max-w-[720px] text-xl text-mid leading-relaxed"
           >
-            La tecnología LiDAR montada en drones permite obtener nubes de puntos
-            densas y georreferenciadas del terreno, incluso bajo vegetación.
-            Estos son los principales tipos de trabajos que hacemos con ella.
+            Combinamos captura aérea LiDAR, posicionamiento GNSS y estación total
+            para cubrir cualquier proyecto, desde grandes superficies hasta el
+            detalle milimétrico.
           </motion.p>
         </div>
       </section>
 
-      {/* SECTION A — FUNDAMENTALS */}
+      {/* 3 EQUIPOS (zigzag) */}
       <section className="bg-paper py-[120px] border-t border-ink/10">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
-            <motion.div {...fadeUp}>
-              <p className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber">
-                Fundamentos
-              </p>
-              <h2
-                className="mt-6 font-display font-normal text-ink leading-[1.02] tracking-tight"
-                style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
-              >
-                Millones de puntos por segundo, cada uno con su{" "}
-                <span className="italic-acc">coordenada exacta</span>.
-              </h2>
-            </motion.div>
-
-            <motion.div
-              {...fadeUp}
-              transition={{ duration: 0.7, ease, delay: 0.1 }}
-              className="space-y-6 text-[16px] text-ink/85 leading-[1.6]"
-            >
-              <p>
-                LiDAR (<em>Light Detection and Ranging</em>) es una tecnología
-                de medición que utiliza pulsos láser para calcular distancias
-                con altísima precisión. Al montarse en un dron, permite capturar
-                el terreno desde el aire mucho más rápido y con más detalle que
-                la topografía tradicional.
-              </p>
-              <p>
-                Cada vuelo genera una nube de millones de puntos, donde cada uno
-                tiene su coordenada X, Y, Z con precisión centimétrica. A partir
-                de esa nube se construyen modelos del terreno, ortofotos,
-                mediciones de volumen, análisis estructurales y todo lo que el
-                proyecto necesite.
-              </p>
-              <p>
-                Frente a métodos tradicionales, LiDAR aérea aporta velocidad,
-                escala y detalle. Es especialmente útil en terrenos extensos,
-                con vegetación, o cuando se necesita repetir capturas para
-                control de avance.
-              </p>
-            </motion.div>
-          </div>
-
-          {/* Point cloud illustrative image */}
-          <motion.figure
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, ease }}
-            className="mt-24"
-          >
-            <div className="relative w-full aspect-[21/9] overflow-hidden rounded-[20px] bg-[var(--envelope)]">
-              <img loading="lazy" decoding="async"                 src={imgNube}
-                alt="Representación de nube de puntos LiDAR"
-                className="absolute inset-0 w-full h-full object-cover"
-                style={{ filter: "contrast(1.05) saturate(0.75) brightness(0.9)" }}
-              />
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(to bottom, rgba(74,94,114,0.2), rgba(74,94,114,0.45))",
-                }}
-              />
-            </div>
-            <figcaption className="mt-4 font-sans uppercase text-[10px] tracking-[0.25em] text-mid">
-              Ejemplo de nube de puntos LIDAR · 48M puntos · Densidad 200 pts/m²
-            </figcaption>
-          </motion.figure>
-        </div>
-      </section>
-
-      {/* SECTION B — 3 APPLICATIONS (zigzag) */}
-      <section className="bg-paper py-[160px] border-t border-ink/10">
         <div className="mx-auto max-w-7xl px-6 lg:px-10 space-y-[160px]">
-          {applications.map((app, idx) => {
-            const reversed = idx % 2 === 1;
-            return (
-              <ApplicationBlock key={app.num} app={app} reversed={reversed} />
-            );
-          })}
+          {equipment.map((eq, idx) => (
+            <EquipmentBlock key={eq.id} eq={eq} reversed={idx % 2 === 1} />
+          ))}
         </div>
       </section>
 
-      {/* SECTION C — INTERNATIONAL */}
-      <section className="relative bg-[var(--envelope)] text-paper py-[160px] overflow-hidden">
-        <div className="absolute -bottom-32 -left-32 text-paper pointer-events-none">
-          <CompassRose size={520} opacity={0.05} />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
-          <motion.p {...fadeUp} className="font-sans uppercase text-[11px] tracking-[0.25em] text-amber">
-            Alcance
-          </motion.p>
-          <motion.h2
-            {...fadeUp}
-            transition={{ duration: 0.7, ease, delay: 0.1 }}
-            className="mt-6 font-display font-normal leading-[1] tracking-tight max-w-4xl"
-            style={{ fontSize: "clamp(3rem, 6.5vw, 5.5rem)" }}
-          >
-            Operamos donde <span className="italic-acc">esté tu proyecto</span>.
-          </motion.h2>
-          <motion.p
-            {...fadeUp}
-            transition={{ duration: 0.7, ease, delay: 0.2 }}
-            className="mt-8 max-w-xl text-paper/75 leading-relaxed text-lg"
-          >
-            Hemos trabajado en seis países europeos. Nuestro stack de drones y
-            procesado se traslada donde haga falta.
-          </motion.p>
-
-          <div className="mt-20 grid md:grid-cols-3 gap-4">
-            {countries.map((c, i) => (
-              <motion.div
-                key={c.code}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, ease, delay: i * 0.08 }}
-                className="bg-paper/[0.04] border border-paper/10 rounded-[20px] p-8"
-              >
-                <div className="flex items-baseline gap-4">
-                  <span className="font-sans text-[11px] tracking-[0.25em] text-amber">
-                    {c.code}
-                  </span>
-                  <h3 className="font-display text-2xl text-paper">{c.name}</h3>
-                </div>
-                <p className="mt-4 text-sm text-paper/65 leading-relaxed">
-                  {c.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION D — CTA */}
-      <section className="bg-paper py-[140px]">
+      {/* CTA */}
+      <section className="bg-paper py-[140px] border-t border-ink/10">
         <motion.div
           {...fadeUp}
           className="mx-auto max-w-3xl px-6 lg:px-10 text-center flex flex-col items-center"
@@ -291,14 +151,14 @@ function TecnologiaPage() {
             className="font-display font-normal text-ink leading-[1.02] tracking-tight"
             style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)" }}
           >
-            ¿Tu proyecto encaja? <span className="italic-acc">Cuéntanoslo</span>.
+            ¿Tu proyecto encaja? <span className="italic-acc">Cuéntanoslo</span>
           </h2>
           <p className="mt-6 text-mid text-lg max-w-lg leading-relaxed">
             Estudiamos cada caso individualmente y proponemos el enfoque técnico
             adecuado.
           </p>
           <Link to="/contacto" className="mt-10">
-            <Button variant="primary" size="lg">Contactar</Button>
+            <Button variant="primary" size="lg">Solicitar presupuesto</Button>
           </Link>
         </motion.div>
       </section>
@@ -306,14 +166,17 @@ function TecnologiaPage() {
   );
 }
 
-interface ApplicationBlockProps {
-  app: (typeof applications)[number];
+interface EquipmentBlockProps {
+  eq: (typeof equipment)[number];
   reversed: boolean;
 }
 
-function ApplicationBlock({ app, reversed }: ApplicationBlockProps) {
+function EquipmentBlock({ eq, reversed }: EquipmentBlockProps) {
   return (
-    <div className="relative grid md:grid-cols-12 gap-10 lg:gap-16 items-center">
+    <div
+      id={eq.id}
+      className="relative grid md:grid-cols-12 gap-10 lg:gap-16 items-center scroll-mt-28"
+    >
       {/* Decorative giant number */}
       <div
         className={`absolute pointer-events-none font-display font-light italic text-amber/[0.12] leading-none select-none hidden md:block ${
@@ -322,14 +185,14 @@ function ApplicationBlock({ app, reversed }: ApplicationBlockProps) {
         style={{ fontSize: "200px" }}
         aria-hidden="true"
       >
-        {app.num}
+        {eq.num}
       </div>
 
       {/* Video slot */}
       <div className={`md:col-span-5 ${reversed ? "md:order-2" : ""}`}>
         <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[20px] bg-[var(--envelope)] group">
-          {/* VIDEO SLOT — replace with <video src={app.videoSrc} ... /> */}
-          <img loading="lazy" decoding="async"             src={app.img}
+          {/* VIDEO SLOT — sustituir por <video src={eq.videoSrc} ... /> */}
+          <img loading="lazy" decoding="async" src={eq.img}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -354,28 +217,28 @@ function ApplicationBlock({ app, reversed }: ApplicationBlockProps) {
         className={`md:col-span-7 relative ${reversed ? "md:order-1" : ""}`}
       >
         <p className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber">
-          {app.label}
+          {eq.label}
         </p>
         <h2
           className="mt-6 font-display font-normal text-ink leading-[1.02] tracking-tight"
           style={{ fontSize: "clamp(2.25rem, 4.2vw, 3.5rem)" }}
         >
-          {app.titleStart}
-          <span className="italic-acc">{app.titleItalic}</span>.
+          {eq.titleStart}
+          <span className="italic-acc">{eq.titleItalic}</span>
         </h2>
 
         <div className="mt-8 space-y-5 text-[16px] text-ink/85 leading-[1.65] max-w-xl">
-          {app.paragraphs.map((p) => (
+          {eq.paragraphs.map((p) => (
             <p key={p}>{p}</p>
           ))}
         </div>
 
         <div className="mt-10 border-t border-ink/15 pt-6 max-w-xl">
           <p className="font-mono uppercase text-[10px] tracking-[0.25em] text-mid">
-            {app.deliverablesLabel}
+            {eq.deliverablesLabel}
           </p>
           <ul className="mt-4 space-y-2.5">
-            {app.deliverables.map((d) => (
+            {eq.deliverables.map((d) => (
               <li key={d} className="flex gap-3 text-[15px] text-ink/85">
                 <span className="text-amber mt-[2px]">·</span>
                 <span>{d}</span>

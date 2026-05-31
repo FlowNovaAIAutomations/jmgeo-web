@@ -61,7 +61,7 @@ function ContactoPage() {
           {/* Columna izquierda — formulario */}
           <motion.div {...fadeIn}>
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-amber">
-              CONTACTO
+              SOLICITAR PRESUPUESTO
             </p>
             <h1 className="mt-6 font-display text-ink" style={{ fontSize: "clamp(3rem, 6vw, 5rem)", lineHeight: 1.02, letterSpacing: "-0.02em" }}>
               Cuéntanos qué <span className="italic-acc">necesitas medir</span>
