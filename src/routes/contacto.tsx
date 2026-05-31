@@ -202,6 +202,8 @@ function ContactoPage() {
                 <a href="tel:+34640266724" className="block text-ink hover:text-amber transition-colors mt-1">
                   +34 640 266 724
                 </a>
+                <p className="text-ink mt-3">Maestra Juana Sena 5, 5</p>
+                <p className="text-ink">46910 Benetússer · Valencia</p>
               </InfoBlock>
 
               <Divider />
