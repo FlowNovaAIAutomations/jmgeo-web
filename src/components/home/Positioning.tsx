@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 import { countryShapes } from "./countryShapes";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -48,6 +49,22 @@ export function Positioning() {
               clave para ofrecer resultados de máximo rigor en proyectos de
               edificación, energía e infraestructuras.
             </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease, delay: 0.3 }}
+            className="mt-10"
+          >
+            <Link
+              to="/sobre"
+              className="inline-flex items-center gap-2 font-mono uppercase text-[11px] tracking-[0.25em] text-ink/60 border-b border-ink/20 hover:text-amber hover:border-amber transition-colors pb-1"
+            >
+              Conoce JM GEO
+              <span className="text-amber">→</span>
+            </Link>
           </motion.div>
         </div>
 

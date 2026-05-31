@@ -59,7 +59,7 @@ const organizationJsonLd = {
     "Topografía técnica especializada en captura de datos LiDAR aéreos con drones. Operamos en seis países europeos.",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Maestra Juana Senent 5, 5",
+    streetAddress: "Maestra Juana Sena 5, 5",
     postalCode: "46910",
     addressLocality: "Benetússer",
     addressRegion: "Valencia",

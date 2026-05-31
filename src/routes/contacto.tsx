@@ -215,7 +215,7 @@ function ContactoPage() {
             <div className="mt-6 overflow-hidden rounded-[20px]">
               <iframe
                 title="Ubicación JM GEO en Benetússer, Valencia"
-                src="https://www.google.com/maps?q=Maestra+Juana+Senent+5,+Benet%C3%BAsser,+Valencia,+Espa%C3%B1a&output=embed"
+                src="https://www.google.com/maps?q=Maestra+Juana+Sena+5,+Benet%C3%BAsser,+Valencia,+Espa%C3%B1a&output=embed"
                 width="100%"
                 height="280"
                 style={{ border: 0, filter: "grayscale(60%)" }}

@@ -55,7 +55,7 @@ export function Footer() {
                 +34 640 266 724
               </a>
             </li>
-            <li className="text-paper/75">Maestra Juana Senent 5, 5</li>
+            <li className="text-paper/75">Maestra Juana Sena 5, 5</li>
             <li className="text-paper/75">46910 Benetússer · Valencia</li>
             <li className="text-paper/75">España</li>
           </FooterCol>
