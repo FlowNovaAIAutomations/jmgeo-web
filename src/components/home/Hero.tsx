@@ -14,13 +14,18 @@ const ease = [0.22, 1, 0.36, 1] as const;
  */
 export function Hero() {
   return (
-    <section className="relative w-full bg-[var(--envelope)] text-paper overflow-hidden -mt-24 pt-32 pb-20 md:pt-40 md:pb-24">
-      {/* Glow sutil de fondo */}
+    <section
+      className="relative w-full text-paper overflow-hidden -mt-24 pt-32 pb-20 md:pt-40 md:pb-24"
+      style={{
+        background: "linear-gradient(180deg, #03274B 0%, #0A2D52 30%, #16395F 65%, #668AB3 100%)",
+      }}
+    >
+      {/* Iluminación radial superior central */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-80"
+        className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(80% 60% at 20% 30%, rgba(251,251,249,0.05) 0%, transparent 60%), radial-gradient(60% 50% at 90% 80%, rgba(251,251,249,0.03) 0%, transparent 60%)",
+            "radial-gradient(55% 40% at 50% 0%, rgba(100,160,220,0.18) 0%, transparent 70%)",
         }}
       />
 
