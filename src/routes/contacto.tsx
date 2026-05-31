@@ -126,7 +126,8 @@ function ContactoPage() {
                         id="tipo"
                         name="tipo"
                         defaultValue=""
-                        className="rounded-xl border border-ink/12 bg-[var(--paper-alt)] px-4 py-[14px] font-sans text-[15px] text-ink outline-none transition-colors focus:border-amber focus:bg-paper"
+                        className="rounded-xl border border-ink/12 bg-[var(--paper-alt)] pl-4 pr-10 py-[14px] font-sans text-[15px] text-ink outline-none transition-colors focus:border-amber focus:bg-paper appearance-none bg-no-repeat bg-[length:16px_16px] bg-[position:right_14px_center]"
+                        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238595A3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")` }}
                       >
                         <option value="" disabled>Selecciona una opción</option>
                         <option>Levantamiento LiDAR</option>
