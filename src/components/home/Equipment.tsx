@@ -43,7 +43,7 @@ export function Equipment() {
           className="mt-6 font-display font-normal text-ink leading-[1.02] tracking-tight max-w-3xl"
           style={{ fontSize: "clamp(2.25rem, 4.4vw, 3.75rem)" }}
         >
-          Equipos de <span className="italic-acc">precisión</span>.
+          Tecnología de <span className="italic-acc">precisión</span>
         </motion.h2>
 
         <div className="mt-16 grid md:grid-cols-3 gap-6">

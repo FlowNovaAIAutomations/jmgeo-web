@@ -6,9 +6,9 @@ import { Button } from "@/components/Button";
 export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
-      { title: "Sobre JMGeo · Topografía con drones y LiDAR" },
+      { title: "Sobre JM GEO · Topografía con drones y LiDAR" },
       { name: "description", content: "Empresa joven especializada en captura LiDAR con drones. Equipo y enfoque técnico aplicados en seis países europeos." },
-      { property: "og:title", content: "Sobre JMGeo · Topografía con drones y LiDAR" },
+      { property: "og:title", content: "Sobre JM GEO · Topografía con drones y LiDAR" },
       { property: "og:description", content: "Empresa joven especializada en captura LiDAR con drones. Equipo y enfoque técnico aplicados en seis países europeos." },
     ],
   }),
@@ -40,7 +40,7 @@ function SobrePage() {
             transition={{ duration: 0.6, ease }}
             className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber"
           >
-            Sobre JMGeo
+            Sobre JM GEO
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
@@ -63,7 +63,7 @@ function SobrePage() {
           className="mx-auto max-w-[720px] px-6 space-y-8 text-[18px] text-ink/85 leading-[1.65]"
         >
           <p>
-            JMGeo es una empresa española de topografía técnica especializada en
+            JM GEO es una empresa española de topografía técnica especializada en
             captura de datos LiDAR con drones. Aunque somos jóvenes como
             organización, el equipo acumula años de experiencia en topografía y
             geomática aplicadas a proyectos reales.

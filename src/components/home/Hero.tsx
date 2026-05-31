@@ -50,7 +50,7 @@ export function Hero() {
           transition={{ duration: 0.7, ease, delay: 0.25 }}
           className="mt-6 text-paper/70 leading-relaxed text-lg md:text-xl"
         >
-          Topografía para proyectos de ingeniería
+          Topografía aplicada a proyectos de ingeniería
         </motion.p>
 
         {/* Foto de los drones — panel centrado debajo del texto */}

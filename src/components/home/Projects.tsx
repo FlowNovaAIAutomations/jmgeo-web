@@ -28,18 +28,15 @@ export function Projects() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
         {/* LEFT — Copy */}
         <div className="lg:col-span-5">
-          <motion.div
+          <motion.p
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.5, ease }}
-            className="inline-flex items-center gap-2 rounded-full border border-amber/40 bg-amber/5 px-4 py-1.5"
+            className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-amber" />
-            <span className="font-mono uppercase text-[10px] tracking-[0.25em] text-amber">
-              Portal Cliente JM GEO
-            </span>
-          </motion.div>
+            Portal Cliente
+          </motion.p>
 
           <motion.h2
             initial={{ opacity: 0, y: 12 }}

@@ -24,7 +24,7 @@ export function Positioning() {
             transition={{ duration: 0.6, ease }}
             className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber"
           >
-            02 / Quiénes somos
+            Quiénes somos
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 12 }}
@@ -35,7 +35,7 @@ export function Positioning() {
             style={{ fontSize: "clamp(2.25rem, 4.4vw, 3.75rem)" }}
           >
             Una empresa joven con datos a{" "}
-            <span className="italic-acc">escala europea</span>.
+            <span className="italic-acc">escala europea</span>
           </motion.h2>
 
           <motion.div
@@ -75,9 +75,6 @@ export function Positioning() {
             <div className="relative p-8 md:p-10">
               <div className="flex items-start justify-between mb-8 gap-6">
                 <div>
-                  <p className="font-mono uppercase text-[10px] tracking-[0.25em] text-amber">
-                    Presencia operativa
-                  </p>
                   <div
                     className="mt-3 font-display text-paper leading-none"
                     style={{ fontSize: "clamp(3rem, 6vw, 5rem)" }}

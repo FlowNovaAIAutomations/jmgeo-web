@@ -7,10 +7,10 @@ import { Button } from "./Button";
 import { cn } from "@/lib/utils";
 
 const navItems = [
+  { to: "/sobre", hash: undefined, label: "Nosotros" },
   { to: "/", hash: "servicios", label: "Servicios" },
   { to: "/tecnologia", hash: undefined, label: "Tecnología" },
   { to: "/", hash: "proyectos", label: "Proyectos" },
-  { to: "/sobre", hash: undefined, label: "Nosotros" },
   { to: "/contacto", hash: undefined, label: "Contacto" },
 ] as const;
 
@@ -71,7 +71,7 @@ export function Header() {
             to="/"
             className="flex items-center"
             onClick={() => setOpen(false)}
-            aria-label="JMGeo — Inicio"
+            aria-label="JM GEO — Inicio"
           >
             <Logo
               // Sobre el hero envelope (oscuro) el logo navy no se ve; usamos la

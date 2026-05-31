@@ -7,9 +7,9 @@ import { Button } from "@/components/Button";
 export const Route = createFileRoute("/contacto")({
   head: () => ({
     meta: [
-      { title: "Contacto · JMGeo · Topografía con drones y LiDAR" },
+      { title: "Contacto · JM GEO · Topografía con drones y LiDAR" },
       { name: "description", content: "Cuéntanos qué necesitas medir. Respondemos en menos de 24 horas laborables. Captura LiDAR aérea con drones en seis países europeos." },
-      { property: "og:title", content: "Contacto · JMGeo · Topografía con drones y LiDAR" },
+      { property: "og:title", content: "Contacto · JM GEO · Topografía con drones y LiDAR" },
       { property: "og:description", content: "Cuéntanos qué necesitas medir. Respondemos en menos de 24 horas laborables. Captura LiDAR aérea con drones en seis países europeos." },
     ],
   }),
@@ -233,7 +233,7 @@ function ContactoPage() {
 
             <div className="mt-6 overflow-hidden rounded-[20px]">
               <iframe
-                title="Ubicación JMGeo en Benetússer, Valencia"
+                title="Ubicación JM GEO en Benetússer, Valencia"
                 src="https://www.google.com/maps?q=Maestra+Juana+Senent+5,+Benet%C3%BAsser,+Valencia,+Espa%C3%B1a&output=embed"
                 width="100%"
                 height="280"

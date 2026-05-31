@@ -37,7 +37,7 @@ export function WhatWeDo() {
           transition={{ duration: 0.6, ease }}
           className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber"
         >
-          03 / Qué hacemos
+          Qué hacemos
         </motion.p>
 
         <motion.h2

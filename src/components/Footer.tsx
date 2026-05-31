@@ -30,17 +30,7 @@ export function Footer() {
               className="font-display italic text-paper/70 leading-snug"
               style={{ fontSize: "16px", marginTop: "24px" }}
             >
-              Topografía con drones y LiDAR. Precisión real.
-            </p>
-            <p
-              className="font-mono uppercase text-amber"
-              style={{
-                fontSize: "11px",
-                letterSpacing: "0.2em",
-                marginTop: "16px",
-              }}
-            >
-              OPERAMOS EN 6 PAÍSES EUROPEOS
+              Midiendo el presente para construir el futuro
             </p>
           </div>
 
@@ -48,7 +38,7 @@ export function Footer() {
           <FooterCol title="EXPLORAR">
             <FooterLink to="/">Inicio</FooterLink>
             <FooterLink to="/tecnologia">Tecnología</FooterLink>
-            <FooterLink to="/sobre">Sobre JMGeo</FooterLink>
+            <FooterLink to="/sobre">Sobre JM GEO</FooterLink>
             <FooterLink to="/contacto">Contacto</FooterLink>
             <FooterLink to="/clientes">Área clientes</FooterLink>
           </FooterCol>
@@ -56,8 +46,8 @@ export function Footer() {
           {/* Col 3 — Contacto */}
           <FooterCol title="CONTACTO">
             <li className="text-paper/75">
-              <a href="mailto:javier@jmgeo.es" className={linkCls}>
-                javier@jmgeo.es
+              <a href="mailto:administracion@jmgeo.es" className={linkCls}>
+                administracion@jmgeo.es
               </a>
             </li>
             <li className="text-paper/75">
@@ -87,7 +77,7 @@ export function Footer() {
             className="font-mono text-paper/50"
             style={{ fontSize: "11px", letterSpacing: "0.1em" }}
           >
-            © {year} JMGeo · Todos los derechos reservados
+            © {year} JM GEO · Todos los derechos reservados
           </span>
         </div>
       </div>

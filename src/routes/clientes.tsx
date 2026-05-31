@@ -6,11 +6,11 @@ import { Button } from "@/components/Button";
 export const Route = createFileRoute("/clientes")({
   head: () => ({
     meta: [
-      { title: "Área de clientes · JMGeo · Topografía con drones y LiDAR" },
-      { name: "description", content: "Portal de clientes JMGeo. Próximamente disponible para acceso a entregables LiDAR, versiones y seguimiento de proyectos." },
+      { title: "Área de clientes · JM GEO · Topografía con drones y LiDAR" },
+      { name: "description", content: "Portal de clientes JM GEO. Próximamente disponible para acceso a entregables LiDAR, versiones y seguimiento de proyectos." },
       { name: "robots", content: "noindex, nofollow" },
-      { property: "og:title", content: "Área de clientes · JMGeo · Topografía con drones y LiDAR" },
-      { property: "og:description", content: "Portal de clientes JMGeo. Próximamente disponible para acceso a entregables LiDAR, versiones y seguimiento de proyectos." },
+      { property: "og:title", content: "Área de clientes · JM GEO · Topografía con drones y LiDAR" },
+      { property: "og:description", content: "Portal de clientes JM GEO. Próximamente disponible para acceso a entregables LiDAR, versiones y seguimiento de proyectos." },
     ],
   }),
   component: ClientsPage,
@@ -84,7 +84,7 @@ function ClientsPage() {
         >
           Estamos preparando un espacio privado donde nuestros clientes podrán
           acceder a sus proyectos, descargar entregables LiDAR, ver versiones,
-          comentar y consultar el histórico completo de su trabajo con JMGeo.
+          comentar y consultar el histórico completo de su trabajo con JM GEO
         </motion.p>
 
         <motion.p

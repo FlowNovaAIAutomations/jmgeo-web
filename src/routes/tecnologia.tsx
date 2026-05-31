@@ -11,9 +11,9 @@ import imgNube from "@/assets/clientes/cad-curvas.png";
 export const Route = createFileRoute("/tecnologia")({
   head: () => ({
     meta: [
-      { title: "Tecnología · JMGeo · Topografía con drones y LiDAR" },
+      { title: "Tecnología · JM GEO · Topografía con drones y LiDAR" },
       { name: "description", content: "LiDAR aéreo sobre drones aplicado a proyectos reales: levantamientos de gran superficie, alta precisión y soluciones técnicas a medida." },
-      { property: "og:title", content: "Tecnología · JMGeo · Topografía con drones y LiDAR" },
+      { property: "og:title", content: "Tecnología · JM GEO · Topografía con drones y LiDAR" },
       { property: "og:description", content: "LiDAR aéreo sobre drones aplicado a proyectos reales: levantamientos de gran superficie, alta precisión y soluciones técnicas a medida." },
     ],
   }),

@@ -21,7 +21,7 @@ export function Process() {
           transition={{ duration: 0.6, ease }}
           className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber"
         >
-          05 / Proceso
+          Proceso
         </motion.p>
 
         <motion.h2
