@@ -125,29 +125,29 @@ export function Projects() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.5, ease, delay: 0.2 + i * 0.1 }}
-                  className="bg-paper text-ink rounded-xl px-5 py-4 flex items-center justify-between gap-4 hover:translate-x-0.5 transition-transform"
+                  className="bg-paper text-ink rounded-xl px-4 py-3 md:px-5 md:py-4 flex items-center justify-between gap-3 hover:translate-x-0.5 transition-transform"
                 >
-                  <div className="min-w-0">
-                    <div className="font-medium text-ink text-[15px] truncate">
+                  <div className="min-w-0 flex-1">
+                    <div className="font-medium text-ink text-[14px] md:text-[15px] leading-snug">
                       {d.title}
                     </div>
-                    <div className="mt-1 text-mid text-[12px]">
+                    <div className="mt-1 text-mid text-[11px] md:text-[12px]">
                       {d.meta}
                     </div>
                   </div>
                   <button
                     type="button"
-                    className="shrink-0 inline-flex items-center gap-2 bg-ink text-paper hover:bg-ink/85 rounded-lg px-4 py-2 text-[12px] font-medium transition-colors"
+                    className="shrink-0 inline-flex items-center gap-2 bg-ink text-paper hover:bg-ink/85 rounded-lg px-3 py-2 md:px-4 text-[12px] font-medium transition-colors"
                   >
                     <Download className="h-3.5 w-3.5" strokeWidth={2} />
-                    Descargar
+                    <span className="hidden sm:inline">Descargar</span>
                   </button>
                 </motion.div>
               ))}
             </div>
 
             {/* Footer meta */}
-            <div className="mt-6 flex items-center justify-between text-[11px] font-mono uppercase tracking-[0.2em] text-paper/50">
+            <div className="mt-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-[10px] md:text-[11px] font-mono uppercase tracking-[0.2em] text-paper/50">
               <span>3 entregables disponibles</span>
               <span>Actualizado hace 2 h</span>
             </div>
