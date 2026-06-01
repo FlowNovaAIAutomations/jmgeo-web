@@ -36,7 +36,7 @@ export function CaseStudies() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6, ease }}
-          className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber"
+          className="font-mono uppercase text-[13px] tracking-[0.25em] text-amber"
         >
           06 / Casos de éxito
         </motion.p>
@@ -88,7 +88,7 @@ export function CaseStudies() {
 
               {/* Body */}
               <div className="p-7">
-                <p className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber">
+                <p className="font-mono uppercase text-[13px] tracking-[0.25em] text-amber">
                   {c.country}
                 </p>
                 <h3 className="mt-3 font-display text-ink text-2xl leading-tight">

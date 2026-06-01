@@ -149,7 +149,7 @@
 @layer components {
   /* Itálica de acento — sin subrayado de color. Solo cambio sutil de tono. */
   .italic-acc {
-    font-style: italic;
+    font-style: normal;
     font-weight: 400;
     color: var(--ink);
     opacity: 0.95;

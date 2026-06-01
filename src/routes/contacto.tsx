@@ -197,21 +197,23 @@ function ContactoPage() {
           <motion.aside {...fadeIn} transition={{ duration: 0.7, ease, delay: 0.1 }}>
             <div className="rounded-[20px] border border-ink/8 bg-paper p-9 shadow-soft">
               <InfoBlock title="CONTACTO">
-                <a href="mailto:administracion@jmgeo.es" className="block text-ink hover:text-amber transition-colors">
-                  administracion@jmgeo.es
+                <p className="text-ink">JM GEO, S.L.</p>
+                <p className="text-ink">Maestra Juana Sena, 5 - 5</p>
+                <p className="text-ink">46910 Benetússer (Valencia)</p>
+                <p className="text-ink">España</p>
+                <a href="tel:+34640266724" className="block text-ink hover:text-amber transition-colors mt-3">
+                  T: +34 640 266 724
                 </a>
-                <a href="tel:+34640266724" className="block text-ink hover:text-amber transition-colors mt-1">
-                  +34 640 266 724
+                <a href="mailto:administracion@jmgeo.es" className="block text-ink hover:text-amber transition-colors mt-1">
+                  E: administracion@jmgeo.es
                 </a>
-                <p className="text-ink mt-3">Maestra Juana Sena 5, 5</p>
-                <p className="text-ink">46910 Benetússer · Valencia</p>
               </InfoBlock>
 
               <Divider />
 
               <InfoBlock title="HORARIO">
                 <p className="text-ink">Lunes a viernes</p>
-                <p className="text-ink">09:00 — 18:00 (CET)</p>
+                <p className="text-ink">9:00 — 17:00</p>
               </InfoBlock>
             </div>
 

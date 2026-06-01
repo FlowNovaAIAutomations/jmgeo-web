@@ -44,7 +44,7 @@ function SobrePage() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease }}
-            className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber"
+            className="font-mono uppercase text-[13px] tracking-[0.25em] text-amber"
           >
             Nosotros
           </motion.p>
@@ -53,7 +53,7 @@ function SobrePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.15 }}
             className="mt-8 font-display font-normal text-ink leading-[0.9] tracking-tight"
-            style={{ fontSize: "clamp(4.5rem, 15vw, 13rem)" }}
+            style={{ fontSize: "clamp(2.5rem, 7.5vw, 6.5rem)" }}
           >
             Sobre <span className="italic-acc">JM GEO</span>
           </motion.h1>
@@ -99,7 +99,7 @@ function SobrePage() {
       {/* 3 — PAÍSES: siluetas */}
       <section className="bg-[var(--paper-alt)] py-[120px] border-t border-ink/[0.06]">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <motion.p {...fadeUp} className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber">
+          <motion.p {...fadeUp} className="font-mono uppercase text-[13px] tracking-[0.25em] text-amber">
             Dónde hemos trabajado
           </motion.p>
           <motion.h2
@@ -108,7 +108,7 @@ function SobrePage() {
             className="mt-6 font-display font-normal text-ink leading-[1.02] tracking-tight"
             style={{ fontSize: "clamp(2.25rem, 4.4vw, 3.75rem)" }}
           >
-            Seis países, <span className="italic-acc">un mismo estándar</span>
+            Presencia europea desde nuestros inicios
           </motion.h2>
 
           <div className="mt-16 grid grid-cols-3 md:grid-cols-6 gap-y-12 gap-x-6">
@@ -154,12 +154,14 @@ function SobrePage() {
               "radial-gradient(60% 50% at 50% 0%, rgba(100,160,220,0.18) 0%, transparent 70%)",
           }}
         />
-        <div
+        <motion.div
           aria-hidden
           className="absolute -bottom-40 -left-32 text-paper pointer-events-none"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
         >
-          <CompassRose size={560} opacity={0.06} />
-        </div>
+          <CompassRose size={560} opacity={0.22} />
+        </motion.div>
 
         <motion.div
           {...fadeUp}
@@ -170,7 +172,7 @@ function SobrePage() {
             style={{ fontSize: "clamp(2.75rem, 6vw, 5.5rem)" }}
           >
             Medimos el presente para{" "}
-            <span className="italic font-normal text-paper/65">construir el futuro</span>
+            <span className="font-normal text-paper/65">construir el futuro</span>
           </h2>
         </motion.div>
       </section>

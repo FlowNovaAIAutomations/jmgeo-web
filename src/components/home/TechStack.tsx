@@ -48,7 +48,7 @@ export function TechStack() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6, ease }}
-          className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber"
+          className="font-mono uppercase text-[13px] tracking-[0.25em] text-amber"
         >
           Tecnología
         </motion.p>

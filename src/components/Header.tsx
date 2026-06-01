@@ -74,10 +74,8 @@ export function Header() {
             aria-label="JM GEO — Inicio"
           >
             <Logo
-              // Sobre el hero envelope (oscuro) el logo navy no se ve; usamos la
-              // variante light hasta que aparezca el fondo translúcido al hacer scroll.
               variant={scrolled ? "dark" : "light"}
-              className={cn("w-auto transition-all duration-300", scrolled ? "h-11 md:h-12" : "h-14 md:h-16")}
+              className={cn("w-auto transition-all duration-300", scrolled ? "h-11 md:h-12" : "h-36 md:h-52")}
             />
           </Link>
 
@@ -111,7 +109,7 @@ export function Header() {
           {/* Lado derecho: PRIMERO área clientes, LUEGO selector de idioma a la derecha. */}
           <div className="hidden md:flex items-center gap-3">
             <Link to="/clientes">
-              <Button variant="accent" size="sm">Área clientes</Button>
+              <Button variant="accent" size="md">Área clientes</Button>
             </Link>
             <div
               role="group"

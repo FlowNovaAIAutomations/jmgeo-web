@@ -43,7 +43,7 @@ export function WhatWeDo() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6, ease }}
-          className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber"
+          className="font-mono uppercase text-[13px] tracking-[0.25em] text-amber"
         >
           Qué hacemos
         </motion.p>
@@ -53,11 +53,10 @@ export function WhatWeDo() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, ease, delay: 0.1 }}
-          className="mt-6 font-display font-normal text-ink leading-[1.02] tracking-tight max-w-4xl"
-          style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
+          className="mt-6 font-display font-normal text-ink leading-[1.02] tracking-tight whitespace-nowrap"
+          style={{ fontSize: "clamp(1.5rem, 3.8vw, 3.5rem)" }}
         >
-          De la <span className="italic-acc">planificación</span> a la{" "}
-          <span className="italic-acc">ejecución</span>
+          De la planificación a la ejecución
         </motion.h2>
 
         <div className="mt-20 grid md:grid-cols-2 gap-8">
@@ -81,7 +80,7 @@ export function WhatWeDo() {
                 />
               </div>
 
-              <div className="mt-6 font-mono uppercase text-[11px] tracking-[0.25em] text-amber">
+              <div className="mt-6 font-mono uppercase text-[13px] tracking-[0.25em] text-amber">
                 {c.num}
               </div>
               <h3 className="mt-3 font-display text-[26px] font-medium text-ink leading-tight">

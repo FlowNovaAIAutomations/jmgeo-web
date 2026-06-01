@@ -74,7 +74,7 @@ function ClientsPage() {
         >
           Próximamente,
           <br />
-          <span className="italic text-paper/70">tu portal</span>.
+          <span className="text-paper/70">tu portal</span>
         </motion.h1>
 
         <motion.p
@@ -93,6 +93,16 @@ function ClientsPage() {
           variants={item}
         >
           DISPONIBLE · VERANO 2026
+        </motion.p>
+
+        <motion.p
+          className="mt-10 font-display text-amber/70 leading-tight"
+          style={{ fontSize: "clamp(1.6rem, 4vw, 3rem)", letterSpacing: "-0.02em" }}
+          variants={item}
+        >
+          Midiendo el presente
+          <br />
+          para construir el futuro
         </motion.p>
 
         <motion.div className="mt-12" variants={item}>

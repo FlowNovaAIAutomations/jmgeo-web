@@ -15,7 +15,7 @@ export function Positioning() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.6, ease }}
-            className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber"
+            className="font-mono uppercase text-[13px] tracking-[0.25em] text-amber"
           >
             Quiénes somos
           </motion.p>
@@ -27,8 +27,8 @@ export function Positioning() {
             className="mt-6 font-display font-normal text-ink leading-[1.02] tracking-tight"
             style={{ fontSize: "clamp(2.25rem, 4.4vw, 3.75rem)" }}
           >
-            Una empresa joven con datos a{" "}
-            <span className="italic-acc">escala europea</span>
+            Una empresa joven con{" "}
+            <span className="italic-acc">alcance europeo</span>
           </motion.h2>
 
           <motion.div

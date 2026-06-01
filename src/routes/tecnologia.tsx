@@ -105,7 +105,7 @@ function TecnologiaPage() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease }}
-            className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber"
+            className="font-mono uppercase text-[13px] tracking-[0.25em] text-amber"
           >
             Tecnología
           </motion.p>
@@ -114,10 +114,10 @@ function TecnologiaPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.15 }}
             className="mt-8 font-display font-normal text-ink leading-[0.95] tracking-tight max-w-[1200px]"
-            style={{ fontSize: "clamp(3.5rem, 9vw, 7.5rem)" }}
+            style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
           >
-            Los equipos detrás de{" "}
-            <span className="italic-acc">cada levantamiento</span>
+            Equipos de precisión para{" "}
+            cada levantamiento
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -151,7 +151,9 @@ function TecnologiaPage() {
             className="font-display font-normal text-ink leading-[1.02] tracking-tight"
             style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)" }}
           >
-            ¿Tu proyecto encaja? <span className="italic-acc">Cuéntanoslo</span>
+            ¿Tienes un proyecto?
+            <br />
+            Lo medimos
           </h2>
           <p className="mt-6 text-mid text-lg max-w-lg leading-relaxed">
             Estudiamos cada caso individualmente y proponemos el enfoque técnico
@@ -205,7 +207,7 @@ function EquipmentBlock({ eq, reversed }: EquipmentBlockProps) {
         transition={{ duration: 0.8, ease }}
         className={`md:col-span-7 relative ${reversed ? "md:order-1" : ""}`}
       >
-        <p className="font-mono uppercase text-[11px] tracking-[0.25em] text-amber">
+        <p className="font-mono uppercase text-[13px] tracking-[0.25em] text-amber">
           {eq.label}
         </p>
         <h2

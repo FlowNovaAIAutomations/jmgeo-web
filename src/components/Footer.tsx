@@ -27,7 +27,7 @@ export function Footer() {
           <div>
             <Logo variant="light" className="h-20 w-auto" />
             <p
-              className="font-display italic text-paper/70 leading-snug"
+              className="font-display text-paper/70 leading-snug"
               style={{ fontSize: "16px", marginTop: "24px" }}
             >
               Midiendo el presente para construir el futuro
@@ -45,19 +45,20 @@ export function Footer() {
 
           {/* Col 3 — Contacto */}
           <FooterCol title="CONTACTO">
-            <li className="text-paper/75">
-              <a href="mailto:administracion@jmgeo.es" className={linkCls}>
-                administracion@jmgeo.es
-              </a>
-            </li>
+            <li className="text-paper/75">JM GEO, S.L.</li>
+            <li className="text-paper/75">Maestra Juana Sena, 5 - 5</li>
+            <li className="text-paper/75">46910 Benetússer (Valencia)</li>
+            <li className="text-paper/75">España</li>
             <li className="text-paper/75">
               <a href="tel:+34640266724" className={linkCls}>
-                +34 640 266 724
+                T: +34 640 266 724
               </a>
             </li>
-            <li className="text-paper/75">Maestra Juana Sena 5, 5</li>
-            <li className="text-paper/75">46910 Benetússer · Valencia</li>
-            <li className="text-paper/75">España</li>
+            <li className="text-paper/75">
+              <a href="mailto:administracion@jmgeo.es" className={linkCls}>
+                E: administracion@jmgeo.es
+              </a>
+            </li>
           </FooterCol>
 
           {/* Col 4 — Legal */}
