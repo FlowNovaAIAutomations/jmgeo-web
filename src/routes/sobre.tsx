@@ -28,7 +28,7 @@ function SobrePage() {
   return (
     <>
       {/* 1 — HERO: título gigante */}
-      <section className="relative bg-paper pt-[180px] pb-[120px] overflow-hidden">
+      <section className="relative bg-paper pt-[100px] pb-[32px] overflow-hidden">
         {/* CompassRose decorativa, muy sutil */}
         <motion.div
           aria-hidden
@@ -53,7 +53,7 @@ function SobrePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.15 }}
             className="mt-8 font-display font-normal text-ink leading-[0.9] tracking-tight"
-            style={{ fontSize: "clamp(2.5rem, 7.5vw, 6.5rem)" }}
+            style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
           >
             Sobre <span className="italic-acc">JM GEO</span>
           </motion.h1>
