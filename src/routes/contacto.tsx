@@ -26,11 +26,10 @@ const fadeIn = {
 type FieldErrors = Partial<Record<"nombre" | "email" | "mensaje" | "privacidad", string>>;
 
 function ContactoPage() {
-  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
 
-  // TODO: conectar con Resend usando el endpoint /api/contact cuando esté lista la cuenta. Destino: administracion@jmgeo.es
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -51,7 +50,26 @@ function ContactoPage() {
     if (Object.keys(next).length > 0) return;
 
     setStatus("loading");
-    setTimeout(() => setStatus("success"), 1500);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nombre,
+          empresa: String(data.get("empresa") ?? "").trim(),
+          email,
+          telefono: String(data.get("telefono") ?? "").trim(),
+          tipo: String(data.get("tipo") ?? "").trim(),
+          mensaje,
+          consentimiento: Boolean(privacidad),
+          website: String(data.get("website") ?? ""), // honeypot
+        }),
+      });
+      if (!res.ok) throw new Error("send_failed");
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -113,6 +131,16 @@ function ContactoPage() {
                     noValidate
                     className="flex flex-col gap-6"
                   >
+                    {/* Honeypot anti-spam — oculto a usuarios reales */}
+                    <input
+                      type="text"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      className="hidden"
+                    />
+
                     <Field label="Nombre completo" name="nombre" required error={errors.nombre} />
                     <Field label="Empresa u organización" name="empresa" />
                     <Field label="Email" name="email" type="email" required error={errors.email} />
@@ -167,6 +195,16 @@ function ContactoPage() {
                     </label>
                     {errors.privacidad && (
                       <p className="-mt-3 font-sans text-[11px]" style={{ color: "#B26A5F" }}>{errors.privacidad}</p>
+                    )}
+
+                    {status === "error" && (
+                      <p className="font-sans text-[13px]" style={{ color: "#B26A5F" }}>
+                        No hemos podido enviar tu mensaje. Inténtalo de nuevo o
+                        escríbenos a{" "}
+                        <a href="mailto:administracion@jmgeo.es" className="underline decoration-amber underline-offset-4">
+                          administracion@jmgeo.es
+                        </a>
+                      </p>
                     )}
 
                     <div className="mt-2">
