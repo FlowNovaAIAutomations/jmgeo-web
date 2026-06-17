@@ -148,7 +148,10 @@ export default async function handler(request: Request): Promise<Response> {
       html: adminEmailHtml(contacto),
       reply_to: email,
     });
-    if (!res.ok) return json({ ok: false, error: "email_failed" }, 502);
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}));
+      return json({ ok: false, error: "email_failed", detail: body }, 502);
+    }
   } catch {
     return json({ ok: false, error: "email_unreachable" }, 502);
   }
