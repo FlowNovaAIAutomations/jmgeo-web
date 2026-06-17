@@ -95,7 +95,7 @@ export const Route = createFileRoute("/api/contact")({
         try {
           const res = await sendEmail(apiKey, {
             to: ADMIN_TO,
-            subject: `Nueva consulta web — ${nombre}`,
+            subject: `[TEST] Nueva consulta web — ${nombre}`,
             html: adminEmailHtml(contacto),
             reply_to: email,
           });
@@ -110,7 +110,7 @@ export const Route = createFileRoute("/api/contact")({
         try {
           await sendEmail(apiKey, {
             to: email,
-            subject: "Hemos recibido tu consulta — JM GEO",
+            subject: "[TEST] Hemos recibido tu consulta — JM GEO",
             html: clientEmailHtml(contacto),
           });
         } catch {
