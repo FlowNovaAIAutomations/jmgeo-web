@@ -190,7 +190,16 @@ function ContactoPage() {
                         className="mt-1 h-4 w-4 accent-[var(--amber)]"
                       />
                       <span className="font-sans text-[14px] text-mid">
-                        He leído y acepto la política de privacidad
+                        He leído y acepto la{" "}
+                        <a
+                          href="/privacidad"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="text-ink underline decoration-amber underline-offset-4 hover:text-amber transition-colors"
+                        >
+                          política de privacidad
+                        </a>
                       </span>
                     </label>
                     {errors.privacidad && (
