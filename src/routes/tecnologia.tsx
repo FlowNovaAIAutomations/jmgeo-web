@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/Button";
 import imgDrone from "@/assets/clientes/drone-lidar.png";
 import imgGnss from "@/assets/clientes/gps-rover.png";
@@ -31,71 +32,28 @@ const fadeUp = {
 // (el <div> con la <img>) por:
 // <video src={videoSrc} muted loop playsInline autoPlay
 //   className="absolute inset-0 w-full h-full object-cover" />
-const equipment = [
-  {
-    id: "drones-lidar",
-    num: "01",
-    label: "Equipo 01",
-    titleStart: "Captura aérea con ",
-    titleItalic: "LiDAR",
-    paragraphs: [
-      "Montamos sensores LiDAR de alta densidad sobre plataformas DJI Matrice para capturar el terreno desde el aire. Cada vuelo genera una nube de millones de puntos georreferenciados, incluso bajo vegetación.",
-      "La densidad se ajusta a cada proyecto: desde reconocimientos generales de grandes superficies hasta capturas de alto detalle sobre infraestructuras y terrenos complejos.",
-    ],
-    deliverablesLabel: "Qué entregamos",
-    deliverables: [
-      "Nube de puntos clasificada (LAS/LAZ)",
-      "Modelo digital del terreno (MDT)",
-      "Modelo digital de superficies (MDS)",
-      "Curvas de nivel a la equidistancia que pidas",
-      "Ortofoto georreferenciada (con cámara complementaria)",
-    ],
-    img: imgDrone,
-    videoSrc: null,
-  },
-  {
-    id: "gps-gnss",
-    num: "02",
-    label: "Equipo 02",
-    titleStart: "Posicionamiento ",
-    titleItalic: "GNSS",
-    paragraphs: [
-      "Receptores GNSS multi-constelación con corrección RTK que dan apoyo geodésico a toda la captura. Son la referencia que ancla cada proyecto a coordenadas reales.",
-      "Materializamos y medimos los puntos de control que garantizan la precisión centimétrica de los levantamientos y permiten enlazar distintas técnicas en un mismo sistema de referencia.",
-    ],
-    deliverablesLabel: "Para qué",
-    deliverables: [
-      "Apoyo geodésico de los vuelos LiDAR",
-      "Puntos de control y georreferenciación",
-      "Enlace a sistemas de referencia oficiales",
-      "Verificación de precisión en campo",
-    ],
-    img: imgGnss,
-    videoSrc: null,
-  },
-  {
-    id: "estaciones-totales",
-    num: "03",
-    label: "Equipo 03",
-    titleStart: "Estación ",
-    titleItalic: "total",
-    paragraphs: [
-      "Para los trabajos donde prima la exactitud puntual, la estación total mide ángulos y distancias con tolerancias milimétricas. Es el complemento de precisión a la captura aérea.",
-      "La empleamos en replanteos, control geométrico de obra y levantamiento de detalle, allí donde cada punto cuenta y el láser aéreo no llega con suficiente resolución.",
-    ],
-    deliverablesLabel: "Para qué",
-    deliverables: [
-      "Replanteo de obra",
-      "Control geométrico y de ejecución",
-      "Levantamiento de detalle",
-      "Comprobaciones milimétricas",
-    ],
-    img: imgEstacion,
-    videoSrc: null,
-  },
+// Los textos viven en locales/{es,en}/common.json (tech.blocks), casados por índice.
+const equipmentBase = [
+  { id: "drones-lidar", num: "01", img: imgDrone, videoSrc: null },
+  { id: "gps-gnss", num: "02", img: imgGnss, videoSrc: null },
+  { id: "estaciones-totales", num: "03", img: imgEstacion, videoSrc: null },
 ];
 
+interface TechBlockTexts {
+  label: string;
+  titleStart?: string;
+  titleItalic: string;
+  titleEnd?: string;
+  paragraphs: string[];
+  deliverablesLabel: string;
+  deliverables: string[];
+}
+
 function TecnologiaPage() {
+  const { t } = useTranslation();
+  const blocks = t("tech.blocks", { returnObjects: true }) as TechBlockTexts[];
+  const equipment = equipmentBase.map((eq, i) => ({ ...eq, ...blocks[i] }));
+
   return (
     <>
       {/* PAGE HEADER */}
@@ -107,7 +65,7 @@ function TecnologiaPage() {
             transition={{ duration: 0.6, ease }}
             className="font-mono uppercase text-[13px] tracking-[0.25em] text-amber"
           >
-            Tecnología
+            {t("tech.label")}
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
@@ -116,8 +74,7 @@ function TecnologiaPage() {
             className="mt-8 font-display font-normal text-ink leading-[0.95] tracking-tight max-w-[1200px]"
             style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
           >
-            Equipos de precisión para{" "}
-            cada levantamiento
+            {t("tech.title")}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -125,9 +82,7 @@ function TecnologiaPage() {
             transition={{ duration: 0.7, ease, delay: 0.3 }}
             className="mt-10 max-w-[720px] text-xl text-mid leading-relaxed"
           >
-            Combinamos captura aérea LiDAR, posicionamiento GNSS y estación total
-            para cubrir cualquier proyecto, desde grandes superficies hasta el
-            detalle milimétrico.
+            {t("tech.sub")}
           </motion.p>
         </div>
       </section>
@@ -151,16 +106,15 @@ function TecnologiaPage() {
             className="font-display font-normal text-ink leading-[1.02] tracking-tight"
             style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)" }}
           >
-            ¿Tienes un proyecto?
+            {t("tech.ctaTitle1")}
             <br />
-            Lo medimos
+            {t("tech.ctaTitle2")}
           </h2>
           <p className="mt-6 text-mid text-lg max-w-lg leading-relaxed">
-            Estudiamos cada caso individualmente y proponemos el enfoque técnico
-            adecuado.
+            {t("tech.ctaSub")}
           </p>
           <Link to="/contacto" className="mt-10">
-            <Button variant="primary" size="lg">Solicitar presupuesto</Button>
+            <Button variant="primary" size="lg">{t("tech.ctaButton")}</Button>
           </Link>
         </motion.div>
       </section>
@@ -169,11 +123,12 @@ function TecnologiaPage() {
 }
 
 interface EquipmentBlockProps {
-  eq: (typeof equipment)[number];
+  eq: (typeof equipmentBase)[number] & TechBlockTexts;
   reversed: boolean;
 }
 
 function EquipmentBlock({ eq, reversed }: EquipmentBlockProps) {
+  const { t } = useTranslation();
   return (
     <div
       id={eq.id}
@@ -194,7 +149,7 @@ function EquipmentBlock({ eq, reversed }: EquipmentBlockProps) {
             </div>
           </div>
           <div className="absolute bottom-4 left-4 font-sans uppercase text-[10px] tracking-[0.25em] text-paper/70">
-            Vídeo próximamente
+            {t("tech.videoSoon")}
           </div>
         </div>
       </div>
@@ -216,6 +171,7 @@ function EquipmentBlock({ eq, reversed }: EquipmentBlockProps) {
         >
           {eq.titleStart}
           <span className="italic-acc">{eq.titleItalic}</span>
+          {eq.titleEnd}
         </h2>
 
         <div className="mt-8 space-y-5 text-[16px] text-ink/85 leading-[1.65] max-w-xl">

@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { useTranslation } from "react-i18next";
 import { Logo } from "./Logo";
 import { CompassRose } from "./CompassRose";
 
@@ -6,6 +7,7 @@ const linkCls =
   "text-paper/75 hover:text-amber hover:opacity-100 transition-colors duration-200";
 
 export function Footer() {
+  const { t } = useTranslation();
   const year = 2026;
 
   return (
@@ -30,25 +32,25 @@ export function Footer() {
               className="font-display text-paper/70 leading-snug"
               style={{ fontSize: "16px", marginTop: "24px" }}
             >
-              Midiendo el presente para construir el futuro
+              {t("footer.tagline")}
             </p>
           </div>
 
           {/* Col 2 — Explorar */}
-          <FooterCol title="EXPLORAR">
-            <FooterLink to="/">Inicio</FooterLink>
-            <FooterLink to="/tecnologia">Tecnología</FooterLink>
-            <FooterLink to="/sobre">Sobre JM GEO</FooterLink>
-            <FooterLink to="/contacto">Contacto</FooterLink>
-            <FooterLink to="/clientes">Área clientes</FooterLink>
+          <FooterCol title={t("footer.explore")}>
+            <FooterLink to="/">{t("footer.home")}</FooterLink>
+            <FooterLink to="/tecnologia">{t("footer.tech")}</FooterLink>
+            <FooterLink to="/sobre">{t("footer.about")}</FooterLink>
+            <FooterLink to="/contacto">{t("footer.contactLink")}</FooterLink>
+            <FooterLink to="/clientes">{t("footer.clients")}</FooterLink>
           </FooterCol>
 
           {/* Col 3 — Contacto */}
-          <FooterCol title="CONTACTO">
+          <FooterCol title={t("footer.contact")}>
             <li className="text-paper/75">JM GEO, S.L.</li>
             <li className="text-paper/75">Maestra Juana Sena, 5 - 5</li>
             <li className="text-paper/75">46910 Benetússer (Valencia)</li>
-            <li className="text-paper/75">España</li>
+            <li className="text-paper/75">{t("footer.country")}</li>
             <li className="text-paper/75">
               <a href="tel:+34640266724" className={linkCls}>
                 T: +34 640 266 724
@@ -62,10 +64,10 @@ export function Footer() {
           </FooterCol>
 
           {/* Col 4 — Legal */}
-          <FooterCol title="LEGAL">
-            <FooterLink to="/aviso-legal">Aviso legal</FooterLink>
-            <FooterLink to="/privacidad">Política de privacidad</FooterLink>
-            <FooterLink to="/cookies">Política de cookies</FooterLink>
+          <FooterCol title={t("footer.legal")}>
+            <FooterLink to="/aviso-legal">{t("footer.legalNotice")}</FooterLink>
+            <FooterLink to="/privacidad">{t("footer.privacy")}</FooterLink>
+            <FooterLink to="/cookies">{t("footer.cookies")}</FooterLink>
           </FooterCol>
         </div>
 
@@ -78,7 +80,7 @@ export function Footer() {
             className="font-mono text-paper/50"
             style={{ fontSize: "11px", letterSpacing: "0.1em" }}
           >
-            © {year} JM GEO · Todos los derechos reservados
+            © {year} JM GEO · {t("footer.rights")}
           </span>
         </div>
       </div>

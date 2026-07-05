@@ -1,40 +1,31 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { Expandable } from "@/components/Expandable";
 import imgCaptura from "@/assets/clientes/drone-vuelo.png";
 import imgEjecucion from "@/assets/clientes/equipo-obra.png";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-const steps = [
-  { num: "01", title: "Briefing técnico", desc: "Entendemos qué necesitas medir, con qué precisión, para cuándo y en qué formato." },
-  { num: "02", title: "Planificación de proyecto", desc: "Diseñamos la estrategia: metodología, equipos, planificación de campo y permisos cuando aplican." },
-  { num: "03", title: "Levantamiento en campo", desc: "Capturamos los datos con drones LiDAR, GNSS y estación total según las necesidades del proyecto." },
-  { num: "04", title: "Gabinete", desc: "Procesamos la información, generamos modelos y preparamos los entregables técnicos." },
-  { num: "05", title: "Entrega", desc: "Te llega todo en los formatos que usas, con histórico y soporte posterior." },
-];
-
-const cards = [
-  {
-    num: "01",
-    title: "Captura topográfica para proyectos",
-    short:
-      "Obtención de datos geoespaciales precisos con tecnología LiDAR y métodos topográficos para el desarrollo de ingeniería, energía y obra civil.",
-    detail:
-      "Vuelos planificados, apoyo geodésico y procesado completo. Entregables listos para CAD: nubes de puntos clasificadas, MDT, MDS, ortofotos y curvas de nivel.",
-    img: imgCaptura,
-  },
-  {
-    num: "02",
-    title: "Ejecución de obra",
-    short:
-      "Replanteos, control de ejecución, seguimiento y asistencia topográfica en todas las fases de construcción.",
-    detail:
-      "Acompañamos a constructoras e ingenierías desde el replanteo inicial hasta la liquidación final, con trazabilidad documental y los formatos que usa tu equipo.",
-    img: imgEjecucion,
-  },
-];
+// Los textos viven en locales/{es,en}/common.json (whatWeDo.cards / whatWeDo.steps);
+// aquí solo quedan los datos no traducibles (números e imágenes), casados por índice.
+const cardImgs = [imgCaptura, imgEjecucion];
 
 export function WhatWeDo() {
+  const { t } = useTranslation();
+  const cardTexts = t("whatWeDo.cards", { returnObjects: true }) as {
+    title: string;
+    short: string;
+    detail: string;
+  }[];
+  const cards = cardTexts.map((c, i) => ({
+    ...c,
+    num: String(i + 1).padStart(2, "0"),
+    img: cardImgs[i],
+  }));
+  const steps = (
+    t("whatWeDo.steps", { returnObjects: true }) as { title: string; desc: string }[]
+  ).map((s, i) => ({ ...s, num: String(i + 1).padStart(2, "0") }));
+
   return (
     <section id="servicios" className="bg-paper py-[140px] border-t border-ink/10">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -45,7 +36,7 @@ export function WhatWeDo() {
           transition={{ duration: 0.6, ease }}
           className="font-mono uppercase text-[13px] tracking-[0.25em] text-amber"
         >
-          Qué hacemos
+          {t("whatWeDo.label")}
         </motion.p>
 
         <motion.h2
@@ -56,7 +47,7 @@ export function WhatWeDo() {
           className="mt-6 font-display font-normal text-ink leading-[1.02] tracking-tight whitespace-nowrap"
           style={{ fontSize: "clamp(1.5rem, 3.8vw, 3.5rem)" }}
         >
-          De la planificación a la ejecución
+          {t("whatWeDo.title")}
         </motion.h2>
 
         <div className="mt-20 grid md:grid-cols-2 gap-8">
@@ -90,7 +81,7 @@ export function WhatWeDo() {
                 {c.short}
               </p>
 
-              <Expandable label="Saber más">
+              <Expandable label={t("whatWeDo.more")}>
                 <p>{c.detail}</p>
               </Expandable>
             </motion.article>

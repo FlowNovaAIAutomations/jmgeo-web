@@ -1,13 +1,14 @@
 import { useState, type ReactNode } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Plus } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 /**
  * Expandable — bloque colapsable. Mantiene la web limpia mostrando solo
  * un titular o un blurb corto; el detalle se despliega si el usuario quiere.
  */
 export function Expandable({
-  label = "Saber más",
+  label,
   children,
   tone = "light",
 }: {
@@ -15,6 +16,7 @@ export function Expandable({
   children: ReactNode;
   tone?: "light" | "dark";
 }) {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const colors =
     tone === "dark"
@@ -35,7 +37,7 @@ export function Expandable({
         aria-expanded={open}
         className={`mt-5 inline-flex items-center gap-2 font-mono uppercase text-[10px] tracking-[0.25em] border-b pb-1 transition-colors ${colors.btn}`}
       >
-        <span>{open ? "Cerrar" : label}</span>
+        <span>{open ? t("expandable.close") : (label ?? t("whatWeDo.more"))}</span>
         <motion.span
           animate={{ rotate: open ? 45 : 0 }}
           transition={{ duration: 0.3, ease: "easeOut" }}

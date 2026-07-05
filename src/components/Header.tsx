@@ -2,16 +2,18 @@ import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Logo } from "./Logo";
 import { Button } from "./Button";
 import { cn } from "@/lib/utils";
+import { applyStoredLanguage } from "@/lib/i18n";
 
 const navItems = [
-  { to: "/sobre", hash: undefined, label: "Nosotros" },
-  { to: "/", hash: "servicios", label: "Servicios" },
-  { to: "/tecnologia", hash: undefined, label: "Tecnología" },
-  { to: "/", hash: "proyectos", label: "Proyectos" },
-  { to: "/contacto", hash: undefined, label: "Contacto" },
+  { to: "/sobre", hash: undefined, key: "nav.about" },
+  { to: "/", hash: "servicios", key: "nav.services" },
+  { to: "/tecnologia", hash: undefined, key: "nav.tech" },
+  { to: "/", hash: "proyectos", key: "nav.projects" },
+  { to: "/contacto", hash: undefined, key: "nav.contact" },
 ] as const;
 
 
@@ -22,8 +24,8 @@ export function Header() {
   // translúcido claro) siempre, para que se vea bien sin importar el scroll.
   const [scrolledRaw, setScrolledRaw] = useState(false);
   const [open, setOpen] = useState(false);
-  // Toggle visual de idioma: EN aún no traduce, sólo cambia el highlight.
-  const [lang, setLang] = useState<"es" | "en">("es");
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language === "en" ? "en" : "es";
 
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isHome = pathname === "/";
@@ -37,6 +39,12 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Tras la hidratación (el HTML estático siempre es ES), restaurar el idioma
+  // guardado de visitas anteriores.
+  useEffect(() => {
+    applyStoredLanguage();
+  }, []);
+
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -48,7 +56,7 @@ export function Header() {
   return (
     <>
       <a href="#main-content" className="skip-link">
-        Saltar al contenido
+        {t("header.skip")}
       </a>
 
       <motion.header
@@ -71,7 +79,7 @@ export function Header() {
             to="/"
             className="flex items-center"
             onClick={() => setOpen(false)}
-            aria-label="JM GEO — Inicio"
+            aria-label={t("header.homeAria")}
           >
             <Logo
               variant={scrolled ? "dark" : "light"}
@@ -79,10 +87,10 @@ export function Header() {
             />
           </Link>
 
-          <nav className="hidden md:flex items-center gap-10" aria-label="Navegación principal">
+          <nav className="hidden md:flex items-center gap-10" aria-label={t("header.mainNav")}>
             {navItems.map((item) => (
               <Link
-                key={`${item.to}-${item.label}`}
+                key={`${item.to}-${item.key}`}
                 to={item.to}
                 hash={item.hash}
                 onClick={() => {
@@ -101,7 +109,7 @@ export function Header() {
                 activeProps={{ className: scrolled ? "text-ink" : "text-paper" }}
                 activeOptions={{ exact: item.to === "/" && !item.hash }}
               >
-                {item.label}
+                {t(item.key)}
               </Link>
             ))}
           </nav>
@@ -109,11 +117,11 @@ export function Header() {
           {/* Lado derecho: PRIMERO área clientes, LUEGO selector de idioma a la derecha. */}
           <div className="hidden md:flex items-center gap-3">
             <Link to="/clientes">
-              <Button variant="accent" size="md">Área clientes</Button>
+              <Button variant="accent" size="md">{t("nav.clients")}</Button>
             </Link>
             <div
               role="group"
-              aria-label="Selector de idioma"
+              aria-label={t("header.langSelector")}
               className={cn(
                 "inline-flex items-center rounded-xl border overflow-hidden transition-colors",
                 scrolled ? "border-ink/15" : "border-paper/25"
@@ -125,10 +133,9 @@ export function Header() {
                   <button
                     key={code}
                     type="button"
-                    onClick={() => setLang(code)}
+                    onClick={() => void i18n.changeLanguage(code)}
                     aria-pressed={active}
-                    aria-label={code === "es" ? "Español" : "English (próximamente)"}
-                    title={code === "en" ? "Próximamente" : undefined}
+                    aria-label={code === "es" ? t("header.langEs") : t("header.langEn")}
                     className={cn(
                       "font-sans text-[11px] tracking-[0.18em] px-2.5 py-1 transition-colors",
                       active
@@ -151,7 +158,7 @@ export function Header() {
           <button
             className={cn("md:hidden p-2 -mr-2 transition-colors", scrolled ? "text-ink" : "text-paper")}
             onClick={() => setOpen((v) => !v)}
-            aria-label={open ? "Cerrar menú" : "Abrir menú"}
+            aria-label={open ? t("header.closeMenu") : t("header.openMenu")}
             aria-expanded={open}
             aria-controls="mobile-nav"
           >
@@ -171,12 +178,12 @@ export function Header() {
             className="md:hidden fixed inset-0 z-40 bg-ink text-paper flex flex-col px-[5vw] pt-32 pb-12"
             role="dialog"
             aria-modal="true"
-            aria-label="Menú móvil"
+            aria-label={t("header.mobileMenu")}
           >
-            <nav className="flex flex-col gap-8" aria-label="Navegación móvil">
+            <nav className="flex flex-col gap-8" aria-label={t("header.mobileNav")}>
               {navItems.map((item, i) => (
                 <motion.div
-                  key={`${item.to}-${item.label}`}
+                  key={`${item.to}-${item.key}`}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: 0.15 + i * 0.05, ease: "easeOut" }}
@@ -193,12 +200,35 @@ export function Header() {
                     }}
                     className="font-display text-[clamp(2rem,8vw,3.5rem)] leading-none hover:text-amber transition-colors"
                   >
-                    {item.label}
+                    {t(item.key)}
                   </Link>
                 </motion.div>
               ))}
 
             </nav>
+
+            {/* Selector de idioma en móvil */}
+            <div className="mt-10 inline-flex items-center self-start rounded-xl border border-paper/25 overflow-hidden">
+              {(["es", "en"] as const).map((code) => {
+                const active = lang === code;
+                return (
+                  <button
+                    key={code}
+                    type="button"
+                    onClick={() => void i18n.changeLanguage(code)}
+                    aria-pressed={active}
+                    aria-label={code === "es" ? t("header.langEs") : t("header.langEn")}
+                    className={cn(
+                      "font-sans text-[12px] tracking-[0.18em] px-3.5 py-1.5 transition-colors",
+                      active ? "bg-paper text-ink" : "text-paper/70 hover:text-paper"
+                    )}
+                  >
+                    {code.toUpperCase()}
+                  </button>
+                );
+              })}
+            </div>
+
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -206,7 +236,7 @@ export function Header() {
               className="mt-auto"
             >
               <Link to="/clientes" onClick={() => setOpen(false)}>
-                <Button variant="accent" size="lg" className="w-full">Área clientes</Button>
+                <Button variant="accent" size="lg" className="w-full">{t("nav.clients")}</Button>
               </Link>
             </motion.div>
           </motion.div>

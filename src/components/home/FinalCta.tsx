@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/Button";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function FinalCta() {
+  const { t } = useTranslation();
   return (
     <section className="relative bg-[var(--envelope)] text-paper py-[180px] overflow-hidden">
       <motion.div
@@ -18,13 +20,13 @@ export function FinalCta() {
           className="font-display font-normal leading-[0.98] tracking-tight"
           style={{ fontSize: "clamp(3.5rem, 8vw, 6.875rem)" }}
         >
-          ¿Tienes un proyecto?
+          {t("finalCta.title1")}
           <br />
-          <span className="italic-acc">Lo medimos</span>
+          <span className="italic-acc">{t("finalCta.titleItalic")}</span>
         </h2>
 
         <Link to="/contacto" className="mt-12">
-          <Button size="lg" className="!bg-paper !text-ink hover:!bg-paper/90">Solicitar presupuesto</Button>
+          <Button size="lg" className="!bg-paper !text-ink hover:!bg-paper/90">{t("finalCta.button")}</Button>
         </Link>
       </motion.div>
     </section>

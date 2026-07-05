@@ -1,28 +1,20 @@
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
-
-const deliverables = [
-  {
-    title: "Parque Solar — Levantamiento LiDAR",
-    meta: "Nube de puntos · Ortofoto · MDT",
-  },
-  {
-    title: "Obra Civil — Control topográfico",
-    meta: "Planos CAD · Informe técnico",
-  },
-  {
-    title: "Cantera — Cubicación volumétrica",
-    meta: "Modelo 3D · Cálculo de volúmenes",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 /**
  * Projects — sección "Portal Cliente JM GEO".
  * Maqueta del panel cloud con entregables descargables.
+ * Textos en locales/{es,en}/common.json (projects.*).
  */
 export function Projects() {
+  const { t } = useTranslation();
+  const deliverables = t("projects.deliverables", { returnObjects: true }) as {
+    title: string;
+    meta: string;
+  }[];
   return (
     <section id="proyectos" className="bg-paper py-[140px]">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
@@ -35,7 +27,7 @@ export function Projects() {
             transition={{ duration: 0.5, ease }}
             className="font-mono uppercase text-[13px] tracking-[0.25em] text-amber"
           >
-            Portal Cliente
+            {t("projects.label")}
           </motion.p>
 
           <motion.h2
@@ -46,8 +38,8 @@ export function Projects() {
             className="mt-7 font-display font-normal text-ink leading-[1.02] tracking-tight"
             style={{ fontSize: "clamp(2rem, 4.2vw, 3.75rem)" }}
           >
-            Tus proyectos
-            <span className="block text-ink/35 whitespace-nowrap">disponibles 24/7</span>
+            {t("projects.title1")}
+            <span className="block text-ink/35 whitespace-nowrap">{t("projects.title2")}</span>
           </motion.h2>
 
           <motion.p
@@ -57,9 +49,7 @@ export function Projects() {
             transition={{ duration: 0.6, ease, delay: 0.2 }}
             className="mt-8 text-ink/80 leading-[1.65] max-w-md"
           >
-            Accede a todos tus proyectos, entregables y documentación técnica
-            desde una plataforma centralizada diseñada para visualizar,
-            gestionar y descargar información de forma rápida y segura.
+            {t("projects.body")}
           </motion.p>
 
           <motion.a
@@ -70,7 +60,7 @@ export function Projects() {
             transition={{ duration: 0.6, ease, delay: 0.3 }}
             className="mt-10 inline-flex items-center gap-2 font-mono uppercase text-[11px] tracking-[0.25em] text-ink border-b border-ink/30 hover:border-amber hover:text-amber transition-colors pb-1"
           >
-            Acceder al área cliente
+            {t("projects.cta")}
             <span className="text-amber">→</span>
           </motion.a>
         </div>
@@ -108,7 +98,7 @@ export function Projects() {
               <div className="flex items-center gap-2 rounded-full border border-amber/40 bg-amber/10 px-3 py-1">
                 <span className="h-1.5 w-1.5 rounded-full bg-amber animate-pulse" />
                 <span className="font-mono uppercase text-[10px] tracking-[0.2em] text-amber">
-                  Online
+                  {t("projects.online")}
                 </span>
               </div>
             </div>
@@ -137,7 +127,7 @@ export function Projects() {
                     className="shrink-0 inline-flex items-center gap-2 bg-ink text-paper hover:bg-ink/85 rounded-lg px-3 py-2 md:px-4 text-[12px] font-medium transition-colors"
                   >
                     <Download className="h-3.5 w-3.5" strokeWidth={2} />
-                    <span className="hidden sm:inline">Descargar</span>
+                    <span className="hidden sm:inline">{t("projects.download")}</span>
                   </button>
                 </motion.div>
               ))}
@@ -145,8 +135,8 @@ export function Projects() {
 
             {/* Footer meta */}
             <div className="mt-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-[10px] md:text-[11px] font-mono uppercase tracking-[0.2em] text-paper/50">
-              <span>3 entregables disponibles</span>
-              <span>Actualizado hace 2 h</span>
+              <span>{t("projects.count")}</span>
+              <span>{t("projects.updated")}</span>
             </div>
           </div>
         </motion.div>

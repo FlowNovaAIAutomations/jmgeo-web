@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/Button";
 import { CompassRose } from "@/components/CompassRose";
 import { countryShapes } from "@/components/home/countryShapes";
@@ -25,6 +26,7 @@ const fadeUp = {
 };
 
 function SobrePage() {
+  const { t } = useTranslation();
   return (
     <>
       {/* 1 — HERO: título gigante */}
@@ -46,7 +48,7 @@ function SobrePage() {
             transition={{ duration: 0.6, ease }}
             className="font-mono uppercase text-[13px] tracking-[0.25em] text-amber"
           >
-            Nosotros
+            {t("about.label")}
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
@@ -55,7 +57,7 @@ function SobrePage() {
             className="mt-8 font-display font-normal text-ink leading-[0.9] tracking-tight"
             style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
           >
-            Sobre <span className="italic-acc">JM GEO</span>
+            {t("about.titleStart")}<span className="italic-acc">{t("about.titleItalic")}</span>
           </motion.h1>
         </div>
       </section>
@@ -67,8 +69,7 @@ function SobrePage() {
             {...fadeUp}
             className="border-l-2 border-amber pl-7 text-[clamp(1.4rem,2.6vw,1.9rem)] text-ink leading-[1.5] font-display font-normal"
           >
-            Somos una empresa joven, aunque el equipo acumula años de
-            experiencia en topografía y geomática.
+            {t("about.lead")}
           </motion.p>
 
           <motion.div
@@ -76,22 +77,8 @@ function SobrePage() {
             transition={{ duration: 0.7, ease, delay: 0.1 }}
             className="mt-12 space-y-7 text-[18px] text-ink/80 leading-[1.7]"
           >
-            <p>
-              Hemos trabajado en Portugal, Italia, Alemania, Reino Unido,
-              Francia y España. Cada proyecto lo hemos realizado con el mayor
-              compromiso y entrega. Sentimos que hemos conseguido que nuestra
-              implicación sea reconocida y que nuestra precisión al medir sea el
-              valor más apreciado.
-            </p>
-            <p>
-              Apostamos por una topografía adaptada al momento tecnológico
-              actual. Por ello, utilizamos las últimas innovaciones en drones,
-              escáner 3D y sistemas digitales de medición. Creemos que la
-              combinación entre nuestra dedicación humana en campo y el uso de
-              la tecnología emergente es la clave para ofrecer resultados de
-              máximo rigor en proyectos de edificación, energía e
-              infraestructuras.
-            </p>
+            <p>{t("about.p1")}</p>
+            <p>{t("about.p2")}</p>
           </motion.div>
         </div>
       </section>
@@ -100,7 +87,7 @@ function SobrePage() {
       <section className="bg-[var(--paper-alt)] py-[120px] border-t border-ink/[0.06]">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <motion.p {...fadeUp} className="font-mono uppercase text-[13px] tracking-[0.25em] text-amber">
-            Dónde hemos trabajado
+            {t("about.whereLabel")}
           </motion.p>
           <motion.h2
             {...fadeUp}
@@ -108,7 +95,7 @@ function SobrePage() {
             className="mt-6 font-display font-normal text-ink leading-[1.02] tracking-tight"
             style={{ fontSize: "clamp(2.25rem, 4.4vw, 3.75rem)" }}
           >
-            Presencia europea desde nuestros inicios
+            {t("about.whereTitle")}
           </motion.h2>
 
           <div className="mt-16 grid grid-cols-3 md:grid-cols-6 gap-y-12 gap-x-6">
@@ -133,7 +120,7 @@ function SobrePage() {
                   </g>
                 </svg>
                 <span className="mt-4 font-mono uppercase text-[10px] tracking-[0.18em] text-mid text-center leading-tight">
-                  {c.name}
+                  {t(`countries.${c.name}`)}
                 </span>
               </motion.div>
             ))}
@@ -171,8 +158,8 @@ function SobrePage() {
             className="font-display font-normal leading-[1.05] tracking-tight"
             style={{ fontSize: "clamp(2.75rem, 6vw, 5.5rem)" }}
           >
-            Medimos el presente para{" "}
-            <span className="font-normal text-paper/65">construir el futuro</span>
+            {t("about.closing1")}
+            <span className="font-normal text-paper/65">{t("about.closing2")}</span>
           </h2>
         </motion.div>
       </section>
@@ -184,10 +171,10 @@ function SobrePage() {
           className="mx-auto max-w-2xl px-6 text-center flex flex-col items-center"
         >
           <h2 className="font-display font-normal text-ink leading-tight tracking-tight" style={{ fontSize: "clamp(2.25rem, 4vw, 3rem)" }}>
-            Cuéntanos tu <span className="italic-acc">proyecto</span>
+            {t("about.ctaStart")}<span className="italic-acc">{t("about.ctaItalic")}</span>
           </h2>
           <Link to="/contacto" className="mt-10">
-            <Button variant="primary" size="lg">Solicitar presupuesto</Button>
+            <Button variant="primary" size="lg">{t("about.button")}</Button>
           </Link>
         </motion.div>
       </section>

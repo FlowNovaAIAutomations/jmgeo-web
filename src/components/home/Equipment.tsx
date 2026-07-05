@@ -1,30 +1,19 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
+import { useTranslation } from "react-i18next";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-const equipment = [
-  {
-    num: "01",
-    name: "Drones LiDAR",
-    desc: "Captura aérea de alta densidad para grandes superficies, infraestructuras y terrenos complejos.",
-    hash: "drones-lidar",
-  },
-  {
-    num: "02",
-    name: "GPS GNSS",
-    desc: "Posicionamiento geodésico multi-constelación para apoyo de campo y control de precisión.",
-    hash: "gps-gnss",
-  },
-  {
-    num: "03",
-    name: "Estaciones totales",
-    desc: "Mediciones angulares y de distancia de máxima exactitud para detalles y replanteos.",
-    hash: "estaciones-totales",
-  },
-];
+// Los textos viven en locales/{es,en}/common.json (equipmentHome.items),
+// casados por índice con estos anclas de /tecnologia.
+const hashes = ["drones-lidar", "gps-gnss", "estaciones-totales"];
 
 export function Equipment() {
+  const { t } = useTranslation();
+  const equipment = (
+    t("equipmentHome.items", { returnObjects: true }) as { name: string; desc: string }[]
+  ).map((it, i) => ({ ...it, num: String(i + 1).padStart(2, "0"), hash: hashes[i] }));
+
   return (
     <section className="bg-[var(--paper-alt)] py-[140px] border-t border-ink/[0.06]">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -35,7 +24,7 @@ export function Equipment() {
           transition={{ duration: 0.6, ease }}
           className="font-mono uppercase text-[13px] tracking-[0.25em] text-amber"
         >
-          Equipos
+          {t("equipmentHome.label")}
         </motion.p>
 
         <motion.h2
@@ -46,7 +35,7 @@ export function Equipment() {
           className="mt-6 font-display font-normal text-ink leading-[1.02] tracking-tight max-w-3xl"
           style={{ fontSize: "clamp(2.25rem, 4.4vw, 3.75rem)" }}
         >
-          Tecnología de <span className="italic-acc">precisión</span>
+          {t("equipmentHome.titleStart")}<span className="italic-acc">{t("equipmentHome.titleItalic")}</span>
         </motion.h2>
 
         <div className="mt-16 grid md:grid-cols-3 gap-6">
@@ -76,7 +65,7 @@ export function Equipment() {
                   {e.desc}
                 </p>
                 <span className="mt-6 inline-flex items-center gap-2 font-mono uppercase text-[10px] tracking-[0.25em] text-ink/70 group-hover:text-amber border-b border-ink/20 group-hover:border-amber pb-1 transition-colors self-start">
-                  Detalle
+                  {t("equipmentHome.detail")}
                   <span className="text-amber">→</span>
                 </span>
               </Link>

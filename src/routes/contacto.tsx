@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Loader2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/Button";
 
 export const Route = createFileRoute("/contacto")({
@@ -26,8 +27,10 @@ const fadeIn = {
 type FieldErrors = Partial<Record<"nombre" | "email" | "mensaje" | "privacidad", string>>;
 
 function ContactoPage() {
+  const { t } = useTranslation();
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
+  const projectTypes = t("contact.types", { returnObjects: true }) as string[];
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -40,11 +43,11 @@ function ContactoPage() {
     const mensaje = String(data.get("mensaje") ?? "").trim();
     const privacidad = data.get("privacidad");
 
-    if (!nombre) next.nombre = "Indícanos tu nombre";
-    if (!email) next.email = "Indícanos tu email";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) next.email = "Email no válido";
-    if (!mensaje) next.mensaje = "Cuéntanos brevemente tu proyecto";
-    if (!privacidad) next.privacidad = "Necesitamos tu consentimiento";
+    if (!nombre) next.nombre = t("contact.errName");
+    if (!email) next.email = t("contact.errEmail");
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) next.email = t("contact.errEmailInvalid");
+    if (!mensaje) next.mensaje = t("contact.errMessage");
+    if (!privacidad) next.privacidad = t("contact.errPrivacy");
 
     setErrors(next);
     if (Object.keys(next).length > 0) return;
@@ -79,10 +82,10 @@ function ContactoPage() {
           {/* Columna izquierda — formulario */}
           <motion.div {...fadeIn}>
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-amber">
-              SOLICITAR PRESUPUESTO
+              {t("contact.eyebrow")}
             </p>
             <h1 className="mt-6 font-display text-ink" style={{ fontSize: "clamp(3rem, 6vw, 5rem)", lineHeight: 1.02, letterSpacing: "-0.02em" }}>
-              Cuéntanos qué <span className="italic-acc">necesitas medir</span>
+              {t("contact.titleStart")}<span className="italic-acc">{t("contact.titleItalic")}</span>
             </h1>
 
             <div className="mt-12">
@@ -97,13 +100,13 @@ function ContactoPage() {
                     className="border-t border-amber pt-10"
                   >
                     <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-amber">
-                      MENSAJE ENVIADO
+                      {t("contact.sentLabel")}
                     </p>
                     <h2 className="mt-4 font-display text-[32px] leading-[1.1] text-ink">
-                      Gracias. Te contestamos en menos de 24 horas.
+                      {t("contact.sentTitle")}
                     </h2>
                     <p className="mt-4 font-sans text-[14px] text-mid">
-                      Si tu consulta es urgente, también puedes escribirnos directamente a{" "}
+                      {t("contact.sentBody")}{" "}
                       <a href="mailto:administracion@jmgeo.es" className="text-ink underline decoration-amber underline-offset-4">
                         administracion@jmgeo.es
                       </a>
@@ -116,7 +119,7 @@ function ContactoPage() {
                           setErrors({});
                         }}
                       >
-                        Enviar otro mensaje
+                        {t("contact.sendAnother")}
                       </Button>
                     </div>
                   </motion.div>
@@ -141,14 +144,14 @@ function ContactoPage() {
                       className="hidden"
                     />
 
-                    <Field label="Nombre completo" name="nombre" required error={errors.nombre} />
-                    <Field label="Empresa u organización" name="empresa" />
-                    <Field label="Email" name="email" type="email" required error={errors.email} />
-                    <Field label="Teléfono" name="telefono" type="tel" />
+                    <Field label={t("contact.name")} name="nombre" required error={errors.nombre} />
+                    <Field label={t("contact.company")} name="empresa" />
+                    <Field label={t("contact.email")} name="email" type="email" required error={errors.email} />
+                    <Field label={t("contact.phone")} name="telefono" type="tel" />
 
                     <div className="flex flex-col gap-2">
                       <label htmlFor="tipo" className="font-mono text-[10px] uppercase tracking-[0.2em] text-amber">
-                        Tipo de proyecto
+                        {t("contact.projectType")}
                       </label>
                       <select
                         id="tipo"
@@ -157,24 +160,22 @@ function ContactoPage() {
                         className="rounded-xl border border-ink/12 bg-[var(--paper-alt)] pl-4 pr-10 py-[14px] font-sans text-[15px] text-ink outline-none transition-colors focus:border-amber focus:bg-paper appearance-none bg-no-repeat bg-[length:16px_16px] bg-[position:right_14px_center]"
                         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238595A3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")` }}
                       >
-                        <option value="" disabled>Selecciona una opción</option>
-                        <option>Levantamiento LiDAR</option>
-                        <option>Levantamiento fotogrametría</option>
-                        <option>Replanteo</option>
-                        <option>Generación MDT&amp;MDE</option>
-                        <option>Consulta general</option>
+                        <option value="" disabled>{t("contact.selectOption")}</option>
+                        {projectTypes.map((tp) => (
+                          <option key={tp}>{tp}</option>
+                        ))}
                       </select>
                     </div>
 
                     <div className="flex flex-col gap-2">
                       <label htmlFor="mensaje" className="font-sans text-[10px] uppercase tracking-[0.2em] text-amber">
-                        Cuéntanos tu proyecto <span className="text-ink/40">*</span>
+                        {t("contact.message")} <span className="text-ink/40">*</span>
                       </label>
                       <textarea
                         id="mensaje"
                         name="mensaje"
                         rows={5}
-                        placeholder="Brevemente: qué necesitas, dónde, para cuándo y en qué formato te interesa recibir la entrega"
+                        placeholder={t("contact.messagePlaceholder")}
                         className="rounded-xl border bg-[var(--paper-alt)] px-4 py-[14px] font-sans text-[15px] text-ink placeholder:text-mid/70 outline-none transition-colors focus:border-amber focus:bg-paper"
                         style={{ borderColor: errors.mensaje ? "#B26A5F" : "rgba(58,74,90,0.12)" }}
                       />
@@ -190,7 +191,7 @@ function ContactoPage() {
                         className="mt-1 h-4 w-4 accent-[var(--amber)]"
                       />
                       <span className="font-sans text-[14px] text-mid">
-                        He leído y acepto la{" "}
+                        {t("contact.privacyPre")}{" "}
                         <a
                           href="/privacidad"
                           target="_blank"
@@ -198,7 +199,7 @@ function ContactoPage() {
                           onClick={(e) => e.stopPropagation()}
                           className="text-ink underline decoration-amber underline-offset-4 hover:text-amber transition-colors"
                         >
-                          política de privacidad
+                          {t("contact.privacyLink")}
                         </a>
                       </span>
                     </label>
@@ -208,8 +209,7 @@ function ContactoPage() {
 
                     {status === "error" && (
                       <p className="font-sans text-[13px]" style={{ color: "#B26A5F" }}>
-                        No hemos podido enviar tu mensaje. Inténtalo de nuevo o
-                        escríbenos a{" "}
+                        {t("contact.errSend")}{" "}
                         <a href="mailto:administracion@jmgeo.es" className="underline decoration-amber underline-offset-4">
                           administracion@jmgeo.es
                         </a>
@@ -227,10 +227,10 @@ function ContactoPage() {
                         {status === "loading" ? (
                           <>
                             <Loader2 className="h-4 w-4 animate-spin text-amber" />
-                            Enviando…
+                            {t("contact.sending")}
                           </>
                         ) : (
-                          "Solicitar presupuesto"
+                          t("contact.submit")
                         )}
                       </Button>
                     </div>
@@ -243,11 +243,11 @@ function ContactoPage() {
           {/* Columna derecha — información */}
           <motion.aside {...fadeIn} transition={{ duration: 0.7, ease, delay: 0.1 }}>
             <div className="rounded-[20px] border border-ink/8 bg-paper p-9 shadow-soft">
-              <InfoBlock title="CONTACTO">
+              <InfoBlock title={t("contact.infoContact")}>
                 <p className="text-ink">JM GEO, S.L.</p>
                 <p className="text-ink">Maestra Juana Sena, 5 - 5</p>
                 <p className="text-ink">46910 Benetússer (Valencia)</p>
-                <p className="text-ink">España</p>
+                <p className="text-ink">{t("contact.country")}</p>
                 <a href="tel:+34640266724" className="block text-ink hover:text-amber transition-colors mt-3">
                   T: +34 640 266 724
                 </a>
@@ -258,15 +258,15 @@ function ContactoPage() {
 
               <Divider />
 
-              <InfoBlock title="HORARIO">
-                <p className="text-ink">Lunes a viernes</p>
-                <p className="text-ink">9:00 — 17:00</p>
+              <InfoBlock title={t("contact.infoSchedule")}>
+                <p className="text-ink">{t("contact.scheduleDays")}</p>
+                <p className="text-ink">{t("contact.scheduleHours")}</p>
               </InfoBlock>
             </div>
 
             <div className="mt-6 overflow-hidden rounded-[20px]">
               <iframe
-                title="Ubicación JM GEO en Benetússer, Valencia"
+                title={t("contact.mapTitle")}
                 src="https://www.google.com/maps?q=Maestra+Juana+Sena+5,+Benet%C3%BAsser,+Valencia,+Espa%C3%B1a&output=embed"
                 width="100%"
                 height="280"

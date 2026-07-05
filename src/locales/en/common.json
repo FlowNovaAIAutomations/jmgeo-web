@@ -1,0 +1,249 @@
+{
+  "nav": {
+    "about": "About us",
+    "services": "Services",
+    "tech": "Technology",
+    "projects": "Projects",
+    "contact": "Contact",
+    "clients": "Client area"
+  },
+  "header": {
+    "skip": "Skip to content",
+    "homeAria": "JM GEO — Home",
+    "mainNav": "Main navigation",
+    "mobileNav": "Mobile navigation",
+    "mobileMenu": "Mobile menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "langSelector": "Language selector",
+    "langEs": "Español",
+    "langEn": "English"
+  },
+  "footer": {
+    "tagline": "Measuring the present to build the future",
+    "explore": "EXPLORE",
+    "contact": "CONTACT",
+    "legal": "LEGAL",
+    "home": "Home",
+    "tech": "Technology",
+    "about": "About JM GEO",
+    "contactLink": "Contact",
+    "clients": "Client area",
+    "legalNotice": "Legal notice",
+    "privacy": "Privacy policy",
+    "cookies": "Cookie policy",
+    "country": "Spain",
+    "rights": "All rights reserved"
+  },
+  "hero": {
+    "title1": "Measuring the present",
+    "title2": "to build the future",
+    "subtitle": "Surveying applied to engineering projects",
+    "imgAlt": "Three LiDAR drones flying over a landscape at sunset"
+  },
+  "projects": {
+    "label": "Client Portal",
+    "title1": "Your projects",
+    "title2": "available 24/7",
+    "body": "Access all your projects, deliverables and technical documentation from a centralised platform designed to view, manage and download information quickly and securely.",
+    "cta": "Go to the client area",
+    "online": "Online",
+    "download": "Download",
+    "count": "3 deliverables available",
+    "updated": "Updated 2 h ago",
+    "deliverables": [
+      { "title": "Solar Farm — LiDAR survey", "meta": "Point cloud · Orthophoto · DTM" },
+      { "title": "Civil Works — Survey control", "meta": "CAD drawings · Technical report" },
+      { "title": "Quarry — Volumetric calculation", "meta": "3D model · Volume computation" }
+    ]
+  },
+  "positioning": {
+    "label": "Who we are",
+    "titleStart": "A young company with ",
+    "titleItalic": "European reach",
+    "p1": "At JM GEO we are committed to surveying that keeps pace with today's technology.",
+    "p2": "That is why we incorporate the latest innovations in digital measurement systems. We believe the combination of human dedication in the field and emerging technology is key to delivering the most rigorous results in building, energy and infrastructure projects.",
+    "cta": "Get to know JM GEO",
+    "delivered": "Projects delivered",
+    "active": "Active"
+  },
+  "countries": {
+    "España": "Spain",
+    "Reino Unido": "United Kingdom",
+    "Italia": "Italy",
+    "Portugal": "Portugal",
+    "Francia": "France",
+    "Alemania": "Germany"
+  },
+  "equipmentHome": {
+    "label": "Equipment",
+    "titleStart": "Precision ",
+    "titleItalic": "technology",
+    "detail": "Details",
+    "items": [
+      { "name": "LiDAR drones", "desc": "High-density aerial capture for large areas, infrastructure and complex terrain." },
+      { "name": "GNSS GPS", "desc": "Multi-constellation geodetic positioning for field support and precision control." },
+      { "name": "Total stations", "desc": "Angular and distance measurements of maximum accuracy for details and setting out." }
+    ]
+  },
+  "whatWeDo": {
+    "label": "What we do",
+    "title": "From planning to delivery",
+    "more": "Learn more",
+    "cards": [
+      {
+        "title": "Topographic capture for projects",
+        "short": "Precise geospatial data acquisition with LiDAR technology and surveying methods for engineering, energy and civil works development.",
+        "detail": "Planned flights, geodetic support and full processing. CAD-ready deliverables: classified point clouds, DTM, DSM, orthophotos and contour lines."
+      },
+      {
+        "title": "Construction support",
+        "short": "Setting out, execution control, monitoring and surveying assistance throughout every construction phase.",
+        "detail": "We support contractors and engineering firms from the initial setting out to final settlement, with documented traceability and the formats your team uses."
+      }
+    ],
+    "steps": [
+      { "title": "Technical briefing", "desc": "We understand what you need to measure, to what accuracy, by when and in which format." },
+      { "title": "Project planning", "desc": "We design the strategy: methodology, equipment, field planning and permits where applicable." },
+      { "title": "Field survey", "desc": "We capture the data with LiDAR drones, GNSS and total station depending on the project's needs." },
+      { "title": "Data processing", "desc": "We process the information, generate models and prepare the technical deliverables." },
+      { "title": "Delivery", "desc": "Everything arrives in the formats you use, with history and ongoing support." }
+    ]
+  },
+  "finalCta": {
+    "title1": "Got a project?",
+    "titleItalic": "We measure it",
+    "button": "Request a quote"
+  },
+  "expandable": {
+    "close": "Close"
+  },
+  "tech": {
+    "label": "Technology",
+    "title": "Precision equipment for every survey",
+    "sub": "We combine aerial LiDAR capture, GNSS positioning and total station to cover any project, from large areas down to millimetre detail.",
+    "videoSoon": "Video coming soon",
+    "ctaTitle1": "Got a project?",
+    "ctaTitle2": "We measure it",
+    "ctaSub": "We study every case individually and propose the right technical approach.",
+    "ctaButton": "Request a quote",
+    "blocks": [
+      {
+        "label": "Equipment 01",
+        "titleStart": "Aerial capture with ",
+        "titleItalic": "LiDAR",
+        "paragraphs": [
+          "We mount high-density LiDAR sensors on DJI Matrice platforms to capture the terrain from the air. Each flight generates a cloud of millions of georeferenced points, even under vegetation.",
+          "Density is tailored to each project: from general reconnaissance of large areas to high-detail capture over infrastructure and complex terrain."
+        ],
+        "deliverablesLabel": "What we deliver",
+        "deliverables": [
+          "Classified point cloud (LAS/LAZ)",
+          "Digital terrain model (DTM)",
+          "Digital surface model (DSM)",
+          "Contour lines at the interval you need",
+          "Georeferenced orthophoto (with complementary camera)"
+        ]
+      },
+      {
+        "label": "Equipment 02",
+        "titleStart": "",
+        "titleItalic": "GNSS",
+        "titleEnd": " positioning",
+        "paragraphs": [
+          "Multi-constellation GNSS receivers with RTK correction provide geodetic support for the entire capture. They are the reference that anchors each project to real-world coordinates.",
+          "We establish and measure the control points that guarantee centimetre-level accuracy and allow different techniques to be linked in a single reference system."
+        ],
+        "deliverablesLabel": "What for",
+        "deliverables": [
+          "Geodetic support for LiDAR flights",
+          "Control points and georeferencing",
+          "Connection to official reference systems",
+          "Field accuracy verification"
+        ]
+      },
+      {
+        "label": "Equipment 03",
+        "titleStart": "Total ",
+        "titleItalic": "station",
+        "paragraphs": [
+          "For work where point accuracy is paramount, the total station measures angles and distances with millimetre tolerances. It is the precision complement to aerial capture.",
+          "We use it for setting out, geometric control on site and detailed surveys — wherever every point counts and the aerial laser lacks sufficient resolution."
+        ],
+        "deliverablesLabel": "What for",
+        "deliverables": [
+          "Construction setting out",
+          "Geometric and execution control",
+          "Detailed surveying",
+          "Millimetre-level checks"
+        ]
+      }
+    ]
+  },
+  "about": {
+    "label": "About us",
+    "titleStart": "About ",
+    "titleItalic": "JM GEO",
+    "lead": "We are a young company, yet the team brings years of experience in surveying and geomatics.",
+    "p1": "We have worked in Portugal, Italy, Germany, the United Kingdom, France and Spain. Every project has been carried out with the utmost commitment and dedication. We feel our involvement has earned recognition, and that our measuring precision is the value our clients appreciate most.",
+    "p2": "We are committed to surveying that keeps pace with today's technology. That is why we use the latest innovations in drones, 3D scanning and digital measurement systems. We believe the combination of our human dedication in the field and emerging technology is the key to delivering the most rigorous results in building, energy and infrastructure projects.",
+    "whereLabel": "Where we have worked",
+    "whereTitle": "European presence from the very beginning",
+    "closing1": "We measure the present to ",
+    "closing2": "build the future",
+    "ctaStart": "Tell us about your ",
+    "ctaItalic": "project",
+    "button": "Request a quote"
+  },
+  "clients": {
+    "label": "Client area",
+    "title1": "Coming soon,",
+    "title2": "your portal",
+    "body": "We are building a private space where our clients will be able to access their projects, download LiDAR deliverables, view versions, comment and browse the full history of their work with JM GEO",
+    "available": "AVAILABLE · SUMMER 2026",
+    "motto1": "Measuring the present",
+    "motto2": "to build the future",
+    "back": "Back to home",
+    "backAria": "Back to home"
+  },
+  "contact": {
+    "eyebrow": "REQUEST A QUOTE",
+    "titleStart": "Tell us what you ",
+    "titleItalic": "need to measure",
+    "sentLabel": "MESSAGE SENT",
+    "sentTitle": "Thank you. We will reply within 24 hours.",
+    "sentBody": "If your enquiry is urgent, you can also write to us directly at",
+    "sendAnother": "Send another message",
+    "name": "Full name",
+    "company": "Company or organisation",
+    "email": "Email",
+    "phone": "Phone",
+    "projectType": "Project type",
+    "selectOption": "Select an option",
+    "types": [
+      "LiDAR survey",
+      "Photogrammetry survey",
+      "Setting out",
+      "DTM & DEM generation",
+      "General enquiry"
+    ],
+    "message": "Tell us about your project",
+    "messagePlaceholder": "Briefly: what you need, where, by when and in which format you would like the deliverables",
+    "privacyPre": "I have read and accept the",
+    "privacyLink": "privacy policy",
+    "errName": "Please tell us your name",
+    "errEmail": "Please tell us your email",
+    "errEmailInvalid": "Invalid email",
+    "errMessage": "Please tell us briefly about your project",
+    "errPrivacy": "We need your consent",
+    "errSend": "We could not send your message. Please try again or write to us at",
+    "submit": "Request a quote",
+    "sending": "Sending…",
+    "infoContact": "CONTACT",
+    "infoSchedule": "OPENING HOURS",
+    "scheduleDays": "Monday to Friday",
+    "scheduleHours": "9:00 — 17:00",
+    "country": "Spain",
+    "mapTitle": "JM GEO location in Benetússer, Valencia"
+  }
+}

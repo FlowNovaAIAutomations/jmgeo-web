@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
+import { useTranslation } from "react-i18next";
 import { countryShapes } from "./countryShapes";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Positioning() {
+  const { t } = useTranslation();
   return (
     <section id="nosotros" className="bg-paper py-[140px]">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 grid md:grid-cols-12 gap-12 lg:gap-20">
@@ -17,7 +19,7 @@ export function Positioning() {
             transition={{ duration: 0.6, ease }}
             className="font-mono uppercase text-[13px] tracking-[0.25em] text-amber"
           >
-            Quiénes somos
+            {t("positioning.label")}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 12 }}
@@ -27,8 +29,8 @@ export function Positioning() {
             className="mt-6 font-display font-normal text-ink leading-[1.02] tracking-tight"
             style={{ fontSize: "clamp(2.25rem, 4.4vw, 3.75rem)" }}
           >
-            Una empresa joven con{" "}
-            <span className="italic-acc">alcance europeo</span>
+            {t("positioning.titleStart")}
+            <span className="italic-acc">{t("positioning.titleItalic")}</span>
           </motion.h2>
 
           <motion.div
@@ -38,17 +40,8 @@ export function Positioning() {
             transition={{ duration: 0.6, ease, delay: 0.2 }}
             className="mt-8 max-w-md text-ink/80 leading-[1.65] space-y-5"
           >
-            <p>
-              En JM GEO apostamos por una topografía adaptada al momento
-              tecnológico actual.
-            </p>
-            <p>
-              Por ello, incorporamos las últimas innovaciones en sistemas
-              digitales de medición. Creemos que la combinación entre la
-              dedicación humana en campo y el uso de tecnología emergente es
-              clave para ofrecer resultados de máximo rigor en proyectos de
-              edificación, energía e infraestructuras.
-            </p>
+            <p>{t("positioning.p1")}</p>
+            <p>{t("positioning.p2")}</p>
           </motion.div>
 
           <motion.div
@@ -62,7 +55,7 @@ export function Positioning() {
               to="/sobre"
               className="inline-flex items-center gap-2 font-mono uppercase text-[11px] tracking-[0.25em] text-ink/60 border-b border-ink/20 hover:text-amber hover:border-amber transition-colors pb-1"
             >
-              Conoce JM GEO
+              {t("positioning.cta")}
               <span className="text-amber">→</span>
             </Link>
           </motion.div>
@@ -91,13 +84,13 @@ export function Positioning() {
                     120+
                   </div>
                   <p className="mt-3 font-mono uppercase text-[10px] tracking-[0.25em] text-paper/65">
-                    Proyectos entregados
+                    {t("positioning.delivered")}
                   </p>
                 </div>
                 <div className="shrink-0 inline-flex items-center gap-2 rounded-full border border-paper/20 px-3 py-1.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-amber animate-pulse" />
                   <span className="font-mono uppercase text-[10px] tracking-[0.2em] text-paper/70">
-                    En activo
+                    {t("positioning.active")}
                   </span>
                 </div>
               </div>
@@ -124,7 +117,7 @@ export function Positioning() {
                       </g>
                     </svg>
                     <div className="mt-3 font-mono uppercase text-[9px] tracking-[0.15em] text-paper/55 text-center leading-tight">
-                      {c.name}
+                      {t(`countries.${c.name}`)}
                     </div>
                   </motion.div>
                 ))}

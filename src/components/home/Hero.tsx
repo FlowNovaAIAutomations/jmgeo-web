@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import heroDrones from "@/assets/hero-drones-clean.png";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -13,6 +14,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
  * el título y subtítulo se renderizan en HTML para mantener SEO/a11y/responsive.
  */
 export function Hero() {
+  const { t } = useTranslation();
   return (
     <section
       className="relative w-full text-paper overflow-hidden -mt-24 pt-52 pb-20 md:pt-72 md:pb-24"
@@ -38,9 +40,9 @@ export function Hero() {
           className="font-display font-normal leading-[1.05] tracking-tight"
           style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
         >
-          Midiendo el presente
+          {t("hero.title1")}
           <br />
-          para construir el futuro
+          {t("hero.title2")}
         </motion.h1>
 
         {/* Subtitle */}
@@ -50,7 +52,7 @@ export function Hero() {
           transition={{ duration: 0.7, ease, delay: 0.25 }}
           className="mt-6 text-paper/70 leading-relaxed text-lg md:text-xl"
         >
-          Topografía aplicada a proyectos de ingeniería
+          {t("hero.subtitle")}
         </motion.p>
 
         {/* Foto de los drones — panel centrado debajo del texto */}
@@ -63,7 +65,7 @@ export function Hero() {
           <div className="relative rounded-[20px] overflow-hidden shadow-soft-lg">
             <img
               src={heroDrones}
-              alt="Tres drones LiDAR sobrevolando un paisaje al atardecer"
+              alt={t("hero.imgAlt")}
               loading="eager"
               decoding="async"
               className="block w-full h-auto object-cover"

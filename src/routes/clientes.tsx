@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { CompassRose } from "@/components/CompassRose";
 import { Button } from "@/components/Button";
 
@@ -39,6 +40,7 @@ const item = {
 };
 
 function ClientsPage() {
+  const { t } = useTranslation();
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-[var(--envelope)]">
       {/* Background CompassRose */}
@@ -61,7 +63,7 @@ function ClientsPage() {
           className="font-sans text-xs uppercase tracking-[0.3em] text-paper/55"
           variants={item}
         >
-          Área de clientes
+          {t("clients.label")}
         </motion.p>
 
         <motion.h1
@@ -72,9 +74,9 @@ function ClientsPage() {
           }}
           variants={item}
         >
-          Próximamente,
+          {t("clients.title1")}
           <br />
-          <span className="text-paper/70">tu portal</span>
+          <span className="text-paper/70">{t("clients.title2")}</span>
         </motion.h1>
 
         <motion.p
@@ -82,9 +84,7 @@ function ClientsPage() {
           style={{ maxWidth: "540px" }}
           variants={item}
         >
-          Estamos preparando un espacio privado donde nuestros clientes podrán
-          acceder a sus proyectos, descargar entregables LiDAR, ver versiones,
-          comentar y consultar el histórico completo de su trabajo con JM GEO
+          {t("clients.body")}
         </motion.p>
 
         <motion.p
@@ -92,7 +92,7 @@ function ClientsPage() {
           style={{ letterSpacing: "0.25em" }}
           variants={item}
         >
-          DISPONIBLE · VERANO 2026
+          {t("clients.available")}
         </motion.p>
 
         <motion.p
@@ -100,9 +100,9 @@ function ClientsPage() {
           style={{ fontSize: "clamp(1.6rem, 4vw, 3rem)", letterSpacing: "-0.02em" }}
           variants={item}
         >
-          Midiendo el presente
+          {t("clients.motto1")}
           <br />
-          para construir el futuro
+          {t("clients.motto2")}
         </motion.p>
 
         <motion.div className="mt-12" variants={item}>
@@ -111,7 +111,7 @@ function ClientsPage() {
               variant="tertiary"
               className="!text-paper hover:!text-amber"
             >
-              Volver al inicio
+              {t("clients.back")}
             </Button>
           </Link>
         </motion.div>

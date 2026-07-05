@@ -1,22 +1,247 @@
 {
   "nav": {
-    "home": "Inicio",
+    "about": "Nosotros",
+    "services": "Servicios",
     "tech": "Tecnología",
-    "about": "Sobre",
+    "projects": "Proyectos",
     "contact": "Contacto",
     "clients": "Área clientes"
   },
-  "footer": {
-    "tagline": "Topografía técnica con captura LIDAR aérea. Datos precisos para decisiones precisas.",
-    "navigate": "01 / Navegar",
-    "contact": "02 / Contacto",
-    "legal": "Aviso legal · Privacidad"
+  "header": {
+    "skip": "Saltar al contenido",
+    "homeAria": "JM GEO — Inicio",
+    "mainNav": "Navegación principal",
+    "mobileNav": "Navegación móvil",
+    "mobileMenu": "Menú móvil",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "langSelector": "Selector de idioma",
+    "langEs": "Español",
+    "langEn": "English"
   },
-  "pages": {
-    "home": { "title": "Inicio" },
-    "tech": { "title": "Tecnología" },
-    "about": { "title": "Sobre JMGeo" },
-    "contact": { "title": "Contacto" },
-    "clients": { "title": "Área clientes", "soon": "Próximamente" }
+  "footer": {
+    "tagline": "Midiendo el presente para construir el futuro",
+    "explore": "EXPLORAR",
+    "contact": "CONTACTO",
+    "legal": "LEGAL",
+    "home": "Inicio",
+    "tech": "Tecnología",
+    "about": "Sobre JM GEO",
+    "contactLink": "Contacto",
+    "clients": "Área clientes",
+    "legalNotice": "Aviso legal",
+    "privacy": "Política de privacidad",
+    "cookies": "Política de cookies",
+    "country": "España",
+    "rights": "Todos los derechos reservados"
+  },
+  "hero": {
+    "title1": "Midiendo el presente",
+    "title2": "para construir el futuro",
+    "subtitle": "Topografía aplicada a proyectos de ingeniería",
+    "imgAlt": "Tres drones LiDAR sobrevolando un paisaje al atardecer"
+  },
+  "projects": {
+    "label": "Portal Cliente",
+    "title1": "Tus proyectos",
+    "title2": "disponibles 24/7",
+    "body": "Accede a todos tus proyectos, entregables y documentación técnica desde una plataforma centralizada diseñada para visualizar, gestionar y descargar información de forma rápida y segura.",
+    "cta": "Acceder al área cliente",
+    "online": "Online",
+    "download": "Descargar",
+    "count": "3 entregables disponibles",
+    "updated": "Actualizado hace 2 h",
+    "deliverables": [
+      { "title": "Parque Solar — Levantamiento LiDAR", "meta": "Nube de puntos · Ortofoto · MDT" },
+      { "title": "Obra Civil — Control topográfico", "meta": "Planos CAD · Informe técnico" },
+      { "title": "Cantera — Cubicación volumétrica", "meta": "Modelo 3D · Cálculo de volúmenes" }
+    ]
+  },
+  "positioning": {
+    "label": "Quiénes somos",
+    "titleStart": "Una empresa joven con ",
+    "titleItalic": "alcance europeo",
+    "p1": "En JM GEO apostamos por una topografía adaptada al momento tecnológico actual.",
+    "p2": "Por ello, incorporamos las últimas innovaciones en sistemas digitales de medición. Creemos que la combinación entre la dedicación humana en campo y el uso de tecnología emergente es clave para ofrecer resultados de máximo rigor en proyectos de edificación, energía e infraestructuras.",
+    "cta": "Conoce JM GEO",
+    "delivered": "Proyectos entregados",
+    "active": "En activo"
+  },
+  "countries": {
+    "España": "España",
+    "Reino Unido": "Reino Unido",
+    "Italia": "Italia",
+    "Portugal": "Portugal",
+    "Francia": "Francia",
+    "Alemania": "Alemania"
+  },
+  "equipmentHome": {
+    "label": "Equipos",
+    "titleStart": "Tecnología de ",
+    "titleItalic": "precisión",
+    "detail": "Detalle",
+    "items": [
+      { "name": "Drones LiDAR", "desc": "Captura aérea de alta densidad para grandes superficies, infraestructuras y terrenos complejos." },
+      { "name": "GPS GNSS", "desc": "Posicionamiento geodésico multi-constelación para apoyo de campo y control de precisión." },
+      { "name": "Estaciones totales", "desc": "Mediciones angulares y de distancia de máxima exactitud para detalles y replanteos." }
+    ]
+  },
+  "whatWeDo": {
+    "label": "Qué hacemos",
+    "title": "De la planificación a la ejecución",
+    "more": "Saber más",
+    "cards": [
+      {
+        "title": "Captura topográfica para proyectos",
+        "short": "Obtención de datos geoespaciales precisos con tecnología LiDAR y métodos topográficos para el desarrollo de ingeniería, energía y obra civil.",
+        "detail": "Vuelos planificados, apoyo geodésico y procesado completo. Entregables listos para CAD: nubes de puntos clasificadas, MDT, MDS, ortofotos y curvas de nivel."
+      },
+      {
+        "title": "Ejecución de obra",
+        "short": "Replanteos, control de ejecución, seguimiento y asistencia topográfica en todas las fases de construcción.",
+        "detail": "Acompañamos a constructoras e ingenierías desde el replanteo inicial hasta la liquidación final, con trazabilidad documental y los formatos que usa tu equipo."
+      }
+    ],
+    "steps": [
+      { "title": "Briefing técnico", "desc": "Entendemos qué necesitas medir, con qué precisión, para cuándo y en qué formato." },
+      { "title": "Planificación de proyecto", "desc": "Diseñamos la estrategia: metodología, equipos, planificación de campo y permisos cuando aplican." },
+      { "title": "Levantamiento en campo", "desc": "Capturamos los datos con drones LiDAR, GNSS y estación total según las necesidades del proyecto." },
+      { "title": "Gabinete", "desc": "Procesamos la información, generamos modelos y preparamos los entregables técnicos." },
+      { "title": "Entrega", "desc": "Te llega todo en los formatos que usas, con histórico y soporte posterior." }
+    ]
+  },
+  "finalCta": {
+    "title1": "¿Tienes un proyecto?",
+    "titleItalic": "Lo medimos",
+    "button": "Solicitar presupuesto"
+  },
+  "expandable": {
+    "close": "Cerrar"
+  },
+  "tech": {
+    "label": "Tecnología",
+    "title": "Equipos de precisión para cada levantamiento",
+    "sub": "Combinamos captura aérea LiDAR, posicionamiento GNSS y estación total para cubrir cualquier proyecto, desde grandes superficies hasta el detalle milimétrico.",
+    "videoSoon": "Vídeo próximamente",
+    "ctaTitle1": "¿Tienes un proyecto?",
+    "ctaTitle2": "Lo medimos",
+    "ctaSub": "Estudiamos cada caso individualmente y proponemos el enfoque técnico adecuado.",
+    "ctaButton": "Solicitar presupuesto",
+    "blocks": [
+      {
+        "label": "Equipo 01",
+        "titleStart": "Captura aérea con ",
+        "titleItalic": "LiDAR",
+        "paragraphs": [
+          "Montamos sensores LiDAR de alta densidad sobre plataformas DJI Matrice para capturar el terreno desde el aire. Cada vuelo genera una nube de millones de puntos georreferenciados, incluso bajo vegetación.",
+          "La densidad se ajusta a cada proyecto: desde reconocimientos generales de grandes superficies hasta capturas de alto detalle sobre infraestructuras y terrenos complejos."
+        ],
+        "deliverablesLabel": "Qué entregamos",
+        "deliverables": [
+          "Nube de puntos clasificada (LAS/LAZ)",
+          "Modelo digital del terreno (MDT)",
+          "Modelo digital de superficies (MDS)",
+          "Curvas de nivel a la equidistancia que pidas",
+          "Ortofoto georreferenciada (con cámara complementaria)"
+        ]
+      },
+      {
+        "label": "Equipo 02",
+        "titleStart": "Posicionamiento ",
+        "titleItalic": "GNSS",
+        "paragraphs": [
+          "Receptores GNSS multi-constelación con corrección RTK que dan apoyo geodésico a toda la captura. Son la referencia que ancla cada proyecto a coordenadas reales.",
+          "Materializamos y medimos los puntos de control que garantizan la precisión centimétrica de los levantamientos y permiten enlazar distintas técnicas en un mismo sistema de referencia."
+        ],
+        "deliverablesLabel": "Para qué",
+        "deliverables": [
+          "Apoyo geodésico de los vuelos LiDAR",
+          "Puntos de control y georreferenciación",
+          "Enlace a sistemas de referencia oficiales",
+          "Verificación de precisión en campo"
+        ]
+      },
+      {
+        "label": "Equipo 03",
+        "titleStart": "Estación ",
+        "titleItalic": "total",
+        "paragraphs": [
+          "Para los trabajos donde prima la exactitud puntual, la estación total mide ángulos y distancias con tolerancias milimétricas. Es el complemento de precisión a la captura aérea.",
+          "La empleamos en replanteos, control geométrico de obra y levantamiento de detalle, allí donde cada punto cuenta y el láser aéreo no llega con suficiente resolución."
+        ],
+        "deliverablesLabel": "Para qué",
+        "deliverables": [
+          "Replanteo de obra",
+          "Control geométrico y de ejecución",
+          "Levantamiento de detalle",
+          "Comprobaciones milimétricas"
+        ]
+      }
+    ]
+  },
+  "about": {
+    "label": "Nosotros",
+    "titleStart": "Sobre ",
+    "titleItalic": "JM GEO",
+    "lead": "Somos una empresa joven, aunque el equipo acumula años de experiencia en topografía y geomática.",
+    "p1": "Hemos trabajado en Portugal, Italia, Alemania, Reino Unido, Francia y España. Cada proyecto lo hemos realizado con el mayor compromiso y entrega. Sentimos que hemos conseguido que nuestra implicación sea reconocida y que nuestra precisión al medir sea el valor más apreciado.",
+    "p2": "Apostamos por una topografía adaptada al momento tecnológico actual. Por ello, utilizamos las últimas innovaciones en drones, escáner 3D y sistemas digitales de medición. Creemos que la combinación entre nuestra dedicación humana en campo y el uso de la tecnología emergente es la clave para ofrecer resultados de máximo rigor en proyectos de edificación, energía e infraestructuras.",
+    "whereLabel": "Dónde hemos trabajado",
+    "whereTitle": "Presencia europea desde nuestros inicios",
+    "closing1": "Medimos el presente para ",
+    "closing2": "construir el futuro",
+    "ctaStart": "Cuéntanos tu ",
+    "ctaItalic": "proyecto",
+    "button": "Solicitar presupuesto"
+  },
+  "clients": {
+    "label": "Área de clientes",
+    "title1": "Próximamente,",
+    "title2": "tu portal",
+    "body": "Estamos preparando un espacio privado donde nuestros clientes podrán acceder a sus proyectos, descargar entregables LiDAR, ver versiones, comentar y consultar el histórico completo de su trabajo con JM GEO",
+    "available": "DISPONIBLE · VERANO 2026",
+    "motto1": "Midiendo el presente",
+    "motto2": "para construir el futuro",
+    "back": "Volver al inicio"
+  },
+  "contact": {
+    "eyebrow": "SOLICITAR PRESUPUESTO",
+    "titleStart": "Cuéntanos qué ",
+    "titleItalic": "necesitas medir",
+    "sentLabel": "MENSAJE ENVIADO",
+    "sentTitle": "Gracias. Te contestamos en menos de 24 horas.",
+    "sentBody": "Si tu consulta es urgente, también puedes escribirnos directamente a",
+    "sendAnother": "Enviar otro mensaje",
+    "name": "Nombre completo",
+    "company": "Empresa u organización",
+    "email": "Email",
+    "phone": "Teléfono",
+    "projectType": "Tipo de proyecto",
+    "selectOption": "Selecciona una opción",
+    "types": [
+      "Levantamiento LiDAR",
+      "Levantamiento fotogrametría",
+      "Replanteo",
+      "Generación MDT&MDE",
+      "Consulta general"
+    ],
+    "message": "Cuéntanos tu proyecto",
+    "messagePlaceholder": "Brevemente: qué necesitas, dónde, para cuándo y en qué formato te interesa recibir la entrega",
+    "privacyPre": "He leído y acepto la",
+    "privacyLink": "política de privacidad",
+    "errName": "Indícanos tu nombre",
+    "errEmail": "Indícanos tu email",
+    "errEmailInvalid": "Email no válido",
+    "errMessage": "Cuéntanos brevemente tu proyecto",
+    "errPrivacy": "Necesitamos tu consentimiento",
+    "errSend": "No hemos podido enviar tu mensaje. Inténtalo de nuevo o escríbenos a",
+    "submit": "Solicitar presupuesto",
+    "sending": "Enviando…",
+    "infoContact": "CONTACTO",
+    "infoSchedule": "HORARIO",
+    "scheduleDays": "Lunes a viernes",
+    "scheduleHours": "9:00 — 17:00",
+    "country": "España",
+    "mapTitle": "Ubicación JM GEO en Benetússer, Valencia"
   }
 }
