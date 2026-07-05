@@ -1,4 +1,5 @@
 import { type ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 
 /**
  * Maquetación compartida para las páginas legales (aviso legal, privacidad,
@@ -18,6 +19,7 @@ export function LegalDocument({
   updated: string;
   children: ReactNode;
 }) {
+  const { t } = useTranslation();
   return (
     <main className="bg-paper">
       <section className="mx-auto max-w-[800px]" style={{ padding: "180px 5vw 160px" }}>
@@ -39,7 +41,7 @@ export function LegalDocument({
           {title}
         </h1>
         <p className="font-sans text-mid" style={{ fontSize: "13px", marginTop: "20px" }}>
-          Última actualización: {updated}
+          {t("legal.updated")}: {updated}
         </p>
 
         <div style={{ marginTop: "56px" }}>{children}</div>
@@ -52,7 +54,7 @@ export function LegalDocument({
             <span aria-hidden="true" className="transition-transform group-hover:-translate-x-1">
               ←
             </span>
-            Volver al inicio
+            {t("legal.back")}
           </a>
         </div>
       </section>

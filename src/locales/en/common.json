@@ -206,6 +206,10 @@
     "back": "Back to home",
     "backAria": "Back to home"
   },
+  "legal": {
+    "updated": "Last updated",
+    "back": "Back to home"
+  },
   "contact": {
     "eyebrow": "REQUEST A QUOTE",
     "titleStart": "Tell us what you ",

@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useTranslation } from "react-i18next";
 import {
   LegalDocument,
   LegalSection,
@@ -18,7 +19,16 @@ export const Route = createFileRoute("/aviso-legal")({
   component: AvisoLegalPage,
 });
 
+// El texto legal tiene marcado enriquecido (negritas, enlaces), así que las dos
+// versiones viven como JSX en este archivo y se selecciona por idioma. Los
+// nombres propios (leyes españolas, organismos, datos registrales) se mantienen
+// en español también en la versión inglesa.
 function AvisoLegalPage() {
+  const { i18n } = useTranslation();
+  return i18n.language === "en" ? <AvisoLegalEn /> : <AvisoLegalEs />;
+}
+
+function AvisoLegalEs() {
   return (
     <LegalDocument title="Aviso legal" updated="18 de junio de 2026">
       <LegalP>
@@ -128,6 +138,123 @@ function AvisoLegalPage() {
           El presente aviso legal se rige por la legislación española. Para la resolución de cualquier
           controversia que pudiera derivarse del acceso o uso del sitio web, las partes se someten a los
           juzgados y tribunales que correspondan conforme a la normativa aplicable.
+        </LegalP>
+      </LegalSection>
+    </LegalDocument>
+  );
+}
+
+function AvisoLegalEn() {
+  return (
+    <LegalDocument title="Legal notice" updated="18 June 2026">
+      <LegalP>
+        In compliance with Article 10 of the Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la
+        Información y de Comercio Electrónico (LSSI-CE) — the Spanish law on information society services
+        and electronic commerce — the identifying details of the owner of this website are made available
+        to users.
+      </LegalP>
+
+      <LegalSection heading="1. Website owner">
+        <LegalList>
+          <LegalLi>
+            <strong>Company name:</strong> JM GEO, S.L.
+          </LegalLi>
+          <LegalLi>
+            <strong>Tax ID (NIF):</strong> B75609180
+          </LegalLi>
+          <LegalLi>
+            <strong>Registered address:</strong> Maestra Juana Sena, 5 - 5, 46910 Benetússer (Valencia),
+            Spain
+          </LegalLi>
+          <LegalLi>
+            <strong>Email:</strong>{" "}
+            <LegalLink href="mailto:administracion@jmgeo.es">administracion@jmgeo.es</LegalLink>
+          </LegalLi>
+          <LegalLi>
+            <strong>Phone:</strong> +34 640 266 724
+          </LegalLi>
+          <LegalLi>
+            <strong>Registry details:</strong> Registered with the Registro Mercantil de Valencia (Valencia
+            Companies Register).
+          </LegalLi>
+        </LegalList>
+      </LegalSection>
+
+      <LegalSection heading="2. Purpose">
+        <LegalP>
+          This legal notice governs access to, browsing of and use of the website{" "}
+          <LegalLink href="https://jmgeo.es">jmgeo.es</LegalLink> (hereinafter, "the website"), the purpose
+          of which is to provide information about the surveying and drone LiDAR data capture services
+          provided by JM GEO, S.L., and to facilitate contact with potential clients.
+        </LegalP>
+        <LegalP>
+          Access to the website is free of charge and confers the status of user, which implies full
+          acceptance of the conditions set out in this legal notice. If the user does not agree with its
+          content, they must refrain from using the website.
+        </LegalP>
+      </LegalSection>
+
+      <LegalSection heading="3. Conditions of use">
+        <LegalP>The user undertakes to make appropriate and lawful use of the website and, in particular, not to:</LegalP>
+        <LegalList>
+          <LegalLi>
+            Use the website for unlawful purposes or purposes contrary to good faith, morality or public
+            order.
+          </LegalLi>
+          <LegalLi>
+            Introduce or spread computer viruses or any other system that may cause damage to the systems of
+            the owner or of third parties.
+          </LegalLi>
+          <LegalLi>
+            Attempt to access, use or manipulate the data of the owner, of third-party providers or of other
+            users.
+          </LegalLi>
+          <LegalLi>
+            Reproduce, copy, distribute or transform the contents of the website without the express
+            authorisation of its owner.
+          </LegalLi>
+        </LegalList>
+      </LegalSection>
+
+      <LegalSection heading="4. Intellectual and industrial property">
+        <LegalP>
+          All the contents of the website — texts, photographs, graphics, images, icons, logos, trademarks,
+          design, software and source code — are the property of JM GEO, S.L. or of third parties who have
+          authorised their use, and are protected by intellectual and industrial property law.
+        </LegalP>
+        <LegalP>
+          Their reproduction, distribution, public communication or transformation, in whole or in part, is
+          prohibited without the express written authorisation of the owner. In particular, the logo and the
+          name "JM GEO" are distinctive signs of their owner and may not be used without their consent.
+        </LegalP>
+      </LegalSection>
+
+      <LegalSection heading="5. Liability">
+        <LegalP>
+          JM GEO, S.L. is not liable for any damages that may arise from the use of the website, or for its
+          temporary unavailability due to force majeure or technical maintenance. The owner endeavours to
+          ensure that the published information is accurate and up to date, but does not guarantee the
+          absence of errors or the permanent availability of the contents.
+        </LegalP>
+        <LegalP>
+          The website may contain links to third-party pages. JM GEO, S.L. assumes no responsibility for the
+          content, policies or practices of such external sites.
+        </LegalP>
+      </LegalSection>
+
+      <LegalSection heading="6. Data protection">
+        <LegalP>
+          The processing of personal data provided by the user through the website is governed by the{" "}
+          <LegalLink href="/privacidad">Privacy policy</LegalLink> and the{" "}
+          <LegalLink href="/cookies">Cookie policy</LegalLink>.
+        </LegalP>
+      </LegalSection>
+
+      <LegalSection heading="7. Applicable law and jurisdiction">
+        <LegalP>
+          This legal notice is governed by Spanish law. For the resolution of any dispute that may arise
+          from access to or use of the website, the parties submit to the courts and tribunals with
+          jurisdiction under the applicable regulations.
         </LegalP>
       </LegalSection>
     </LegalDocument>
