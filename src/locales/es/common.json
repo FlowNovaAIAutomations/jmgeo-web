@@ -196,11 +196,8 @@
   },
   "clients": {
     "label": "Área de clientes",
-    "title1": "Tu portal,",
-    "title2": "un clic más cerca",
-    "body": "Accede a tus proyectos, entregables LiDAR, versiones e histórico completo de tu trabajo con JM GEO.",
-    "cta": "Acceder al portal",
-    "back": "Volver al inicio"
+    "redirecting": "Redirigiendo al portal…",
+    "cta": "Entrar ahora"
   },
   "legal": {
     "updated": "Última actualización",

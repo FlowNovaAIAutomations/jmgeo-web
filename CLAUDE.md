@@ -57,15 +57,20 @@ Reglas de estilo:
 2. `/tecnologia` — Página estrella (drones + LiDAR, sustituye a una "Servicios" tradicional, sin lista cerrada de servicios)
 3. `/sobre` — Sobre JMGeo
 4. `/contacto` — Contacto con formulario
-5. `/clientes` — Pantalla "Próximamente" (es el enlace al futuro ERP; ver sección siguiente)
+5. `/clientes` — Redirige al ERP en portal.jmgeo.es (ver sección siguiente)
 6. Placeholders legales: `/aviso-legal`, `/privacidad`, `/cookies`
 
 ## Relación con el ERP (proyecto SEPARADO)
 
-El "Área de clientes" de esta web es solo un **enlace** al ERP, que es una aplicación independiente en otro repositorio, desplegada en el subdominio **app.jmgeo.es** (o clientes.jmgeo.es).
+El "Área de clientes" de esta web es solo la **puerta de entrada** al ERP, que es una
+aplicación independiente en otro repositorio, desplegada en **portal.jmgeo.es**
+(subdominio decidido en jul-2026: no entran solo clientes — también Javier y Jing
+gestionan, y los trabajadores reportan).
 
-- Mientras el ERP no exista: `/clientes` muestra la pantalla "Próximamente".
-- Cuando el ERP esté listo: el botón "Área clientes" del header apuntará a app.jmgeo.es.
+- `/clientes` **no muestra página**: redirige a portal.jmgeo.es. El redirect real lo
+  hace Vercel en el edge (`redirects` en vercel.json, 307); el componente de la ruta
+  repite el salto en cliente porque una navegación interna del router (el botón
+  "Área clientes") no pasa por el edge.
 - **NO mezclar el código del ERP con esta web.** Son proyectos distintos por seguridad y mantenibilidad.
 
 ## Hero actual (textos vigentes tras feedback del cliente)

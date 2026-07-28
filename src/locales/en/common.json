@@ -197,12 +197,8 @@
   },
   "clients": {
     "label": "Client area",
-    "title1": "Your portal,",
-    "title2": "one click away",
-    "body": "Access your projects, LiDAR deliverables, versions and the full history of your work with JM GEO.",
-    "cta": "Go to the portal",
-    "back": "Back to home",
-    "backAria": "Back to home"
+    "redirecting": "Redirecting to the portal…",
+    "cta": "Go now"
   },
   "legal": {
     "updated": "Last updated",
