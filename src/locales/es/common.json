@@ -5,7 +5,7 @@
     "tech": "Tecnología",
     "projects": "Proyectos",
     "contact": "Contacto",
-    "clients": "Área clientes"
+    "clients": "JM GEO CLOUD"
   },
   "header": {
     "skip": "Saltar al contenido",
@@ -28,7 +28,7 @@
     "tech": "Tecnología",
     "about": "Sobre JM GEO",
     "contactLink": "Contacto",
-    "clients": "Área clientes",
+    "clients": "JM GEO CLOUD",
     "legalNotice": "Aviso legal",
     "privacy": "Política de privacidad",
     "cookies": "Política de cookies",
@@ -195,7 +195,7 @@
     "button": "Solicitar presupuesto"
   },
   "clients": {
-    "label": "Área de clientes",
+    "label": "JM GEO CLOUD",
     "redirecting": "Redirigiendo al portal…",
     "cta": "Entrar ahora"
   },

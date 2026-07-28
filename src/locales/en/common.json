@@ -5,7 +5,7 @@
     "tech": "Technology",
     "projects": "Projects",
     "contact": "Contact",
-    "clients": "Client area"
+    "clients": "JM GEO CLOUD"
   },
   "header": {
     "skip": "Skip to content",
@@ -28,7 +28,7 @@
     "tech": "Technology",
     "about": "About JM GEO",
     "contactLink": "Contact",
-    "clients": "Client area",
+    "clients": "JM GEO CLOUD",
     "legalNotice": "Legal notice",
     "privacy": "Privacy policy",
     "cookies": "Cookie policy",
@@ -196,7 +196,7 @@
     "button": "Request a quote"
   },
   "clients": {
-    "label": "Client area",
+    "label": "JM GEO CLOUD",
     "redirecting": "Redirecting to the portal…",
     "cta": "Go now"
   },
