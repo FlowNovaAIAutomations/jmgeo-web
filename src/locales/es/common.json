@@ -196,13 +196,8 @@
   },
   "clients": {
     "label": "Área de clientes",
-    "title1": "Próximamente,",
-    "title2": "tu portal",
-    "body": "Estamos preparando un espacio privado donde nuestros clientes podrán acceder a sus proyectos, descargar entregables LiDAR, ver versiones, comentar y consultar el histórico completo de su trabajo con JM GEO",
-    "available": "DISPONIBLE · VERANO 2026",
-    "motto1": "Midiendo el presente",
-    "motto2": "para construir el futuro",
-    "back": "Volver al inicio"
+    "redirecting": "Redirigiendo al portal…",
+    "cta": "Entrar ahora"
   },
   "legal": {
     "updated": "Última actualización",

@@ -197,14 +197,8 @@
   },
   "clients": {
     "label": "Client area",
-    "title1": "Coming soon,",
-    "title2": "your portal",
-    "body": "We are building a private space where our clients will be able to access their projects, download LiDAR deliverables, view versions, comment and browse the full history of their work with JM GEO",
-    "available": "AVAILABLE · SUMMER 2026",
-    "motto1": "Measuring the present",
-    "motto2": "to build the future",
-    "back": "Back to home",
-    "backAria": "Back to home"
+    "redirecting": "Redirecting to the portal…",
+    "cta": "Go now"
   },
   "legal": {
     "updated": "Last updated",
