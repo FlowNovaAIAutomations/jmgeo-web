@@ -4,14 +4,28 @@ import { useTranslation } from "react-i18next";
 import { CompassRose } from "@/components/CompassRose";
 import { Button } from "@/components/Button";
 
+// URL del ERP (repo separado, ver CLAUDE.md — "NO mezclar el código del ERP con esta web").
+const PORTAL_URL = "https://portal.jmgeo.es";
+
 export const Route = createFileRoute("/clientes")({
   head: () => ({
     meta: [
       { title: "Área de clientes · JM GEO · Topografía con drones y LiDAR" },
-      { name: "description", content: "Portal de clientes JM GEO. Próximamente disponible para acceso a entregables LiDAR, versiones y seguimiento de proyectos." },
+      {
+        name: "description",
+        content:
+          "Accede a tu portal JM GEO: proyectos, entregables LiDAR, versiones e histórico de trabajo.",
+      },
       { name: "robots", content: "noindex, nofollow" },
-      { property: "og:title", content: "Área de clientes · JM GEO · Topografía con drones y LiDAR" },
-      { property: "og:description", content: "Portal de clientes JM GEO. Próximamente disponible para acceso a entregables LiDAR, versiones y seguimiento de proyectos." },
+      {
+        property: "og:title",
+        content: "Área de clientes · JM GEO · Topografía con drones y LiDAR",
+      },
+      {
+        property: "og:description",
+        content:
+          "Accede a tu portal JM GEO: proyectos, entregables LiDAR, versiones e histórico de trabajo.",
+      },
     ],
   }),
   component: ClientsPage,
@@ -87,30 +101,17 @@ function ClientsPage() {
           {t("clients.body")}
         </motion.p>
 
-        <motion.p
-          className="mt-[60px] font-sans text-[11px] uppercase text-paper/45"
-          style={{ letterSpacing: "0.25em" }}
-          variants={item}
-        >
-          {t("clients.available")}
-        </motion.p>
-
-        <motion.p
-          className="mt-10 font-display text-amber/70 leading-tight"
-          style={{ fontSize: "clamp(1.6rem, 4vw, 3rem)", letterSpacing: "-0.02em" }}
-          variants={item}
-        >
-          {t("clients.motto1")}
-          <br />
-          {t("clients.motto2")}
-        </motion.p>
-
         <motion.div className="mt-12" variants={item}>
+          <a href={PORTAL_URL}>
+            <Button variant="accent" size="lg">
+              {t("clients.cta")}
+            </Button>
+          </a>
+        </motion.div>
+
+        <motion.div className="mt-6" variants={item}>
           <Link to="/">
-            <Button
-              variant="tertiary"
-              className="!text-paper hover:!text-amber"
-            >
+            <Button variant="tertiary" className="!text-paper hover:!text-amber">
               {t("clients.back")}
             </Button>
           </Link>
