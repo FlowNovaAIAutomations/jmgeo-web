@@ -9,9 +9,9 @@ import { FinalCta } from "@/components/home/FinalCta";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "JM GEO · Topografía con drones y LiDAR" },
+      { title: "JM GEO - Topografía" },
       { name: "description", content: "JM GEO. Especialistas en captura de datos LiDAR aéreos con drones. Topografía técnica de precisión en España, Reino Unido, Italia, Portugal, Francia y Alemania." },
-      { property: "og:title", content: "JM GEO · Topografía con drones y LiDAR" },
+      { property: "og:title", content: "JM GEO - Topografía" },
       { property: "og:description", content: "JM GEO. Especialistas en captura de datos LiDAR aéreos con drones. Topografía técnica de precisión en España, Reino Unido, Italia, Portugal, Francia y Alemania." },
     ],
   }),
