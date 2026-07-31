@@ -47,14 +47,18 @@
     "title2": "available 24/7",
     "body": "Access all your projects, deliverables and technical documentation from a centralised platform designed to view, manage and download information quickly and securely.",
     "cta": "Go to the client area",
-    "online": "Online",
-    "download": "Download",
-    "count": "3 deliverables available",
-    "updated": "Updated 2 h ago",
-    "deliverables": [
-      { "title": "Solar Farm — LiDAR survey", "meta": "Point cloud · Orthophoto · DTM" },
-      { "title": "Civil Works — Survey control", "meta": "CAD drawings · Technical report" },
-      { "title": "Quarry — Volumetric calculation", "meta": "3D model · Volume computation" }
+    "myProjects": "My projects",
+    "search": "Search project…",
+    "filterLabel": "Filter:",
+    "filterAll": "All",
+    "statusActive": "Active",
+    "statusDone": "Completed",
+    "delivery": "Delivery",
+    "domain": "portal.jmgeo.es",
+    "cards": [
+      { "name": "Valdecañas Solar Farm", "ref": "PS-041-0726", "location": "Cáceres, Spain", "delivery": "12 Sep 2026", "status": "activo" },
+      { "name": "A-27 Civil Works", "ref": "OC-038-0726", "location": "Wiltshire, United Kingdom", "delivery": "30 Oct 2026", "status": "activo" },
+      { "name": "Monte Alto Quarry", "ref": "CA-027-0426", "location": "Porto, Portugal", "delivery": "15 Jun 2026", "status": "finalizado" }
     ]
   },
   "positioning": {

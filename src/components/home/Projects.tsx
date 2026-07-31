@@ -1,20 +1,52 @@
 import { motion } from "framer-motion";
-import { Download } from "lucide-react";
+import { Search, MapPin, Calendar, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 /**
  * Projects — sección "Portal Cliente JM GEO".
- * Maqueta del panel cloud con entregables descargables.
+ * El panel derecho es una maqueta FIEL del dashboard real del portal de
+ * clientes (portal.jmgeo.es → PortalDashboardPage del ERP): cabecera
+ * "Mis proyectos" con buscador, chips de filtro por estado con contador
+ * y filas de proyecto con miniatura, badge de estado, ubicación y fecha
+ * de entrega. Datos ficticios (sin proyectos reales, riesgo NDA).
  * Textos en locales/{es,en}/common.json (projects.*).
  */
+
+// Colores de estado copiados de src/config/estadosProyecto.ts del ERP,
+// para que el badge sea idéntico al que verá el cliente en su portal.
+const ESTADO_UI: Record<string, { bg: string; color: string }> = {
+  activo: { bg: "rgba(34,197,94,0.12)", color: "#16a34a" },
+  finalizado: { bg: "rgba(100,116,139,0.12)", color: "#64748b" },
+};
+
+function initials(name: string): string {
+  return name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0]?.toUpperCase() ?? "")
+    .join("");
+}
+
+interface PortalCard {
+  name: string;
+  ref: string;
+  location: string;
+  delivery: string;
+  status: "activo" | "finalizado";
+}
+
 export function Projects() {
   const { t } = useTranslation();
-  const deliverables = t("projects.deliverables", { returnObjects: true }) as {
-    title: string;
-    meta: string;
-  }[];
+  const cards = t("projects.cards", { returnObjects: true }) as PortalCard[];
+  const nActivos = cards.filter((c) => c.status === "activo").length;
+  const chips = [
+    { label: t("projects.filterAll"), count: cards.length, active: false },
+    { label: t("projects.statusActive"), count: nActivos, active: true },
+    { label: t("projects.statusDone"), count: cards.length - nActivos, active: false },
+  ];
   return (
     <section id="proyectos" className="bg-paper py-[140px]">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
@@ -84,59 +116,103 @@ export function Projects() {
             }}
           />
 
-          <div className="relative rounded-[20px] bg-ink text-paper p-6 md:p-8 shadow-soft-lg border border-ink/20">
-            {/* Header */}
-            <div className="flex items-center justify-between mb-6">
+          {/* Maqueta del portal real (vista lista del dashboard del cliente) */}
+          <div className="relative rounded-[20px] overflow-hidden shadow-soft-lg border border-ink/15 bg-[var(--paper-alt)]">
+            {/* Barra superior tipo navegador/app */}
+            <div className="flex items-center justify-between px-5 py-3 bg-ink text-paper">
               <div className="flex items-center gap-3">
-                <div className="h-8 w-8 rounded-md bg-amber/15 border border-amber/30 flex items-center justify-center">
-                  <span className="font-display text-amber text-sm">J</span>
+                <div className="h-7 w-7 rounded-md bg-amber/15 border border-amber/30 flex items-center justify-center">
+                  <span className="font-display text-amber text-[13px]">J</span>
                 </div>
-                <h3 className="font-display text-paper text-xl md:text-2xl">
-                  JM GEO Cloud
-                </h3>
-              </div>
-              <div className="flex items-center gap-2 rounded-full border border-amber/40 bg-amber/10 px-3 py-1">
-                <span className="h-1.5 w-1.5 rounded-full bg-amber animate-pulse" />
-                <span className="font-mono uppercase text-[10px] tracking-[0.2em] text-amber">
-                  {t("projects.online")}
+                <span className="font-mono text-[11px] tracking-[0.15em] text-paper/80">
+                  {t("projects.domain")}
                 </span>
               </div>
+              <span className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-amber animate-pulse" />
+              </span>
             </div>
 
-            {/* Deliverable rows */}
-            <div className="space-y-3">
-              {deliverables.map((d, i) => (
-                <motion.div
-                  key={d.title}
-                  initial={{ opacity: 0, x: 16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.5, ease, delay: 0.2 + i * 0.1 }}
-                  className="bg-paper text-ink rounded-xl px-4 py-3 md:px-5 md:py-4 flex items-center justify-between gap-3 hover:translate-x-0.5 transition-transform"
-                >
-                  <div className="min-w-0 flex-1">
-                    <div className="font-medium text-ink text-[14px] md:text-[15px] leading-snug">
-                      {d.title}
-                    </div>
-                    <div className="mt-1 text-mid text-[11px] md:text-[12px]">
-                      {d.meta}
-                    </div>
-                  </div>
-                  <button
-                    type="button"
-                    className="shrink-0 inline-flex items-center gap-2 bg-ink text-paper hover:bg-ink/85 rounded-lg px-3 py-2 md:px-4 text-[12px] font-medium transition-colors"
+            <div className="p-5 md:p-6">
+              {/* Cabecera: "Mis proyectos" + buscador decorativo */}
+              <div className="flex items-center justify-between gap-4">
+                <p className="font-mono uppercase text-[10px] tracking-[0.25em] text-mid">
+                  {t("projects.myProjects")}
+                </p>
+                <div className="flex items-center gap-2 rounded-[10px] border border-ink/10 bg-paper px-3 py-1.5 text-mid">
+                  <Search className="h-3.5 w-3.5" strokeWidth={1.6} />
+                  <span className="text-[12px]">{t("projects.search")}</span>
+                </div>
+              </div>
+
+              {/* Chips de filtro por estado con contador */}
+              <div className="mt-4 flex flex-wrap items-center gap-2">
+                <span className="text-[11px] text-mid">{t("projects.filterLabel")}</span>
+                {chips.map((chip) => (
+                  <span
+                    key={chip.label}
+                    className="rounded-full px-3 py-1 text-[11px] font-semibold"
+                    style={
+                      chip.active
+                        ? { background: "var(--ink)", color: "white" }
+                        : { background: "var(--paper)", color: "var(--mid)", border: "1px solid rgba(58,74,90,0.12)" }
+                    }
                   >
-                    <Download className="h-3.5 w-3.5" strokeWidth={2} />
-                    <span className="hidden sm:inline">{t("projects.download")}</span>
-                  </button>
-                </motion.div>
-              ))}
-            </div>
+                    {chip.label} ({chip.count})
+                  </span>
+                ))}
+              </div>
 
-            {/* Footer meta */}
-            <div className="mt-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-[10px] md:text-[11px] font-mono uppercase tracking-[0.2em] text-paper/50">
-              <span>{t("projects.count")}</span>
-              <span>{t("projects.updated")}</span>
+              {/* Filas de proyecto (vista lista del portal) */}
+              <div className="mt-4 space-y-3" aria-hidden="true">
+                {cards.map((c, i) => (
+                  <motion.div
+                    key={c.ref}
+                    initial={{ opacity: 0, x: 16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.5, ease, delay: 0.2 + i * 0.1 }}
+                    className="flex items-center gap-4 rounded-[14px] bg-paper border border-ink/10 p-3.5 md:p-4"
+                  >
+                    {/* Miniatura con iniciales (como el portal sin portada) */}
+                    <div
+                      className="flex h-11 w-11 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-[10px] text-[11px] font-medium text-white/80"
+                      style={{ background: "linear-gradient(135deg, #3D5166 0%, #4A5E72 100%)" }}
+                    >
+                      {initials(c.name)}
+                    </div>
+
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-[13px] md:text-[14px] font-semibold uppercase tracking-wide text-ink">
+                        {c.name}
+                        <span className="ml-2 text-[10px] font-medium normal-case tracking-normal text-mid">
+                          {c.ref}
+                        </span>
+                      </p>
+                      <p className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-0.5 text-[11px] md:text-[12px] text-mid">
+                        <span className="flex items-center gap-1">
+                          <MapPin className="h-3 w-3" strokeWidth={1.5} /> {c.location}
+                        </span>
+                        <span className="hidden sm:flex items-center gap-1">
+                          <Calendar className="h-3 w-3" strokeWidth={1.5} /> {t("projects.delivery")}: {c.delivery}
+                        </span>
+                      </p>
+                    </div>
+
+                    {/* Badge de estado — colores idénticos al ERP */}
+                    <span
+                      className="shrink-0 rounded-full px-2.5 py-0.5 text-[11px] font-medium"
+                      style={ESTADO_UI[c.status]}
+                    >
+                      {c.status === "activo" ? t("projects.statusActive") : t("projects.statusDone")}
+                    </span>
+
+                    <span className="hidden md:flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--paper-alt)] text-ink">
+                      <ArrowRight className="h-4 w-4" strokeWidth={1.8} />
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </motion.div>

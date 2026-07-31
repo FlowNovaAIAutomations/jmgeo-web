@@ -47,14 +47,18 @@
     "title2": "disponibles 24/7",
     "body": "Accede a todos tus proyectos, entregables y documentación técnica desde una plataforma centralizada diseñada para visualizar, gestionar y descargar información de forma rápida y segura.",
     "cta": "Acceder al área cliente",
-    "online": "Online",
-    "download": "Descargar",
-    "count": "3 entregables disponibles",
-    "updated": "Actualizado hace 2 h",
-    "deliverables": [
-      { "title": "Parque Solar — Levantamiento LiDAR", "meta": "Nube de puntos · Ortofoto · MDT" },
-      { "title": "Obra Civil — Control topográfico", "meta": "Planos CAD · Informe técnico" },
-      { "title": "Cantera — Cubicación volumétrica", "meta": "Modelo 3D · Cálculo de volúmenes" }
+    "myProjects": "Mis proyectos",
+    "search": "Buscar proyecto…",
+    "filterLabel": "Filtrar:",
+    "filterAll": "Todos",
+    "statusActive": "Activo",
+    "statusDone": "Finalizado",
+    "delivery": "Entrega",
+    "domain": "portal.jmgeo.es",
+    "cards": [
+      { "name": "Parque Solar Valdecañas", "ref": "PS-041-0726", "location": "Cáceres, España", "delivery": "12 sep 2026", "status": "activo" },
+      { "name": "Obra Civil A-27", "ref": "OC-038-0726", "location": "Wiltshire, Reino Unido", "delivery": "30 oct 2026", "status": "activo" },
+      { "name": "Cantera Monte Alto", "ref": "CA-027-0426", "location": "Oporto, Portugal", "delivery": "15 jun 2026", "status": "finalizado" }
     ]
   },
   "positioning": {
