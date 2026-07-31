@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
+import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/Button";
 import imgDrone from "@/assets/clientes/drone-lidar.png";
@@ -28,15 +29,15 @@ const fadeUp = {
   transition: { duration: 0.7, ease },
 };
 
-// Cada equipo expone un slot `videoSrc`. Sustituir el bloque placeholder
-// (el <div> con la <img>) por:
-// <video src={videoSrc} muted loop playsInline autoPlay
-//   className="absolute inset-0 w-full h-full object-cover" />
+// Clips ambientales generados por IA (Higgsfield Seedance) a partir de las
+// fotos reales; viven en public/videos. La foto original hace de póster
+// mientras carga. Si algún equipo se queda sin vídeo, poner videoSrc: null
+// y vuelve el placeholder estático.
 // Los textos viven en locales/{es,en}/common.json (tech.blocks), casados por índice.
 const equipmentBase = [
-  { id: "drones-lidar", num: "01", img: imgDrone, videoSrc: null },
-  { id: "gps-gnss", num: "02", img: imgGnss, videoSrc: null },
-  { id: "estaciones-totales", num: "03", img: imgEstacion, videoSrc: null },
+  { id: "drones-lidar", num: "01", img: imgDrone, videoSrc: "/videos/tecnologia-01-dron-lidar.mp4" },
+  { id: "gps-gnss", num: "02", img: imgGnss, videoSrc: "/videos/tecnologia-02-gnss.mp4" },
+  { id: "estaciones-totales", num: "03", img: imgEstacion, videoSrc: "/videos/tecnologia-03-aerea-obra.mp4" },
 ];
 
 interface TechBlockTexts {
@@ -137,20 +138,25 @@ function EquipmentBlock({ eq, reversed }: EquipmentBlockProps) {
       {/* Video slot */}
       <div className={`md:col-span-5 ${reversed ? "md:order-2" : ""}`}>
         <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[20px] bg-[var(--envelope)] group">
-          {/* VIDEO SLOT — sustituir por <video src={eq.videoSrc} ... /> */}
-          <img loading="lazy" decoding="async" src={eq.img}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-[var(--envelope)]/45 group-hover:bg-[var(--envelope)]/25 transition-colors" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-16 h-16 rounded-full border border-paper/40 flex items-center justify-center text-paper group-hover:scale-110 transition-transform">
-              <Play className="h-5 w-5 fill-paper" />
-            </div>
-          </div>
-          <div className="absolute bottom-4 left-4 font-sans uppercase text-[10px] tracking-[0.25em] text-paper/70">
-            {t("tech.videoSoon")}
-          </div>
+          {eq.videoSrc ? (
+            <AmbientVideo src={eq.videoSrc} poster={eq.img} />
+          ) : (
+            <>
+              <img loading="lazy" decoding="async" src={eq.img}
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-[var(--envelope)]/45 group-hover:bg-[var(--envelope)]/25 transition-colors" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full border border-paper/40 flex items-center justify-center text-paper group-hover:scale-110 transition-transform">
+                  <Play className="h-5 w-5 fill-paper" />
+                </div>
+              </div>
+              <div className="absolute bottom-4 left-4 font-sans uppercase text-[10px] tracking-[0.25em] text-paper/70">
+                {t("tech.videoSoon")}
+              </div>
+            </>
+          )}
         </div>
       </div>
 
@@ -195,5 +201,51 @@ function EquipmentBlock({ eq, reversed }: EquipmentBlockProps) {
         </div>
       </motion.div>
     </div>
+  );
+}
+
+/**
+ * AmbientVideo — clip en bucle, silencioso, sin controles y sin botón de play.
+ * `autoPlay` (con muted + playsInline, permitido en todos los navegadores)
+ * garantiza que el vídeo arranque solo; el IntersectionObserver es una mejora
+ * progresiva que pausa los clips fuera de pantalla para ahorrar batería y CPU
+ * y los reanuda al volver a ser visibles. La foto original hace de póster.
+ */
+function AmbientVideo({ src, poster }: { src: string; poster: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = ref.current;
+    if (!video) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          void video.play().catch(() => {
+            // El navegador puede bloquear el autoplay (ahorro de datos, etc.);
+            // en ese caso se queda el póster, sin romper nada.
+          });
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.25 }
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <video
+      ref={ref}
+      src={src}
+      poster={poster}
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="metadata"
+      aria-hidden="true"
+      className="absolute inset-0 w-full h-full object-cover"
+    />
   );
 }
