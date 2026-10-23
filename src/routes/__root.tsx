@@ -29,14 +29,17 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+// Desde @tanstack/react-router 1.170.42 `error` llega tipado como unknown.
+function ErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
   console.error(error);
   const router = useRouter();
   return (
     <div className="flex min-h-screen items-center justify-center bg-paper px-4">
       <div className="max-w-md text-center">
         <h1 className="font-display text-3xl text-ink">Algo no cargó</h1>
-        <p className="mt-2 text-sm text-mid">{error.message}</p>
+        <p className="mt-2 text-sm text-mid">
+          {error instanceof Error ? error.message : String(error)}
+        </p>
         <button
           onClick={() => { router.invalidate(); reset(); }}
           className="mt-6 text-sm text-ink underline underline-offset-4 hover:text-amber"
